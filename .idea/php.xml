@@ -115,7 +115,6 @@
       <path value="$PROJECT_DIR$/vendor/orchid/icons" />
       <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
       <path value="$PROJECT_DIR$/vendor/laravel/scout" />
-      <path value="$PROJECT_DIR$/vendor/konekt/concord" />
       <path value="$PROJECT_DIR$/vendor/konekt/enum-eloquent" />
       <path value="$PROJECT_DIR$/vendor/konekt/enum" />
       <path value="$PROJECT_DIR$/vendor/prettus/laravel-validation" />

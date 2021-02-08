@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "5be67ae4fe90a784d16d7fe6154e7a81",
+  "content-hash": "a0a2f7ee53ccb308573f39c1f48db1df",
   "packages": [
     {
       "name": "asm89/stack-cors",
@@ -15,16 +15,16 @@
         "reference": "8d8f88b3b3830916be94292c1fbce84433efb1aa"
       },
       "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/asm89/stack-cors/zipball/8d8f88b3b3830916be94292c1fbce84433efb1aa",
-                "reference": "8d8f88b3b3830916be94292c1fbce84433efb1aa",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0|^8.0",
-                "symfony/http-foundation": "~2.7|~3.0|~4.0|~5.0",
-                "symfony/http-kernel": "~2.7|~3.0|~4.0|~5.0"
-            },
+        "type": "zip",
+        "url": "https://api.github.com/repos/asm89/stack-cors/zipball/8d8f88b3b3830916be94292c1fbce84433efb1aa",
+        "reference": "8d8f88b3b3830916be94292c1fbce84433efb1aa",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.0|^8.0",
+        "symfony/http-foundation": "~2.7|~3.0|~4.0|~5.0",
+        "symfony/http-kernel": "~2.7|~3.0|~4.0|~5.0"
+      },
             "require-dev": {
                 "phpunit/phpunit": "^6|^7|^8|^9",
                 "squizlabs/php_codesniffer": "^3.5"
@@ -219,14 +219,14 @@
                 "words"
             ],
             "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                  "type": "patreon"
-                },
+              {
+                "url": "https://www.doctrine-project.org/sponsorship.html",
+                "type": "custom"
+              },
+              {
+                "url": "https://www.patreon.com/phpdoctrine",
+                "type": "patreon"
+              },
               {
                 "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finflector",
                 "type": "tidelift"
@@ -310,16 +310,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/doctrine/lexer/zipball/e864bbf5904cb8f5bb334f99209b48018522f042",
-                "reference": "e864bbf5904cb8f5bb334f99209b48018522f042",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2 || ^8.0"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^6.0",
-                "phpstan/phpstan": "^0.11.8",
-                "phpunit/phpunit": "^8.2"
+        "reference": "e864bbf5904cb8f5bb334f99209b48018522f042",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.2 || ^8.0"
+      },
+      "require-dev": {
+        "doctrine/coding-standard": "^6.0",
+        "phpstan/phpstan": "^0.11.8",
+        "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "extra": {
@@ -1022,64 +1022,6 @@
             "time": "2020-12-27T00:18:25+00:00"
         },
         {
-            "name": "konekt/concord",
-            "version": "1.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/artkonekt/concord.git",
-                "reference": "dd3df05a7880763b19f3914ed024c63475ff12de"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/artkonekt/concord/zipball/dd3df05a7880763b19f3914ed024c63475ff12de",
-                "reference": "dd3df05a7880763b19f3914ed024c63475ff12de",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "~6.0|~7.0|~8.0",
-                "illuminate/support": "~6.0|~7.0|~8.0",
-                "konekt/enum": "~2.1|~3.0",
-                "konekt/enum-eloquent": "^1.3.1",
-                "php": "^7.3 | ^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~4.0|~5.0|~6.0",
-                "phpunit/phpunit": "8 - 9"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Konekt\\Concord\\ConcordServiceProvider"
-                    ],
-                    "aliases": {
-                        "Concord": "Konekt\\Concord\\Facades\\Concord",
-                        "Helper": "Konekt\\Concord\\Facades\\Helper"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Konekt\\Concord\\": "src"
-                },
-                "files": [
-                    "src/Support/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Attila Fulop",
-                    "homepage": "https://github.com/fulopattila122"
-                }
-            ],
-            "description": "Concord is a Laravel Extension for building modular Laravel Applications",
-            "time": "2020-12-08T20:50:01+00:00"
-        },
-        {
             "name": "konekt/enum",
             "version": "3.1.0",
             "source": {
@@ -1111,17 +1053,21 @@
             ],
             "authors": [
                 {
-                    "name": "Attila Fulop",
-                    "homepage": "https://github.com/fulopattila122"
+                  "name": "Attila Fulop",
+                  "homepage": "https://github.com/fulopattila122"
                 }
             ],
-            "description": "SPL inspired PHP enum class implementation",
-            "keywords": [
-                "artkonekt",
-                "enum",
-                "konekt"
-            ],
-            "time": "2020-11-28T21:37:27+00:00"
+          "description": "SPL inspired PHP enum class implementation",
+          "keywords": [
+            "artkonekt",
+            "enum",
+            "konekt"
+          ],
+          "support": {
+            "issues": "https://github.com/artkonekt/enum/issues",
+            "source": "https://github.com/artkonekt/enum"
+          },
+          "time": "2020-11-28T21:37:27+00:00"
         },
         {
             "name": "konekt/enum-eloquent",
@@ -1177,15 +1123,19 @@
                     "homepage": "https://github.com/TheM1984"
                 }
             ],
-            "description": "Enum attribute casting for Eloquent models",
-            "keywords": [
-                "artkonekt",
-                "eloquent",
-                "enum",
-                "konekt",
-                "laravel"
-            ],
-            "time": "2020-11-28T22:13:08+00:00"
+          "description": "Enum attribute casting for Eloquent models",
+          "keywords": [
+            "artkonekt",
+            "eloquent",
+            "enum",
+            "konekt",
+            "laravel"
+          ],
+          "support": {
+            "issues": "https://github.com/artkonekt/enum-eloquent/issues",
+            "source": "https://github.com/artkonekt/enum-eloquent"
+          },
+          "time": "2020-11-28T22:13:08+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1799,10 +1749,10 @@
                 "psr-3"
             ],
             "funding": [
-                {
-                    "url": "https://github.com/Seldaek",
-                  "type": "github"
-                },
+              {
+                "url": "https://github.com/Seldaek",
+                "type": "github"
+              },
               {
                 "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
                 "type": "tidelift"
@@ -1875,16 +1825,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/myclabs/php-enum/zipball/d178027d1e679832db9f38248fcc7200647dc2b7",
-                "reference": "d178027d1e679832db9f38248fcc7200647dc2b7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7",
-                "squizlabs/php_codesniffer": "1.*",
+        "reference": "d178027d1e679832db9f38248fcc7200647dc2b7",
+        "shasum": ""
+      },
+      "require": {
+        "ext-json": "*",
+        "php": ">=7.1"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^7",
+        "squizlabs/php_codesniffer": "1.*",
                 "vimeo/psalm": "^3.8"
             },
             "type": "library",
@@ -2296,15 +2246,15 @@
             "description": "Platform for back-office applications, admin panel or CMS your Laravel app.",
             "homepage": "https://orchid.software",
             "keywords": [
-                "admin",
-                "cmf",
-                "cms",
-                "extranet",
-                "framework",
-                "laravel",
-                "orchid",
-                "platform",
-                "rad"
+              "admin",
+              "cmf",
+              "cms",
+              "extranet",
+              "framework",
+              "laravel",
+              "orchid",
+              "platform",
+              "rad"
             ],
           "funding": [
             {
@@ -2574,16 +2524,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/994ecccd8f3283ecf5ac33254543eb0ac946d525",
-                "reference": "994ecccd8f3283ecf5ac33254543eb0ac946d525",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9 || ^7.0 || ^8.0"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4.1",
-                "phpunit/phpunit": "^4.8.35 || ^5.7.27 || ^6.5.6 || ^7.0 || ^8.0 || ^9.0"
-            },
+        "reference": "994ecccd8f3283ecf5ac33254543eb0ac946d525",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^5.5.9 || ^7.0 || ^8.0"
+      },
+      "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.4.1",
+        "phpunit/phpunit": "^4.8.35 || ^5.7.27 || ^6.5.6 || ^7.0 || ^8.0 || ^9.0"
+      },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2616,16 +2566,16 @@
                 "php",
                 "type"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                  "type": "github"
-                },
-              {
-                "url": "https://tidelift.com/funding/github/packagist/phpoption/phpoption",
-                "type": "tidelift"
-              }
-            ],
+      "funding": [
+        {
+          "url": "https://github.com/GrahamCampbell",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/phpoption/phpoption",
+          "type": "tidelift"
+        }
+      ],
       "time": "2020-07-20T17:29:33+00:00"
     },
     {
@@ -3099,16 +3049,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/andersao/l5-repository/zipball/d4cd5afc91e5918d6dd1f2441be4a2b23d8f1507",
-                "reference": "d4cd5afc91e5918d6dd1f2441be4a2b23d8f1507",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/console": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/database": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/filesystem": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/http": "~5.0|~6.0|~7.0|^8.0",
-                "illuminate/pagination": "~5.0|~6.0|~7.0|^8.0",
+        "reference": "d4cd5afc91e5918d6dd1f2441be4a2b23d8f1507",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/config": "~5.0|~6.0|~7.0|^8.0",
+        "illuminate/console": "~5.0|~6.0|~7.0|^8.0",
+        "illuminate/database": "~5.0|~6.0|~7.0|^8.0",
+        "illuminate/filesystem": "~5.0|~6.0|~7.0|^8.0",
+        "illuminate/http": "~5.0|~6.0|~7.0|^8.0",
+        "illuminate/pagination": "~5.0|~6.0|~7.0|^8.0",
                 "illuminate/support": "~5.0|~6.0|~7.0|^8.0",
                 "illuminate/validation": "~5.0|~6.0|~7.0|^8.0",
                 "prettus/laravel-validation": "~1.1|~1.2"
@@ -3740,16 +3690,16 @@
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A PHP library for generating and working with universally unique identifiers (UUIDs).",
-            "homepage": "https://github.com/ramsey/uuid",
-            "keywords": [
-                "guid",
-                "identifier",
-                "uuid"
-            ],
+          "license": [
+            "MIT"
+          ],
+          "description": "A PHP library for generating and working with universally unique identifiers (UUIDs).",
+          "homepage": "https://github.com/ramsey/uuid",
+          "keywords": [
+            "guid",
+            "identifier",
+            "uuid"
+          ],
           "funding": [
             {
               "url": "https://github.com/ramsey",
@@ -4669,16 +4619,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/b06fa886559f8d40e31c8a69fd32bd45401dc5da",
-                "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "^6.0|^7.0|^8.0",
-                "illuminate/support": "^6.0|^7.0|^8.0",
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0|^6.0",
+        "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/database": "^6.0|^7.0|^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0",
+        "php": "^7.3|^8.0"
+      },
+      "require-dev": {
+        "orchestra/testbench": "^4.0|^5.0|^6.0",
                 "phpunit/phpunit": "^8.0|^9.0"
             },
             "type": "library",
@@ -4708,16 +4658,16 @@
             "homepage": "https://github.com/spatie/eloquent-sortable",
             "keywords": [
                 "behaviour",
-                "eloquent",
-                "laravel",
-                "model",
-                "sort",
-                "sortable"
+              "eloquent",
+              "laravel",
+              "model",
+              "sort",
+              "sortable"
             ],
-            "support": {
-                "issues": "https://github.com/spatie/eloquent-sortable/issues",
-                "source": "https://github.com/spatie/eloquent-sortable/tree/3.11.0"
-            },
+      "support": {
+        "issues": "https://github.com/spatie/eloquent-sortable/issues",
+        "source": "https://github.com/spatie/eloquent-sortable/tree/3.11.0"
+      },
       "funding": [
         {
           "url": "https://github.com/spatie",
@@ -4798,16 +4748,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/spatie/laravel-tags/zipball/06774e5fdb6dbdb767ef84a1cac0f19fb6737a1f",
-                "reference": "06774e5fdb6dbdb767ef84a1cac0f19fb6737a1f",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "~5.8|^6.0|^7.0|^8.0",
-                "php": "^7.2",
-                "spatie/eloquent-sortable": "^3.5",
-                "spatie/laravel-translatable": "^4.1"
-            },
-            "require-dev": {
+        "reference": "06774e5fdb6dbdb767ef84a1cac0f19fb6737a1f",
+        "shasum": ""
+      },
+      "require": {
+        "laravel/framework": "~5.8|^6.0|^7.0|^8.0",
+        "php": "^7.2",
+        "spatie/eloquent-sortable": "^3.5",
+        "spatie/laravel-translatable": "^4.1"
+      },
+      "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.16",
                 "orchestra/testbench": "~3.8.0|^4.0|^5.0|^6.0",
                 "phpunit/phpunit": "^8.0|^9.0"
@@ -7151,14 +7101,14 @@
                     "name": "Alexandr Chernyaev",
                     "email": "bliz48rus@gmail.com"
                 },
-                {
-                    "name": "Dwight Watson",
-                    "email": "dwight@studentservices.com.au"
-                },
-                {
-                    "name": "Dave James Miller",
-                    "email": "dave@davejamesmiller.com"
-                }
+              {
+                "name": "Dwight Watson",
+                "email": "dwight@studentservices.com.au"
+              },
+              {
+                "name": "Dave James Miller",
+                "email": "dave@davejamesmiller.com"
+              }
             ],
           "description": "An easy way to add breadcrumbs to your Laravel app.",
           "funding": [
@@ -7226,16 +7176,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
-                "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-libxml": "*",
-                "php": "^5.5 || ^7.0 || ^8.0",
-                "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
-            },
-            "require-dev": {
+        "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
+        "shasum": ""
+      },
+      "require": {
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "php": "^5.5 || ^7.0 || ^8.0",
+        "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
+      },
+      "require-dev": {
                 "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5"
             },
             "type": "library",

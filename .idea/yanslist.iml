@@ -122,7 +122,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/orchid/icons" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/php-enum" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/scout" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/konekt/concord" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/konekt/enum-eloquent" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/konekt/enum" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/prettus/laravel-validation" />

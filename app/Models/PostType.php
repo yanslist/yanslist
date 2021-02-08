@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Modules\Post\Models;
+namespace App\Models;
 
-use App\Modules\Post\Contracts\PostType as PostTypeContract;
 use Konekt\Enum\Enum;
 
-class PostType extends Enum implements PostTypeContract
+class PostType extends Enum
 {
     const __default = self::WORK;
 
@@ -18,8 +17,8 @@ class PostType extends Enum implements PostTypeContract
     protected static function boot()
     {
         static::$labels = [
-            self::SKILL => __('Skill'),
-            self::WORK => __('Work'),
+            self::SKILL => __('Organization'),
+            self::WORK => __('Individual'),
             self::TALENT => __('Talent')
         ];
     }

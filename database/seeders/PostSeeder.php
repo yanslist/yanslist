@@ -2,7 +2,7 @@
 
 namespace App\Modules\Post\Seeds;
 
-use App\Modules\Post\Models\Post;
+use App\Models\Post;
 use Illuminate\Database\Seeder;
 
 class PostSeeder extends Seeder
