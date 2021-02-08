@@ -1,10 +1,11 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Modules\Post\Seeds;
 
+use App\Modules\Post\Models\Post;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -13,6 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//         \App\Models\User::factory(10)->create();
+        Post::factory(10)->create();
     }
 }
