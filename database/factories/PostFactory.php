@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Factories;
+namespace Database\Factories;
 
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,7 +24,6 @@ class PostFactory extends Factory
         return [
             'id' => $this->faker->uuid,
             'title' => $this->faker->catchPhrase,
-            'slug' => $this->faker->slug,
             'ihave' => $this->faker->text,
             'ineed' => $this->faker->text,
             'contact' => $this->faker->phoneNumber,

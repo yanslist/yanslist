@@ -49,17 +49,6 @@ class Post extends Model implements Transformable
     }
 
     /**
-     * // https://github.com/nWidart/laravel-modules/issues/1094
-     * Create a new factory instance for the model.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    protected static function newFactory(): Factory
-    {
-        return PostFactory::new();
-    }
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array

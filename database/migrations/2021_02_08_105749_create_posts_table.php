@@ -17,13 +17,13 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->char('type', 20)->default('work');
+            $table->char('type', 20)->default(\App\Models\PostType::defaultValue());
             $table->string('title');
             $table->string('slug');
             $table->text('ihave');
             $table->text('ineed');
             $table->string('contact');
-            $table->char('status', 20)->default('published');
+            $table->char('status', 20)->default(\App\Models\PostStatus::defaultValue());
             $table->timestamps();
         });
     }

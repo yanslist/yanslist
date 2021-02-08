@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Post\Seeds;
+namespace Database\Seeders;
 
 use App\Models\Post;
 use Illuminate\Database\Seeder;

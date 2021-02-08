@@ -6,7 +6,7 @@ use Konekt\Enum\Enum;
 
 class PostType extends Enum
 {
-    const __default = self::WORK;
+    const __DEFAULT = self::WORK;
 
     const SKILL = 'skill';
     const WORK = 'work';
@@ -17,8 +17,8 @@ class PostType extends Enum
     protected static function boot()
     {
         static::$labels = [
-            self::SKILL => __('Organization'),
-            self::WORK => __('Individual'),
+            self::SKILL => __('Skill'),
+            self::WORK => __('Work'),
             self::TALENT => __('Talent')
         ];
     }
