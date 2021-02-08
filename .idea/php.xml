@@ -121,6 +121,10 @@
       <path value="$PROJECT_DIR$/vendor/prettus/laravel-validation" />
       <path value="$PROJECT_DIR$/vendor/prettus/l5-repository" />
       <path value="$PROJECT_DIR$/vendor/guilhermegonzaga/presenter" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-tags" />
+      <path value="$PROJECT_DIR$/vendor/spatie/eloquent-sortable" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
+      <path value="$PROJECT_DIR$/vendor/itsgoingd/clockwork" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
