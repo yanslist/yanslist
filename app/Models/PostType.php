@@ -6,20 +6,22 @@ use Konekt\Enum\Enum;
 
 class PostType extends Enum
 {
-    const __DEFAULT = self::WORK;
+    const __DEFAULT = self::AID;
 
-    const SKILL = 'skill';
-    const WORK = 'work';
-    const TALENT = 'talent';
+    const AID = 'aid';
+    const SHELTER = 'shelter';
+    const LABOUR = 'labour';
+    const SERVICE = 'service';
 
     protected static $labels = [];
 
     protected static function boot()
     {
         static::$labels = [
-            self::SKILL => __('Skill'),
-            self::WORK => __('Work'),
-            self::TALENT => __('Talent')
+            self::AID => __('Aid'),
+            self::SHELTER => __('Shelter'),
+            self::LABOUR => __('Labour'),
+            self::SERVICE => __('Service')
         ];
     }
 }
