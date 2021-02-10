@@ -11,14 +11,13 @@
 <body>
 @include('partials.header')
 
-<div class="uk-container">
-    @yield('content')
-</div>
+@yield('content')
 
-<footer class="uk-section uk-section-primary">
+<footer class="uk-section uk-section-primary uk-section-small">
     <div class="uk-container">
         <p style="text-align: justify;">
-            <strong>{{config('app.name')}}</strong> &copy; {{date('Y')}}
+            <strong>{{config('app.name')}}</strong> &copy; {{date('Y')}}. Developed and maintained by <a
+                    href="https://hiyan.xyz">Yan</a>.
         </p>
         <p>
             Used <a href="https://getuikit.com/" target="_blank">UIkit</a>. Powered by <a href="https://laravel.com/"

@@ -17,4 +17,13 @@ class District extends Model implements Transformable
 
     protected $guarded = [];
 
+    public function townwhips(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Township::class);
+    }
+
+    public function region(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Region::class);
+    }
 }

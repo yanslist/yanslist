@@ -17,4 +17,9 @@ class Township extends Model implements Transformable
 
     protected $guarded = [];
 
+    public function district(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(District::class);
+    }
+
 }

@@ -13,10 +13,10 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
-Route::get('test', [HomeController::class, 'test']);
+Route::get('new', [HomeController::class, 'new'])->name('new');
 
-Route::resource('posts', \App\Http\Controllers\PostsController::class);
+Route::get('test', [HomeController::class, 'test'])->name('test');
+
+//Route::resource('posts', \App\Http\Controllers\PostsController::class);

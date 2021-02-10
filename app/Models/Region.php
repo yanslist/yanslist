@@ -17,4 +17,14 @@ class Region extends Model implements Transformable
 
     protected $guarded = [];
 
+    public function districts(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(District::class);
+    }
+
+    public function townships(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    {
+        return $this->hasManyThrough(Township::class, District::class);
+    }
+
 }
