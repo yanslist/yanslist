@@ -9,24 +9,28 @@
     <link rel="icon" type="image/png" href="{{asset('favicon.png')}}">
 </head>
 <body>
-@include('partials.header')
+<div id="app">
+    @include('partials.header')
 
-@yield('content')
+    @yield('content')
 
-<footer class="uk-section uk-section-primary uk-section-small">
-    <div class="uk-container">
-        <p style="text-align: justify;">
-            <strong>{{config('app.name')}}</strong> &copy; {{date('Y')}}. Developed and maintained by <a
-                    href="https://hiyan.xyz">Yan</a>.
-        </p>
-        <p>
-            Used <a href="https://getuikit.com/" target="_blank">UIkit</a>. Powered by <a href="https://laravel.com/"
-                                                                                          target="_blank">Laravel</a>.
-        </p>
-    </div>
-</footer>
+    <footer class="uk-section uk-section-primary uk-section-small">
+        <div class="uk-container">
+            <p style="text-align: justify;">
+                <strong>{{config('app.name')}}</strong> &copy; {{date('Y')}}. Developed and maintained by <a
+                        href="https://hiyan.xyz">Yan</a>.
+            </p>
+            <p>
+                Used <a href="https://getuikit.com/" target="_blank">UIkit</a>. Powered by <a
+                        href="https://laravel.com/"
+                        target="_blank">Laravel</a>.
+            </p>
+        </div>
+    </footer>
+</div>
 
-<script src="{{ asset('js/uikit.min.js')  }}"></script>
-<script src="{{ asset('js/uikit-icons.min.js') }}"></script>
+<script src="{{ asset('/js/uikit.min.js')  }}"></script>
+<script src="{{ asset('/js/uikit-icons.min.js') }}"></script>
+<script src="{{ mix('/js/app.js')  }}" defer></script>
 </body>
 </html>

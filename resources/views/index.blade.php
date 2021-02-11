@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <example-component></example-component>
     <div class="uk-section uk-section-primary">
         <div class="uk-container">
             <h3>{{__('Browse Listings By')}}</h3>
