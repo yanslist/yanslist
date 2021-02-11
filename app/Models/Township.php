@@ -22,4 +22,9 @@ class Township extends Model implements Transformable
         return $this->belongsTo(District::class);
     }
 
+    public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Post::class);
+    }
+
 }

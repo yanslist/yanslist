@@ -55,4 +55,9 @@ class Post extends Model implements Transformable
      */
     protected $fillable = [];
 
+    public function township(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Township::class);
+    }
+
 }
