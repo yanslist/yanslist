@@ -23,7 +23,8 @@
       "orchid/platform": "^9.19",
       "prettus/l5-repository": "^2.7",
       "spatie/laravel-sluggable": "^2.6",
-      "spatie/laravel-tags": "^2.7"
+      "spatie/laravel-tags": "^2.7",
+      "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
