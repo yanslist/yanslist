@@ -2,8 +2,8 @@
 
 namespace App\Transformers;
 
-use League\Fractal\TransformerAbstract;
 use App\Models\Post;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class PostTransformer.
@@ -22,10 +22,13 @@ class PostTransformer extends TransformerAbstract
     public function transform(Post $model)
     {
         return [
-            'id' => (int) $model->id,
-
-            /* place your other model properties here */
-
+            'type' => $model->type->value(),
+            'is_offer' => $model->is_offer,
+            'title' => $model->title,
+            'slug' => $model->slug,
+            'body' => $model->body,
+            'region_id' => $model->region_id,
+            'township_id' => $model->township_id,
             'created_at' => $model->created_at,
             'updated_at' => $model->updated_at
         ];

@@ -23,13 +23,14 @@
     <div class="uk-section">
       <div class="uk-container">
         <div class="uk-grid-large" uk-grid>
-          <div v-for="(value, name) in post_types" class="uk-width-1-2@m uk-width-1-1@s">
+          <div v-for="(value, key) in post_types" class="uk-width-1-2@m uk-width-1-1@s">
             <h2>{{ value }}</h2>
             <ul class="uk-list uk-list-large">
-              <li><a class="uk-link-text" href="#">List item 1</a></li>
-              <li><a class="uk-link-text" href="">Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Ab aliquid autem consequatur cum eaque enim</a></li>
-              <li><a class="uk-link-text" href="">List item 3</a></li>
+              <li v-for="post in filtered_posts[key]">
+                <a :href="post.slug" class="uk-link-text"><span v-if="post.is_offer"
+                                                                class="uk-label">{{ translate('main.offer') }}</span>
+                  {{ post.title }}</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -56,6 +57,17 @@ export default {
     regions: Object,
     post_types: Object,
     posts: Object
+  },
+  computed: {
+    filtered_posts() {
+      const raw = {};
+      Object.keys(this.post_types).forEach(key => {
+        raw[key] = this.posts.data.filter(post => {
+          return post.type === key;
+        });
+      });
+      return raw;
+    },
   },
   methods: {
     getTownships: function () {

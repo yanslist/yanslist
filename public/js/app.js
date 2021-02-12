@@ -2936,6 +2936,102 @@ __webpack_require__.r(__webpack_exports__);
             });
             /* harmony import */
             var _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/BaseLayout */ "./resources/js/Layouts/BaseLayout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */
+            const __WEBPACK_DEFAULT_EXPORT__ = ({
+                components: {
+                    BaseLayout: _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__.default
+                },
+                data: function data() {
+                    return {
+                        region: '',
+                        township: '',
+                        townships: null
+                    };
+                },
+                props: {
+                    regions: Object,
+                    post_types: Object,
+                    posts: Object
+                },
+                computed: {
+                    filtered_posts: function filtered_posts() {
+                        var _this = this;
+
+                        var raw = {};
+                        Object.keys(this.post_types).forEach(function (key) {
+                            raw[key] = _this.posts.data.filter(function (post) {
+                                return post.type === key;
+                            });
+                        });
+                        return raw;
+                    }
+                },
+                methods: {
+                    getTownships: function getTownships() {
+                        this.townships = this.region.townships.data;
+                    },
+                    getPosts: function getPosts() {// this.posts = null
+                    }
+                }
+            });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Home/New.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Home/New.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export */
+            __webpack_require__.d(__webpack_exports__, {
+                /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+                /* harmony export */
+            });
+            /* harmony import */
+            var _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/BaseLayout */ "./resources/js/Layouts/BaseLayout.vue");
 
             function ownKeys(object, enumerableOnly) {
                 var keys = Object.keys(object);
@@ -3011,21 +3107,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
                 components: {
@@ -3054,68 +3135,10 @@ __webpack_require__.r(__webpack_exports__);
                                 region: data.region.id,
                                 township: data.township.id
                             });
-                        }).post('/search');
+                        }).post('/new');
                     }
-                } // created: function(){
-                //   this.getCountry();
-                // }
-
+                }
             });
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Home/New.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Home/New.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/BaseLayout */ "./resources/js/Layouts/BaseLayout.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    BaseLayout: _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__.default
-  },
-  props: {}
-});
 
 /***/ }),
 
@@ -24242,86 +24265,23 @@ var render = function() {
       _c("div", { staticClass: "uk-container" }, [
           _c("h3", [_vm._v(_vm._s(_vm.translate("home.browse_listings_by")))]),
           _vm._v(" "),
-          _c(
-              "form",
-              {
-                  attrs: {"uk-grid": ""},
-                  on: {
-                      submit: function ($event) {
-                          $event.preventDefault()
-                          return _vm.form.post("/search")
-                      }
-                  }
-              },
-              [
-                  _c("div", {staticClass: "uk-width-1-3@m uk-width-1-1@s"}, [
-                      _c(
-                          "select",
-                          {
-                              directives: [
-                                  {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.region,
-                                      expression: "form.region"
-                                  }
-                              ],
-                              staticClass: "uk-select",
-                              on: {
-                                  change: [
-                                      function ($event) {
-                                          var $$selectedVal = Array.prototype.filter
-                                              .call($event.target.options, function (o) {
-                                                  return o.selected
-                                              })
-                                              .map(function (o) {
-                                                  var val = "_value" in o ? o._value : o.value
-                                                  return val
-                                              })
-                                          _vm.$set(
-                                              _vm.form,
-                                              "region",
-                                              $event.target.multiple
-                                                  ? $$selectedVal
-                                                  : $$selectedVal[0]
-                                          )
-                                      },
-                                      function ($event) {
-                                          return _vm.getTownships()
-                                      }
-                                  ]
+          _c("form", {attrs: {"uk-grid": ""}}, [
+              _c("div", {staticClass: "uk-width-1-2@m uk-width-1-1@s"}, [
+                  _c(
+                      "select",
+                      {
+                          directives: [
+                              {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.region,
+                                  expression: "region"
                               }
-                          },
-                          [
-                              _c("option", {attrs: {value: ""}}, [
-                                  _vm._v(_vm._s(_vm.translate("home.select_region")))
-                              ]),
-                              _vm._v(" "),
-                              _vm._l(_vm.regions.data, function (data) {
-                                  return _c("option", {domProps: {value: data}}, [
-                                      _vm._v(_vm._s(data.name))
-                                  ])
-                              })
                           ],
-                          2
-                      )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {staticClass: "uk-width-1-3@m uk-width-1-1@s"}, [
-                      _c(
-                          "select",
-                          {
-                              directives: [
-                                  {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.form.township,
-                                      expression: "form.township"
-                                  }
-                              ],
-                              staticClass: "uk-select",
-                              on: {
-                                  change: function ($event) {
+                          staticClass: "uk-select",
+                          on: {
+                              change: [
+                                  function ($event) {
                                       var $$selectedVal = Array.prototype.filter
                                           .call($event.target.options, function (o) {
                                               return o.selected
@@ -24330,49 +24290,80 @@ var render = function() {
                                               var val = "_value" in o ? o._value : o.value
                                               return val
                                           })
-                                      _vm.$set(
-                                          _vm.form,
-                                          "township",
-                                          $event.target.multiple
-                                              ? $$selectedVal
-                                              : $$selectedVal[0]
-                                      )
+                                      _vm.region = $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                  },
+                                  function ($event) {
+                                      return _vm.getTownships()
                                   }
+                              ]
+                          }
+                      },
+                      [
+                          _c("option", {attrs: {value: ""}}, [
+                              _vm._v(_vm._s(_vm.translate("home.select_region")))
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.regions.data, function (data) {
+                              return _c("option", {domProps: {value: data}}, [
+                                  _vm._v(_vm._s(data.name))
+                              ])
+                          })
+                      ],
+                      2
+                  )
+              ]),
+              _vm._v(" "),
+              _c("div", {staticClass: "uk-width-1-2@m uk-width-1-1@s"}, [
+                  _c(
+                      "select",
+                      {
+                          directives: [
+                              {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.township,
+                                  expression: "township"
                               }
-                          },
-                          [
-                              _c("option", {attrs: {value: ""}}, [
-                                  _vm._v(_vm._s(_vm.translate("home.select_township")))
-                              ]),
-                              _vm._v(" "),
-                              _vm._l(_vm.townships, function (data) {
-                                  return _c("option", {domProps: {value: data}}, [
-                                      _vm._v(_vm._s(data.name))
-                                  ])
-                              })
                           ],
-                          2
-                      )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {staticClass: "uk-width-1-3@m uk-width-1-1@s"}, [
-                      _c(
-                          "button",
-                          {
-                              staticClass: "uk-button uk-button-primary",
-                              attrs: {type: "submit", disabled: _vm.form.processing}
-                          },
-                          [
-                              _vm._v(
-                                  "\n            " +
-                                  _vm._s(_vm.translate("home.search")) +
-                                  "\n          "
-                              )
-                          ]
-                      )
-                  ])
-              ]
-          )
+                          staticClass: "uk-select",
+                          on: {
+                              change: [
+                                  function ($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                          .call($event.target.options, function (o) {
+                                              return o.selected
+                                          })
+                                          .map(function (o) {
+                                              var val = "_value" in o ? o._value : o.value
+                                              return val
+                                          })
+                                      _vm.township = $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                  },
+                                  function ($event) {
+                                      return _vm.getPosts()
+                                  }
+                              ]
+                          }
+                      },
+                      [
+                          _c("option", {attrs: {value: ""}}, [
+                              _vm._v(_vm._s(_vm.translate("home.select_township")))
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.townships, function (data) {
+                              return _c("option", {domProps: {value: data}}, [
+                                  _vm._v(_vm._s(data.name))
+                              ])
+                          })
+                      ],
+                      2
+                  )
+              ])
+          ])
       ])
     ]),
     _vm._v(" "),
@@ -24381,40 +24372,35 @@ var render = function() {
         _c(
           "div",
           { staticClass: "uk-grid-large", attrs: { "uk-grid": "" } },
-          _vm._l(_vm.post_types, function(value, name) {
-            return _c("div", { staticClass: "uk-width-1-2@m uk-width-1-1@s" }, [
-              _c("h2", [_vm._v(_vm._s(value))]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "uk-list uk-list-large" }, [
-                _c("li", [
-                  _c(
-                    "a",
-                    { staticClass: "uk-link-text", attrs: { href: "#" } },
-                    [_vm._v("List item 1")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    { staticClass: "uk-link-text", attrs: { href: "" } },
-                    [
-                      _vm._v(
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing\n              elit. Ab aliquid autem consequatur cum eaque enim"
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    { staticClass: "uk-link-text", attrs: { href: "" } },
-                    [_vm._v("List item 3")]
-                  )
+            _vm._l(_vm.post_types, function (value, key) {
+                return _c("div", {staticClass: "uk-width-1-2@m uk-width-1-1@s"}, [
+                    _c("h2", [_vm._v(_vm._s(value))]),
+                    _vm._v(" "),
+                    _c(
+                        "ul",
+                        {staticClass: "uk-list uk-list-large"},
+                        _vm._l(_vm.filtered_posts[key], function (post) {
+                            return _c("li", [
+                                _c(
+                                    "a",
+                                    {
+                                        staticClass: "uk-link-text",
+                                        attrs: {href: post.slug}
+                                    },
+                                    [
+                                        post.is_offer
+                                            ? _c("span", {staticClass: "uk-label"}, [
+                                                _vm._v(_vm._s(_vm.translate("main.offer")))
+                                            ])
+                                            : _vm._e(),
+                                        _vm._v(" " + _vm._s(post.title))
+                                    ]
+                                )
+                            ])
+                        }),
+                        0
+                    )
                 ])
-              ])
-            ])
           }),
           0
         )
@@ -24442,61 +24428,148 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "base-layout",
-    [
-      _c("div", { staticClass: "uk-section" }, [
-        _c("div", { staticClass: "uk-container" }, [
-          _c("h3", [_vm._v("New Listing")]),
-          _vm._v(" "),
-          _c("form", { attrs: { "uk-grid": "" } }, [
-            _c("div", { staticClass: "uk-width-1-3@m uk-width-1-1@s" }, [
-              _c("select", { staticClass: "uk-select" }, [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Select Region")
-                ]),
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("base-layout", [
+        _c("div", {staticClass: "uk-section uk-section-primary"}, [
+            _c("div", {staticClass: "uk-container"}, [
+                _c("h3", [_vm._v(_vm._s(_vm.translate("home.browse_listings_by")))]),
                 _vm._v(" "),
-                _c("option", [_vm._v("Option 01")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Option 02")])
-              ])
-            ]),
+                _c(
+                    "form",
+                    {
+                        attrs: {"uk-grid": ""},
+                        on: {
+                            submit: function ($event) {
+                                $event.preventDefault()
+                                return _vm.form.post("/new")
+                            }
+                        }
+                    },
+                    [
+                        _c("div", {staticClass: "uk-width-1-3@m uk-width-1-1@s"}, [
+                            _c(
+                                "select",
+                                {
+                                    directives: [
+                                        {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.form.region,
+                                            expression: "form.region"
+                                        }
+                                    ],
+                                    staticClass: "uk-select",
+                                    on: {
+                                        change: [
+                                            function ($event) {
+                                                var $$selectedVal = Array.prototype.filter
+                                                    .call($event.target.options, function (o) {
+                                                        return o.selected
+                                                    })
+                                                    .map(function (o) {
+                                                        var val = "_value" in o ? o._value : o.value
+                                                        return val
+                                                    })
+                                                _vm.$set(
+                                                    _vm.form,
+                                                    "region",
+                                                    $event.target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                )
+                                            },
+                                            function ($event) {
+                                                return _vm.getTownships()
+                                            }
+                                        ]
+                                    }
+                                },
+                                [
+                                    _c("option", {attrs: {value: ""}}, [
+                                        _vm._v(_vm._s(_vm.translate("home.select_region")))
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.regions.data, function (data) {
+                                        return _c("option", {domProps: {value: data}}, [
+                                            _vm._v(_vm._s(data.name))
+                                        ])
+                                    })
+                                ],
+                                2
+                            )
+                        ]),
             _vm._v(" "),
             _c("div", { staticClass: "uk-width-1-3@m uk-width-1-1@s" }, [
-              _c("select", { staticClass: "uk-select" }, [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Select Township")
-                ]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Option 01")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Option 02")])
-              ])
+                _c(
+                    "select",
+                    {
+                        directives: [
+                            {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.township,
+                                expression: "form.township"
+                            }
+                        ],
+                        staticClass: "uk-select",
+                        on: {
+                            change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function (o) {
+                                        return o.selected
+                                    })
+                                    .map(function (o) {
+                                        var val = "_value" in o ? o._value : o.value
+                                        return val
+                                    })
+                                _vm.$set(
+                                    _vm.form,
+                                    "township",
+                                    $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                )
+                            }
+                        }
+                    },
+                    [
+                        _c("option", {attrs: {value: ""}}, [
+                            _vm._v(_vm._s(_vm.translate("home.select_township")))
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.townships, function (data) {
+                            return _c("option", {domProps: {value: data}}, [
+                                _vm._v(_vm._s(data.name))
+                            ])
+                        })
+                    ],
+                    2
+                )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "uk-width-1-3@m uk-width-1-1@s" }, [
               _c(
-                "button",
-                {
-                  staticClass: "uk-button uk-button-primary",
-                  attrs: { type: "submit" }
-                },
-                [_vm._v("Search")]
+                  "button",
+                  {
+                      staticClass: "uk-button uk-button-primary",
+                      attrs: {disabled: _vm.form.processing, type: "submit"}
+                  },
+                  [
+                      _vm._v(
+                          "\n            " +
+                          _vm._s(_vm.translate("home.search")) +
+                          "\n          "
+                      )
+                  ]
               )
             ])
-          ])
+                    ]
+                )
+            ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("InertiaLink", { attrs: { href: _vm.route("test") } }, [
-        _vm._v("\n    All posts\n  ")
-      ])
-    ],
-    1
-  )
+    ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -36831,7 +36904,8 @@ webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*$";
             "use strict";
             module.exports = JSON.parse("{\"en\":{\"home\":{\"browse_listings_by\":\"Browse Listings By\",\"select_region\":\"Select Region\",\"select_township\":\"Select Township\",\"search\":\"Search\"},\"main\":{\"listings\":\"Listings\",\"contact\":\"Contact\",\"post_new\":\"Post New\"}},\"my\":{\"home\":{\"browse_listings_by\":\"စီစစ်ပြီး ကြည့်ရန်\",\"select_region\":\"တိုင်းဒေသကြီးရွေးပါ\",\"select_township\":\"မြို့နယ်ရွေးပါ\",\"search\":\"စီစစ်မယ်\"},\"main\":{\"listings\":\"စာရင်းများ\",\"contact\":\"ဆက်သွယ်ရန်\",\"post_new\":\"အသစ်တင်မယ်\"}}}");
 
-/***/ })
+            /***/
+        })
 
 /******/ 	});
 /************************************************************************/

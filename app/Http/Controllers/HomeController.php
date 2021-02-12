@@ -26,7 +26,7 @@ class HomeController extends Controller
 
         $postRepo = app(PostRepository::class);
         $postRepo->setPresenter(new PostPresenter());
-        $posts = $postRepo->all();
+        $posts = $postRepo->orderBy('created_at', 'desc')->all();
         return inertia('Home/Index', compact('regions', 'post_types', 'posts'));
     }
 
