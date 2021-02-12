@@ -2,24 +2,19 @@
   <base-layout>
     <div class="uk-section uk-section-primary">
       <div class="uk-container">
-        <h3>{{ translate('main.browse_listings_by') }}</h3>
+        <h3>{{ translate('home.browse_listings_by') }}</h3>
         <form class="" uk-grid>
-          <div class="uk-width-1-3@m uk-width-1-1@s">
-            <select class="uk-select">
-              <option value="">Select Region</option>
-              <option>Option 01</option>
-              <option>Option 02</option>
+          <div class="uk-width-1-2@m uk-width-1-1@s">
+            <select v-model="region" class="uk-select" @change="getTownships()">
+              <option value="">{{ translate('home.select_region') }}</option>
+              <option v-for="data in regions.data" :value="data">{{ data.name }}</option>
             </select>
           </div>
-          <div class="uk-width-1-3@m uk-width-1-1@s">
-            <select class="uk-select">
-              <option value="">Select Township</option>
-              <option>Option 01</option>
-              <option>Option 02</option>
+          <div class="uk-width-1-2@m uk-width-1-1@s">
+            <select v-model="township" class="uk-select" @change="getPosts()">
+              <option value="">{{ translate('home.select_township') }}</option>
+              <option v-for="data in townships" :value="data">{{ data.name }}</option>
             </select>
-          </div>
-          <div class="uk-width-1-3@m uk-width-1-1@s">
-            <button class="uk-button uk-button-primary" type="submit">Search</button>
           </div>
         </form>
       </div>
@@ -50,8 +45,25 @@ export default {
   components: {
     BaseLayout,
   },
+  data() {
+    return {
+      region: '',
+      township: '',
+      townships: null
+    }
+  },
   props: {
-    post_types: Object
+    regions: Object,
+    post_types: Object,
+    posts: Object
+  },
+  methods: {
+    getTownships: function () {
+      this.townships = this.region.townships.data;
+    },
+    getPosts: function () {
+      // this.posts = null
+    }
   },
 }
 </script>

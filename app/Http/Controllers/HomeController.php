@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\PostType;
 use App\Models\Region;
+use App\Presenters\PostPresenter;
+use App\Presenters\RegionPresenter;
+use App\Repositories\PostRepository;
+use App\Repositories\RegionRepository;
 use ElementaryFramework\FireFS\FireFS;
+use Illuminate\Http\Request;
 
 /**
  * Class HomeController.
@@ -15,9 +20,20 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $regions = Region::with('townships')->get();
+        $regionRepo = app(RegionRepository::class);
+        $regionRepo->setPresenter(new RegionPresenter());
+        $regions = $regionRepo->all();
         $post_types = PostType::choices();
-        return inertia('Home/Index', compact('regions', 'post_types'));
+
+        $postRepo = app(PostRepository::class);
+        $postRepo->setPresenter(new PostPresenter());
+        $posts = $postRepo->all();
+        return inertia('Home/Index', compact('regions', 'post_types', 'posts'));
+    }
+
+    public function search(Request $request)
+    {
+        dd($request->all());
     }
 
     public function new()
@@ -27,17 +43,6 @@ class HomeController extends Controller
 
     public function test()
     {
-        $firefs = new FireFS();
-
-        $path = '../resources/lang';
-
-        $internalPath = $firefs->toInternalPath($path);
-        dd($internalPath);
-
-        if (!$this->isRemote($path) && !is_readable($internalPath)) {
-            throw $this->accessDeniedException($path, 'read');
-        }
-
-
+        return 'test';
     }
 }

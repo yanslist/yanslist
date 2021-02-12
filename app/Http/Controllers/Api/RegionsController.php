@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Presenters\RegionPresenter;
 use App\Repositories\RegionRepository;
 
@@ -36,7 +37,6 @@ class RegionsController extends Controller
      */
     public function index()
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
         $regions = $this->repository->all();
         return response()->json($regions);
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\RegionsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,5 @@ Route::group(
     [
         'middleware' => ['api']
     ], function () {
-
-    Route::get('regions', [\App\Http\Controllers\RegionsController::class, 'index']);
-
+    Route::get('regions', [RegionsController::class, 'index']);
 });

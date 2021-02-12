@@ -1,18 +1,28 @@
 {
   "en": {
+    "home": {
+      "browse_listings_by": "Browse Listings By",
+      "select_region": "Select Region",
+      "select_township": "Select Township",
+      "search": "Search"
+    },
     "main": {
       "listings": "Listings",
       "contact": "Contact",
-      "post_new": "Post New",
-      "browse_listings_by": "Browse Listings By"
+      "post_new": "Post New"
     }
   },
   "my": {
+    "home": {
+      "browse_listings_by": "\u1005\u102e\u1005\u1005\u103a\u1015\u103c\u102e\u1038 \u1000\u103c\u100a\u103a\u1037\u101b\u1014\u103a",
+      "select_region": "\u1010\u102d\u102f\u1004\u103a\u1038\u1012\u1031\u101e\u1000\u103c\u102e\u1038\u101b\u103d\u1031\u1038\u1015\u102b",
+      "select_township": "\u1019\u103c\u102d\u102f\u1037\u1014\u101a\u103a\u101b\u103d\u1031\u1038\u1015\u102b",
+      "search": "\u1005\u102e\u1005\u1005\u103a\u1019\u101a\u103a"
+    },
     "main": {
       "listings": "\u1005\u102c\u101b\u1004\u103a\u1038\u1019\u103b\u102c\u1038",
       "contact": "\u1006\u1000\u103a\u101e\u103d\u101a\u103a\u101b\u1014\u103a",
-      "post_new": "\u1021\u101e\u1005\u103a\u1010\u1004\u103a\u1019\u101a\u103a",
-      "browse_listings_by": "\u1012\u102e\u101c\u102d\u102f\u1005\u102e\u1005\u1005\u103a\u1015\u103c\u102e\u1038\u1000\u103c\u100a\u103a\u1037\u1019\u101a\u103a"
+      "post_new": "\u1021\u101e\u1005\u103a\u1010\u1004\u103a\u1019\u101a\u103a"
     }
   }
 }
