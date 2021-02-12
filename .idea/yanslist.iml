@@ -138,6 +138,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/elementaryframework/fire-fs" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/elementaryframework/streams" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mcamara/laravel-localization" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/fractal" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
