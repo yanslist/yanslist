@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\PostType;
-use App\Models\Region;
 use App\Presenters\PostPresenter;
 use App\Presenters\RegionPresenter;
 use App\Repositories\PostRepository;
 use App\Repositories\RegionRepository;
-use ElementaryFramework\FireFS\FireFS;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 /**
  * Class HomeController.
@@ -43,6 +42,10 @@ class HomeController extends Controller
 
     public function test()
     {
-        return 'test';
+        $regionRepo = app(RegionRepository::class);
+        $region = $regionRepo->with('townships')->find(13);
+        $township_ids = Arr::pluck($region->townships, 'id');
+        dd($township_ids);
+//        return 'test';
     }
 }

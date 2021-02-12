@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 /**
  * Class CreateRegionsTable.
@@ -17,8 +17,9 @@ class CreateRegionsTable extends Migration
     {
         Schema::create('regions', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->timestamps();
+            $table->string('name');
+            $table->string('name_mm');
+            $table->integer('order_no');
         });
     }
 

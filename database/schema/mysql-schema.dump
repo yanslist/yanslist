@@ -109,14 +109,18 @@ DROP TABLE IF EXISTS `posts`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `posts` (
   `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` char(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'work',
+  `type` char(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'aid',
+  `is_offer` tinyint(1) NOT NULL DEFAULT '1',
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ihave` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ineed` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contact` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` char(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'published',
+  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `region_id` int unsigned NOT NULL,
   `township_id` int unsigned NOT NULL,
+  `user_id` int unsigned NOT NULL,
+  `status` char(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'published',
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -230,4 +234,7 @@ INSERT INTO `migrations` VALUES (6,'2016_08_07_125128_create_orchid_attachmentst
 INSERT INTO `migrations` VALUES (7,'2017_09_17_125801_create_notifications_table',1);
 INSERT INTO `migrations` VALUES (8,'2019_08_19_000000_create_failed_jobs_table',1);
 INSERT INTO `migrations` VALUES (9,'2021_02_08_070800_create_tag_tables',2);
-INSERT INTO `migrations` VALUES (15,'2021_02_08_105749_create_posts_table',3);
+INSERT INTO `migrations` VALUES (17,'2021_02_08_105749_create_posts_table',3);
+INSERT INTO `migrations` VALUES (18,'2021_02_10_153708_create_regions_table',4);
+INSERT INTO `migrations` VALUES (19,'2021_02_10_153943_create_districts_table',4);
+INSERT INTO `migrations` VALUES (20,'2021_02_10_153952_create_townships_table',4);
