@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "384ed2b922fb7f86c60a079767b2b693",
+  "content-hash": "5580750e9c534e5d2c7f156e86f61f12",
   "packages": [
     {
       "name": "asm89/stack-cors",
@@ -15,16 +15,16 @@
         "reference": "8d8f88b3b3830916be94292c1fbce84433efb1aa"
       },
       "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/asm89/stack-cors/zipball/8d8f88b3b3830916be94292c1fbce84433efb1aa",
-                "reference": "8d8f88b3b3830916be94292c1fbce84433efb1aa",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0|^8.0",
-                "symfony/http-foundation": "~2.7|~3.0|~4.0|~5.0",
-                "symfony/http-kernel": "~2.7|~3.0|~4.0|~5.0"
-            },
+        "type": "zip",
+        "url": "https://api.github.com/repos/asm89/stack-cors/zipball/8d8f88b3b3830916be94292c1fbce84433efb1aa",
+        "reference": "8d8f88b3b3830916be94292c1fbce84433efb1aa",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.0|^8.0",
+        "symfony/http-foundation": "~2.7|~3.0|~4.0|~5.0",
+        "symfony/http-kernel": "~2.7|~3.0|~4.0|~5.0"
+      },
             "require-dev": {
                 "phpunit/phpunit": "^6|^7|^8|^9",
                 "squizlabs/php_codesniffer": "^3.5"
@@ -479,15 +479,15 @@
                     "name": "Eduardo Gulias Davis"
                 }
             ],
-            "description": "A library for validating emails against several RFCs",
-            "homepage": "https://github.com/egulias/EmailValidator",
-            "keywords": [
-                "email",
-                "emailvalidation",
-                "emailvalidator",
-                "validation",
-                "validator"
-            ],
+          "description": "A library for validating emails against several RFCs",
+          "homepage": "https://github.com/egulias/EmailValidator",
+          "keywords": [
+            "email",
+            "emailvalidation",
+            "emailvalidator",
+            "validation",
+            "validator"
+          ],
           "funding": [
             {
               "url": "https://github.com/egulias",
@@ -653,16 +653,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/c073b2bd04d1c90e04dc1b787662b558dd65ade0",
-                "reference": "c073b2bd04d1c90e04dc1b787662b558dd65ade0",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^5.0|^6.0|^7.0|^8.0|^9.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "illuminate/http": "^5.0|^6.0|^7.0|^8.0|^9.0",
-                "mockery/mockery": "^1.0",
+        "reference": "c073b2bd04d1c90e04dc1b787662b558dd65ade0",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/contracts": "^5.0|^6.0|^7.0|^8.0|^9.0",
+        "php": ">=5.4.0"
+      },
+      "require-dev": {
+        "illuminate/http": "^5.0|^6.0|^7.0|^8.0|^9.0",
+        "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "^6.0"
             },
             "type": "library",
@@ -1927,26 +1927,102 @@
             "funding": [
                 {
                     "url": "https://github.com/frankdejonge",
-                    "type": "github"
+                  "type": "github"
                 },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/league/flysystem",
-                    "type": "tidelift"
-                }
+              {
+                "url": "https://tidelift.com/funding/github/packagist/league/flysystem",
+                "type": "tidelift"
+              }
             ],
-            "time": "2021-01-18T20:58:21+00:00"
+          "time": "2021-01-18T20:58:21+00:00"
+        },
+    {
+      "name": "mcamara/laravel-localization",
+      "version": "1.6.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/mcamara/laravel-localization.git",
+        "reference": "4f0bfd89e5ee8100cb8cff8ca2cc3b985ed46694"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/4f0bfd89e5ee8100cb8cff8ca2cc3b985ed46694",
+        "reference": "4f0bfd89e5ee8100cb8cff8ca2cc3b985ed46694",
+        "shasum": ""
+      },
+      "require": {
+        "laravel/framework": "~5.2.0||~5.3.0||~5.4.0||~5.5.0||~5.6.0||~5.7.0||~5.8.0||^6.0||^7.0||^8.0",
+        "php": ">=7.1.0"
+      },
+      "require-dev": {
+        "orchestra/testbench-browser-kit": "~3.4|~3.8|~4.0",
+        "phpunit/phpunit": "6.0.*|^8.0"
+      },
+      "suggest": {
+        "ext-intl": "*"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider"
+          ],
+          "aliases": {
+            "LaravelLocalization": "Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization"
+          }
+        }
+      },
+      "autoload": {
+        "classmap": [],
+        "psr-0": {
+          "Mcamara\\LaravelLocalization": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Marc Cámara",
+          "email": "mcamara88@gmail.com",
+          "role": "Developer"
+        }
+      ],
+      "description": "Easy localization for Laravel",
+      "homepage": "https://github.com/mcamara/laravel-localization",
+      "keywords": [
+        "laravel",
+        "localization",
+        "php"
+      ],
+      "support": {
+        "issues": "https://github.com/mcamara/laravel-localization/issues",
+        "source": "https://github.com/mcamara/laravel-localization/tree/1.6.1"
+      },
+      "funding": [
+        {
+          "url": "https://github.com/iwasherefirst2",
+          "type": "github"
         },
         {
-            "name": "monolog/monolog",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
+          "url": "https://github.com/mcamara",
+          "type": "github"
+        }
+      ],
+      "time": "2020-10-01T07:45:06+00:00"
+    },
+    {
+      "name": "monolog/monolog",
+      "version": "2.2.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Seldaek/monolog.git",
+        "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
                 "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
                 "shasum": ""
             },
@@ -7534,16 +7610,16 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                  "name": "Tijs Verkoyen",
-                  "email": "css_to_inline_styles@verkoyen.eu",
-                  "role": "Developer"
-                }
-            ],
+          "license": [
+            "BSD-3-Clause"
+          ],
+          "authors": [
+            {
+              "name": "Tijs Verkoyen",
+              "email": "css_to_inline_styles@verkoyen.eu",
+              "role": "Developer"
+            }
+          ],
           "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
           "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
           "time": "2020-07-13T06:12:54+00:00"
@@ -7606,16 +7682,16 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/b3eac5c7ac896e52deab4a99068e3f4ab12d9e56",
-                "reference": "b3eac5c7ac896e52deab4a99068e3f4ab12d9e56",
-                "shasum": ""
-            },
-            "require": {
-                "ext-pcre": "*",
-                "graham-campbell/result-type": "^1.0.1",
-                "php": "^7.1.3 || ^8.0",
-                "phpoption/phpoption": "^1.7.4",
-                "symfony/polyfill-ctype": "^1.17",
-                "symfony/polyfill-mbstring": "^1.17",
+        "reference": "b3eac5c7ac896e52deab4a99068e3f4ab12d9e56",
+        "shasum": ""
+      },
+      "require": {
+        "ext-pcre": "*",
+        "graham-campbell/result-type": "^1.0.1",
+        "php": "^7.1.3 || ^8.0",
+        "phpoption/phpoption": "^1.7.4",
+        "symfony/polyfill-ctype": "^1.17",
+        "symfony/polyfill-mbstring": "^1.17",
                 "symfony/polyfill-php80": "^1.17"
             },
             "require-dev": {

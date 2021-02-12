@@ -132,6 +132,7 @@
       <path value="$PROJECT_DIR$/vendor/elementaryframework/events" />
       <path value="$PROJECT_DIR$/vendor/elementaryframework/fire-fs" />
       <path value="$PROJECT_DIR$/vendor/elementaryframework/streams" />
+      <path value="$PROJECT_DIR$/vendor/mcamara/laravel-localization" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

@@ -3,7 +3,7 @@
     <div class="uk-container">
       <div uk-navbar>
         <div class="uk-navbar-left">
-          <a class="uk-navbar-item uk-logo" href="#">Yan's List</a>
+          <a :href="route('home')" class="uk-navbar-item uk-logo">Yan's List</a>
         </div>
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
