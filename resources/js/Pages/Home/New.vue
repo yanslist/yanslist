@@ -1,8 +1,8 @@
 <template>
   <base-layout>
-    <div class="uk-section uk-section-primary">
+    <div class="uk-section">
       <div class="uk-container">
-        <h3>{{ 'main.browse_listings_by' }}</h3>
+        <h3>New Listing</h3>
         <form class="" uk-grid>
           <div class="uk-width-1-3@m uk-width-1-1@s">
             <select class="uk-select">
@@ -25,21 +25,9 @@
       </div>
     </div>
 
-    <div class="uk-section">
-      <div class="uk-container">
-        <div class="uk-grid-large" uk-grid>
-          <div v-for="(value, name) in post_types" class="uk-width-1-2@m uk-width-1-1@s">
-            <h2>{{ value }}</h2>
-            <ul class="uk-list uk-list-large">
-              <li><a class="uk-link-text" href="#">List item 1</a></li>
-              <li><a class="uk-link-text" href="">Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Ab aliquid autem consequatur cum eaque enim</a></li>
-              <li><a class="uk-link-text" href="">List item 3</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <InertiaLink :href="route('test')">
+      All posts
+    </InertiaLink>
   </base-layout>
 </template>
 
@@ -50,8 +38,6 @@ export default {
   components: {
     BaseLayout,
   },
-  props: {
-    post_types: Object
-  },
+  props: {},
 }
 </script>

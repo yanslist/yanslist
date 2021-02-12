@@ -6,48 +6,27 @@
 
 require('./bootstrap');
 
-// window.Vue = require('vue').default;
-//
-// /**
-//  * The following block of code may be used to automatically register your
-//  * Vue components. It will recursively scan this directory for the Vue
-//  * components and automatically register them with their "basename".
-//  *
-//  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
-//  */
-//
-// // const files = require.context('./', true, /\.vue$/i)
-// // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-//
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-//
-// /**
-//  * Next, we will create a fresh Vue application instance and attach it to
-//  * the page. Then, you may begin adding components to this application
-//  * or customize the JavaScript scaffolding to fit your unique needs.
-//  */
-//
-// const app = new Vue({
-//     el: '#app',
-// });
+import {App, plugin} from '@inertiajs/inertia-vue';
+import Vue from 'vue';
 
-import {App, plugin} from '@inertiajs/inertia-vue'
-import Vue from 'vue'
-import {InertiaProgress} from '@inertiajs/progress'
+import {InertiaProgress} from '@inertiajs/progress';
 
-InertiaProgress.init()
+InertiaProgress.init();
 
-Vue.use(plugin)
-
+Vue.use(plugin);
 Vue.mixin({methods: {route}});
 
-const el = document.getElementById('app')
+Vue.component('header-component', require('./components/HeaderComponent.vue').default);
+Vue.component('footer-component', require('./components/FooterComponent.vue').default);
+// // const files = require.context('./', true, /\.vue$/i)
+// // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+const el = document.getElementById('app');
 new Vue({
   render: h => h(App, {
     props: {
       initialPage: JSON.parse(el.dataset.page),
-      resolveComponent: name => require(`./Pages/${name}`).default,
+      resolveComponent: name => require(`./Pages/${name}`).default
     },
   }),
-}).$mount(el)
+}).$mount(el);
