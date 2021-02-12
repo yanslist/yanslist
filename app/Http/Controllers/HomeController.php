@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PostType;
 use App\Models\Region;
+use ElementaryFramework\FireFS\FireFS;
 
 /**
  * Class HomeController.
@@ -26,6 +27,17 @@ class HomeController extends Controller
 
     public function test()
     {
-        return 'test';
+        $firefs = new FireFS();
+
+        $path = '../resources/lang';
+
+        $internalPath = $firefs->toInternalPath($path);
+        dd($internalPath);
+
+        if (!$this->isRemote($path) && !is_readable($internalPath)) {
+            throw $this->accessDeniedException($path, 'read');
+        }
+
+
     }
 }

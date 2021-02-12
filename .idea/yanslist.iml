@@ -133,6 +133,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/inertiajs/inertia-laravel" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/tightenco/ziggy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tohidplus/laravel-vue-translation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/elementaryframework/events" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/elementaryframework/fire-fs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/elementaryframework/streams" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

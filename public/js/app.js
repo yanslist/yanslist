@@ -3848,6 +3848,55 @@
         }),
 
         /***/
+        "./resources/js/VueTranslation/Translation.js":
+        /*!****************************************************!*\
+  !*** ./resources/js/VueTranslation/Translation.js ***!
+  \****************************************************/
+        /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export */
+            __webpack_require__.d(__webpack_exports__, {
+                /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+                /* harmony export */
+            });
+            var translations = __webpack_require__(/*! ./translations */ "./resources/js/VueTranslation/translations.json");
+
+            /* harmony default export */
+            const __WEBPACK_DEFAULT_EXPORT__ = ({
+                translate: function translate(key) {
+                    var replacements = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+                    var lang = document.documentElement.lang;
+                    var word = translations[lang];
+                    var keys = key.split('.');
+
+                    for (var i in keys) {
+                        try {
+                            word = word[keys[i]];
+
+                            if (word === undefined) {
+                                word = key;
+                                break;
+                            }
+                        } catch (e) {
+                            word = key;
+                            break;
+                        }
+                    }
+
+                    for (var _i in replacements) {
+                        word = word.replace(":".concat(_i), replacements[_i]);
+                    }
+
+                    return word;
+                }
+            });
+
+            /***/
+        }),
+
+        /***/
         "./resources/js/app.js":
         /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -3862,21 +3911,20 @@
             var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
             /* harmony import */
             var _inertiajs_progress__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/progress */ "./node_modules/@inertiajs/progress/dist/index.js");
-            /**
-             * First we will load all of this project's JavaScript dependencies which
-             * includes Vue and other libraries. It is a great starting point when
-             * building robust, powerful web applications using Vue and Laravel.
-             */
             __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
             _inertiajs_progress__WEBPACK_IMPORTED_MODULE_1__.InertiaProgress.init();
-            vue__WEBPACK_IMPORTED_MODULE_2__.default.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.plugin);
+            vue__WEBPACK_IMPORTED_MODULE_2__.default.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__.plugin); // ziggy route
+
             vue__WEBPACK_IMPORTED_MODULE_2__.default.mixin({
                 methods: {
                     route: route
                 }
-            });
+            }); // laravel to vue translation
+
+            vue__WEBPACK_IMPORTED_MODULE_2__.default.prototype.translate = __webpack_require__(/*! ./VueTranslation/Translation */ "./resources/js/VueTranslation/Translation.js").default.translate; // global components
+
             vue__WEBPACK_IMPORTED_MODULE_2__.default.component('header-component', __webpack_require__(/*! ./components/HeaderComponent.vue */ "./resources/js/components/HeaderComponent.vue").default);
             vue__WEBPACK_IMPORTED_MODULE_2__.default.component('footer-component', __webpack_require__(/*! ./components/FooterComponent.vue */ "./resources/js/components/FooterComponent.vue").default); // // const files = require.context('./', true, /\.vue$/i)
 // // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
@@ -24999,7 +25047,7 @@
                 return _c("base-layout", [
                     _c("div", {staticClass: "uk-section uk-section-primary"}, [
                         _c("div", {staticClass: "uk-container"}, [
-                            _c("h3", [_vm._v(_vm._s("main.browse_listings_by"))]),
+                            _c("h3", [_vm._v(_vm._s(_vm.translate("main.browse_listings_by")))]),
                             _vm._v(" "),
                             _c("form", {attrs: {"uk-grid": ""}}, [
                                 _c("div", {staticClass: "uk-width-1-3@m uk-width-1-1@s"}, [
@@ -25262,13 +25310,13 @@
                                 _c("ul", {staticClass: "uk-navbar-nav"}, [
                                     _c("li", [
                                         _c("a", {attrs: {href: _vm.route("home")}}, [
-                                            _vm._v(_vm._s("main.listings"))
+                                            _vm._v(_vm._s(_vm.translate("main.listings")))
                                         ])
                                     ]),
                                     _vm._v(" "),
                                     _c("li", [
                                         _c("a", {attrs: {href: "#"}}, [
-                                            _vm._v(_vm._s("main.contact"))
+                                            _vm._v(_vm._s(_vm.translate("main.contact")))
                                         ])
                                     ])
                                 ]),
@@ -25280,7 +25328,7 @@
                                             staticClass: "uk-button uk-button-primary",
                                             attrs: {href: _vm.route("new")}
                                         },
-                                        [_vm._v(_vm._s("main.post_new"))]
+                                        [_vm._v(_vm._s(_vm.translate("main.post_new")))]
                                     )
                                 ])
                             ])
@@ -37767,6 +37815,19 @@
             webpackContext.resolve = webpackContextResolve;
             module.exports = webpackContext;
             webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*$";
+
+            /***/
+        }),
+
+        /***/
+        "./resources/js/VueTranslation/translations.json":
+        /*!*******************************************************!*\
+  !*** ./resources/js/VueTranslation/translations.json ***!
+  \*******************************************************/
+        /***/ ((module) => {
+
+            "use strict";
+            module.exports = JSON.parse("{\"en\":{\"main\":{\"listings\":\"Listings\",\"contact\":\"Contact\",\"post_new\":\"Post New\",\"browse_listings_by\":\"Browse Listings By\"}},\"my\":{\"main\":{\"listings\":\"စာရင်းများ\",\"contact\":\"ဆက်သွယ်ရန်\",\"post_new\":\"အသစ်တင်မယ်\",\"browse_listings_by\":\"ဒီလိုစီစစ်ပြီးကြည့်မယ်\"}}}");
 
             /***/
         })

@@ -2,7 +2,7 @@
   <base-layout>
     <div class="uk-section uk-section-primary">
       <div class="uk-container">
-        <h3>{{ 'main.browse_listings_by' }}</h3>
+        <h3>{{ translate('main.browse_listings_by') }}</h3>
         <form class="" uk-grid>
           <div class="uk-width-1-3@m uk-width-1-1@s">
             <select class="uk-select">

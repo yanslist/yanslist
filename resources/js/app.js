@@ -1,9 +1,3 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
 import {App, plugin} from '@inertiajs/inertia-vue';
@@ -14,8 +8,14 @@ import {InertiaProgress} from '@inertiajs/progress';
 InertiaProgress.init();
 
 Vue.use(plugin);
+
+// ziggy route
 Vue.mixin({methods: {route}});
 
+// laravel to vue translation
+Vue.prototype.translate = require('./VueTranslation/Translation').default.translate;
+
+// global components
 Vue.component('header-component', require('./components/HeaderComponent.vue').default);
 Vue.component('footer-component', require('./components/FooterComponent.vue').default);
 // // const files = require.context('./', true, /\.vue$/i)
