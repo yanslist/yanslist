@@ -17,12 +17,10 @@
     <meta name="msapplication-config" content="{{asset('/favicons/browserconfig.xml')}}">
     <meta name="theme-color" content="#fbf7ff">
     <link href="{{ asset('/css/style.min.css') }}" rel="stylesheet">
-    <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
 <body>
 @routes
 @inertia
-<script src="{{ asset('/js/uikit.min.js')  }}"></script>
-<script src="{{ asset('/js/uikit-icons.min.js') }}"></script>
+<script src="{{ mix('/js/app.js') }}" defer></script>
 </body>
 </html>

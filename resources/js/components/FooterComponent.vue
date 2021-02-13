@@ -1,5 +1,5 @@
 <template>
-  <footer class="uk-section uk-section-primary uk-section-small">
+  <footer id="footer" class="uk-section uk-section-primary uk-section-small">
     <div class="uk-container">
       <div class="uk-grid-margin-small uk-child-width-1-2" uk-grid>
         <div>

@@ -53,7 +53,7 @@ class Post extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['type', 'is_offer', 'title', 'body', 'region_id', 'township_id', 'user_id', 'token'];
 
     public function region(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

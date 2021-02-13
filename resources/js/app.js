@@ -2,8 +2,9 @@ require('./bootstrap');
 
 import {App, plugin} from '@inertiajs/inertia-vue';
 import Vue from 'vue';
-
 import {InertiaProgress} from '@inertiajs/progress';
+import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
 
 InertiaProgress.init();
 
@@ -11,6 +12,10 @@ Vue.use(plugin);
 
 // ziggy route
 Vue.mixin({methods: {route}});
+
+UIkit.use(Icons);
+window.UIkit = UIkit;
+Vue.prototype.$uikit = UIkit
 
 // laravel to vue translation
 Vue.prototype.translate = require('./VueTranslation/Translation').default.translate;

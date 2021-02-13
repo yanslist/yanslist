@@ -7,5 +7,6 @@ return [
     "post_new" => "အသစ်တင်မယ်",
     "select_region" => "တိုင်းဒေသကြီးရွေးပါ",
     "select_township" => "မြို့နယ်ရွေးပါ",
-    "offer" => "ကမ်းလှမ်း"
+    "is_offer" => "ကမ်းလှမ်း",
+    "not_offer" => "လိုအပ်"
 ];
