@@ -22,22 +22,6 @@
       </div>
     </div>
 
-    <div id="post-modal" class="uk-modal-full" uk-modal>
-      <div class="uk-modal-dialog">
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-        <div class="uk-grid-small uk-child-width-auto uk-flex-center uk-flex-middle" uk-grid>
-          <div class="uk-padding-large uk-height-viewport">
-            <h1>Headline</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="uk-section">
       <div class="uk-container">
         <div class="uk-grid-large" uk-grid>
@@ -45,14 +29,41 @@
             <h2>{{ translate('post.types.' + key) }}</h2>
             <ul class="uk-list">
               <li v-for="post in filtered_posts[key]">
-                <a :href="post.slug" class="uk-link-text" @click.prevent="openModal()">
+                <a :href="post.slug" class="uk-link-text" @click.prevent="openModal(post)">
                   <span v-if="post.is_offer" class="uk-label uk-label-success">{{ translate('main.is_offer') }}</span>
                   <span v-else class="uk-label uk-label-warning">{{ translate('main.not_offer') }}</span>
                   {{ post.title }}
-                  <span class="uk-text-meta">@{{ post.region.localized_name }}</span>
+                  <span class="uk-text-meta">@{{ post.location }}</span>
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="post-modal" class="uk-modal-full" uk-modal>
+      <div class="uk-modal-dialog">
+        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+        <div class="uk-grid-small uk-flex-center uk-flex-middle" uk-grid>
+          <div class="uk-width-2-3 uk-padding-large uk-height-viewport">
+            <article class="uk-article">
+              <h3>
+                <small>
+                  <span v-if="modalPost.is_offer" class="uk-label uk-label-success">{{
+                      translate('main.is_offer')
+                    }}</span>
+                  <span v-else class="uk-label uk-label-warning">{{ translate('main.not_offer') }}</span>
+                </small>
+                {{ modalPost.title }}
+              </h3>
+              <hr class="uk-divider-small">
+              <p>{{ modalPost.body }}</p>
+              <p class="uk-text-meta">
+                @{{ modalPost.location }}
+              </p>
+            </article>
+            <button class="uk-align-right uk-button uk-modal-close" type="button">{{ translate('main.close') }}</button>
           </div>
         </div>
       </div>
@@ -73,7 +84,13 @@ export default {
       region: '',
       township: '',
       townships: null,
-      listings: null
+      listings: null,
+      modalPost: {
+        title: '',
+        body: '',
+        is_offer: true,
+        location: '',
+      }
     }
   },
   props: {
@@ -113,7 +130,8 @@ export default {
         this.townships = this.region.townships.data;
       }
     },
-    openModal() {
+    openModal(post) {
+      this.modalPost = post;
       window.UIkit.modal(document.getElementById('post-modal')).show();
     }
   }

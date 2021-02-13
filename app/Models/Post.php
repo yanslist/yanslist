@@ -24,6 +24,8 @@ class Post extends Model implements Transformable
 
     protected $guarded = ['uuid', 'created_at', 'updated_at'];
 
+    protected $appends = ['location'];
+
     protected $enums = [
         'type' => PostType::class
     ];
@@ -63,6 +65,11 @@ class Post extends Model implements Transformable
     public function township(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Township::class);
+    }
+
+    public function getLocationAttribute()
+    {
+        return $this->township->localized_name.', '.$this->region->localized_name;
     }
 
 }

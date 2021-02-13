@@ -18,6 +18,9 @@
             <a :href="localeUrls.my" class="uk-link-text">မြန်မာ</a> /
             <a :href="localeUrls.en" class="uk-link-text">English</a>
           </p>
+          <p class="uk-align-right">
+            <a href="https://github.com/mrlinnth/yanslist" target="_blank" uk-icon="github"></a>
+          </p>
         </div>
       </div>
     </div>

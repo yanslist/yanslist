@@ -30,7 +30,7 @@ class PostTransformer extends TransformerAbstract
             'slug' => $model->slug,
             'body' => $model->body,
             'region_id' => $model->region_id,
-            'region' => $model->region,
+            'location' => $model->location,
             'township_id' => $model->township_id,
             'created_at' => $model->created_at,
             'updated_at' => $model->updated_at
