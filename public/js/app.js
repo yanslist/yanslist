@@ -2927,15 +2927,14 @@ __webpack_require__.r(__webpack_exports__);
   \************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export */
-            __webpack_require__.d(__webpack_exports__, {
-                /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-                /* harmony export */
-            });
-            /* harmony import */
-            var _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/BaseLayout */ "./resources/js/Layouts/BaseLayout.vue");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/BaseLayout */ "./resources/js/Layouts/BaseLayout.vue");
+//
+//
 //
 //
 //
@@ -2980,60 +2979,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-            /* harmony default export */
-            const __WEBPACK_DEFAULT_EXPORT__ = ({
-                components: {
-                    BaseLayout: _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__.default
-                },
-                data: function data() {
-                    return {
-                        region: '',
-                        township: '',
-                        townships: null,
-                        listings: null
-                    };
-                },
-                props: {
-                    regions: Object,
-                    post_types: Object,
-                    posts: Object
-                },
-                computed: {
-                    filtered_posts: function filtered_posts() {
-                        var _this = this;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    BaseLayout: _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  data: function data() {
+    return {
+      region: '',
+      township: '',
+      townships: null,
+      listings: null
+    };
+  },
+  props: {
+    regions: Object,
+    post_types: Object,
+    posts: Object
+  },
+  computed: {
+    filtered_posts: function filtered_posts() {
+      var _this = this;
 
-                        var raw = {};
-                        this.listings = this.posts.data;
-                        Object.keys(this.post_types).forEach(function (key) {
-                            raw[key] = _this.listings.filter(function (post) {
-                                return post.type === key;
-                            }).filter(function (post) {
-                                if (_this.region === '') {
-                                    return true;
-                                } else {
-                                    return post.region_id === _this.region.id;
-                                }
-                            }).filter(function (post) {
-                                if (_this.township === '') {
-                                    return true;
-                                } else {
-                                    return post.township_id === _this.township.id;
-                                }
-                            });
-                        });
-                        return raw;
-                    }
-                },
-                methods: {
-                    regionSelected: function regionSelected() {
-                        if (this.region === '') {
-                            this.townships = null;
-                        } else {
-                            this.townships = this.region.townships.data;
-                        }
-                    }
-                }
-            });
+      var raw = {};
+      this.listings = this.posts.data;
+      Object.keys(this.post_types).forEach(function (key) {
+        raw[key] = _this.listings.filter(function (post) {
+          return post.type === key;
+        }).filter(function (post) {
+          if (_this.region === '') {
+            return true;
+          } else {
+            return post.region_id === _this.region.id;
+          }
+        }).filter(function (post) {
+          if (_this.township === '') {
+            return true;
+          } else {
+            return post.township_id === _this.township.id;
+          }
+        });
+      });
+      return raw;
+    }
+  },
+  methods: {
+    regionSelected: function regionSelected() {
+      if (this.region === '') {
+        this.townships = null;
+      } else {
+        this.townships = this.region.townships.data;
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -3043,60 +3041,51 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export */
-            __webpack_require__.d(__webpack_exports__, {
-                /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-                /* harmony export */
-            });
-            /* harmony import */
-            var _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/BaseLayout */ "./resources/js/Layouts/BaseLayout.vue");
-
-            function ownKeys(object, enumerableOnly) {
-                var keys = Object.keys(object);
-                if (Object.getOwnPropertySymbols) {
-                    var symbols = Object.getOwnPropertySymbols(object);
-                    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-                        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-                    });
-                    keys.push.apply(keys, symbols);
-                }
-                return keys;
-            }
-
-            function _objectSpread(target) {
-                for (var i = 1; i < arguments.length; i++) {
-                    var source = arguments[i] != null ? arguments[i] : {};
-                    if (i % 2) {
-                        ownKeys(Object(source), true).forEach(function (key) {
-                            _defineProperty(target, key, source[key]);
-                        });
-                    } else if (Object.getOwnPropertyDescriptors) {
-                        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-                    } else {
-                        ownKeys(Object(source)).forEach(function (key) {
-                            Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-                        });
-                    }
-                }
-                return target;
-            }
-
-            function _defineProperty(obj, key, value) {
-                if (key in obj) {
-                    Object.defineProperty(obj, key, {
-                        value: value,
-                        enumerable: true,
-                        configurable: true,
-                        writable: true
-                    });
-                } else {
-                    obj[key] = value;
-                }
-                return obj;
-            }
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/BaseLayout */ "./resources/js/Layouts/BaseLayout.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3128,38 +3117,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-/* harmony default export */
-            const __WEBPACK_DEFAULT_EXPORT__ = ({
-                components: {
-                    BaseLayout: _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__.default
-                },
-                data: function data() {
-                    return {
-                        townships: null,
-                        form: this.$inertia.form({
-                            region: '',
-                            township: ''
-                        })
-                    };
-                },
-                props: {
-                    regions: Object,
-                    post_types: Object
-                },
-                methods: {
-                    getTownships: function getTownships() {
-                        this.townships = this.form.region.townships.data;
-                    },
-                    submit: function submit() {
-                        this.form.transform(function (data) {
-                            return _objectSpread(_objectSpread({}, data), {}, {
-                                region: data.region.id,
-                                township: data.township.id
-                            });
-                        }).post('/new');
-                    }
-                }
-            });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    BaseLayout: _Layouts_BaseLayout__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  data: function data() {
+    return {
+      region: '',
+      township: '',
+      townships: null
+    };
+  },
+  props: {
+    regions: Object,
+    post_types: Object
+  },
+  methods: {
+    regionSelected: function regionSelected() {
+      if (this.region === '') {
+        this.townships = null;
+      } else {
+        this.townships = this.region.townships.data;
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -3199,6 +3181,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 function getLocalizedUrl(locale) {
   var segments = window.location.pathname.split('/');
   segments[0] = window.location.origin;
@@ -3210,9 +3193,9 @@ function getLocalizedUrl(locale) {
   name: "FooterComponent",
   data: function data() {
     return {
-        appName: "Yan's List",
-        currentUrl: route(route().current()),
-        currentLocale: document.documentElement.lang
+      appName: "Yan's List",
+      currentUrl: route(route().current()),
+      currentLocale: document.documentElement.lang
     };
   },
   computed: {
@@ -3265,18 +3248,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-            /* harmony default export */
-            const __WEBPACK_DEFAULT_EXPORT__ = ({
-                name: "HeaderComponent",
-                data: function data() {
-                    return {
-                        appName: "Yan's List"
-                    };
-                }
-            });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "HeaderComponent",
+  data: function data() {
+    return {
+      appName: "Yan's List"
+    };
+  }
+});
 
-            /***/
-        }),
+/***/ }),
 
 /***/ "./resources/js/VueTranslation/Translation.js":
 /*!****************************************************!*\
@@ -24299,153 +24280,162 @@ var render = function() {
   return _c("base-layout", [
     _c("div", { staticClass: "uk-section uk-section-primary" }, [
       _c("div", { staticClass: "uk-container" }, [
-          _c("h3", [_vm._v(_vm._s(_vm.translate("home.browse_listings_by")))]),
+        _c("h3", [_vm._v(_vm._s(_vm.translate("home.browse_listings_by")))]),
+        _vm._v(" "),
+        _c("form", { attrs: { "uk-grid": "" } }, [
+          _c("div", { staticClass: "uk-width-1-2@m uk-width-1-1@s" }, [
+            _c(
+              "label",
+              { staticClass: "uk-hidden", attrs: { for: "region" } },
+              [_vm._v(_vm._s(_vm.translate("main.select_region")))]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.region,
+                    expression: "region"
+                  }
+                ],
+                staticClass: "uk-select",
+                attrs: { id: "region" },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.region = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    function($event) {
+                      return _vm.regionSelected()
+                    }
+                  ]
+                }
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v(_vm._s(_vm.translate("main.select_region")))
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.regions.data, function(data) {
+                  return _c("option", { domProps: { value: data } }, [
+                    _vm._v(_vm._s(data.name))
+                  ])
+                })
+              ],
+              2
+            )
+          ]),
           _vm._v(" "),
-          _c("form", {attrs: {"uk-grid": ""}}, [
-              _c("div", {staticClass: "uk-width-1-2@m uk-width-1-1@s"}, [
-                  _c(
-                      "select",
-                      {
-                          directives: [
-                              {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.region,
-                                  expression: "region"
-                              }
-                          ],
-                          staticClass: "uk-select",
-                          on: {
-                              change: [
-                                  function ($event) {
-                                      var $$selectedVal = Array.prototype.filter
-                                          .call($event.target.options, function (o) {
-                                              return o.selected
-                                          })
-                                          .map(function (o) {
-                                              var val = "_value" in o ? o._value : o.value
-                                              return val
-                                          })
-                                      _vm.region = $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                  },
-                                  function ($event) {
-                                      return _vm.regionSelected()
-                                  }
-                              ]
-                          }
-                      },
-                      [
-                          _c("option", {attrs: {value: ""}}, [
-                              _vm._v(_vm._s(_vm.translate("main.select_region")))
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(_vm.regions.data, function (data) {
-                              return _c("option", {domProps: {value: data}}, [
-                                  _vm._v(_vm._s(data.id) + " " + _vm._s(data.name))
-                              ])
-                          })
-                      ],
-                      2
-                  )
-              ]),
-              _vm._v(" "),
-              _c("div", {staticClass: "uk-width-1-2@m uk-width-1-1@s"}, [
-                  _c(
-                      "select",
-                      {
-                          directives: [
-                              {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.township,
-                                  expression: "township"
-                              }
-                          ],
-                          staticClass: "uk-select",
-                          on: {
-                              change: [
-                                  function ($event) {
-                                      var $$selectedVal = Array.prototype.filter
-                                          .call($event.target.options, function (o) {
-                                              return o.selected
-                                          })
-                                          .map(function (o) {
-                                              var val = "_value" in o ? o._value : o.value
-                                              return val
-                                          })
-                                      _vm.township = $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                  },
-                                  function ($event) {
-                                      return _vm.townshipSelected()
-                                  }
-                              ]
-                          }
-                      },
-                      [
-                          _c("option", {attrs: {value: ""}}, [
-                              _vm._v(_vm._s(_vm.translate("main.select_township")))
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(_vm.townships, function (data) {
-                              return _c("option", {domProps: {value: data}}, [
-                                  _vm._v(_vm._s(data.id) + " " + _vm._s(data.name))
-                              ])
-                          })
-                      ],
-                      2
-                  )
-              ])
+          _c("div", { staticClass: "uk-width-1-2@m uk-width-1-1@s" }, [
+            _c(
+              "label",
+              { staticClass: "uk-hidden", attrs: { for: "township" } },
+              [_vm._v(_vm._s(_vm.translate("main.select_township")))]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.township,
+                    expression: "township"
+                  }
+                ],
+                staticClass: "uk-select",
+                attrs: { id: "township" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.township = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v(_vm._s(_vm.translate("main.select_township")))
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.townships, function(data) {
+                  return _c("option", { domProps: { value: data } }, [
+                    _vm._v(_vm._s(data.name))
+                  ])
+                })
+              ],
+              2
+            )
           ])
+        ])
       ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "uk-section" }, [
       _c("div", { staticClass: "uk-container" }, [
         _c(
-            "div",
-            {staticClass: "uk-grid-large", attrs: {"uk-grid": ""}},
-            _vm._l(_vm.post_types, function (value, key) {
-                return _c("div", {staticClass: "uk-width-1-2@m uk-width-1-1@s"}, [
-                    _c("h2", [_vm._v(_vm._s(_vm.translate("post.types." + key)))]),
-                    _vm._v(" "),
+          "div",
+          { staticClass: "uk-grid-large", attrs: { "uk-grid": "" } },
+          _vm._l(_vm.post_types, function(value, key) {
+            return _c("div", { staticClass: "uk-width-1-2@m uk-width-1-1@s" }, [
+              _c("h2", [_vm._v(_vm._s(_vm.translate("post.types." + key)))]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "uk-list" },
+                _vm._l(_vm.filtered_posts[key], function(post) {
+                  return _c("li", [
                     _c(
-                        "ul",
-                        {staticClass: "uk-list"},
-                        _vm._l(_vm.filtered_posts[key], function (post) {
-                            return _c("li", [
-                                _c(
-                                    "a",
-                                    {
-                                        staticClass: "uk-link-text",
-                                        attrs: {href: post.slug}
-                                    },
-                                    [
-                                        post.is_offer
-                                            ? _c("span", {staticClass: "uk-label"}, [
-                                                _vm._v(_vm._s(_vm.translate("main.offer")))
-                                            ])
-                                            : _vm._e(),
-                                        _vm._v(
-                                            "\n                " +
-                                            _vm._s(post.title) +
-                                            "\n                "
-                                        ),
-                                        _c("span", {staticClass: "uk-text-meta"}, [
-                                            _vm._v("@" + _vm._s(post.region.localized_name))
-                                        ])
-                                    ]
-                                )
+                      "a",
+                      {
+                        staticClass: "uk-link-text",
+                        attrs: { href: post.slug }
+                      },
+                      [
+                        post.is_offer
+                          ? _c("span", { staticClass: "uk-label" }, [
+                              _vm._v(_vm._s(_vm.translate("main.offer")))
                             ])
-                        }),
-                        0
+                          : _vm._e(),
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(post.title) +
+                            "\n                "
+                        ),
+                        _c("span", { staticClass: "uk-text-meta" }, [
+                          _vm._v("@" + _vm._s(post.region.localized_name))
+                        ])
+                      ]
                     )
-                ])
-            }),
-            0
+                  ])
+                }),
+                0
+              )
+            ])
+          }),
+          0
         )
       ])
     ])
@@ -24471,148 +24461,288 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("base-layout", [
-        _c("div", {staticClass: "uk-section uk-section-primary"}, [
-            _c("div", {staticClass: "uk-container"}, [
-                _c("h3", [_vm._v(_vm._s(_vm.translate("home.browse_listings_by")))]),
-                _vm._v(" "),
-                _c(
-                    "form",
-                    {
-                        attrs: {"uk-grid": ""},
-                        on: {
-                            submit: function ($event) {
-                                $event.preventDefault()
-                                return _vm.form.post("/new")
-                            }
-                        }
-                    },
-                    [
-                        _c("div", {staticClass: "uk-width-1-3@m uk-width-1-1@s"}, [
-                            _c(
-                                "select",
-                                {
-                                    directives: [
-                                        {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.form.region,
-                                            expression: "form.region"
-                                        }
-                                    ],
-                                    staticClass: "uk-select",
-                                    on: {
-                                        change: [
-                                            function ($event) {
-                                                var $$selectedVal = Array.prototype.filter
-                                                    .call($event.target.options, function (o) {
-                                                        return o.selected
-                                                    })
-                                                    .map(function (o) {
-                                                        var val = "_value" in o ? o._value : o.value
-                                                        return val
-                                                    })
-                                                _vm.$set(
-                                                    _vm.form,
-                                                    "region",
-                                                    $event.target.multiple
-                                                        ? $$selectedVal
-                                                        : $$selectedVal[0]
-                                                )
-                                            },
-                                            function ($event) {
-                                                return _vm.getTownships()
-                                            }
-                                        ]
-                                    }
-                                },
-                                [
-                                    _c("option", {attrs: {value: ""}}, [
-                                        _vm._v(_vm._s(_vm.translate("home.select_region")))
-                                    ]),
-                                    _vm._v(" "),
-                                    _vm._l(_vm.regions.data, function (data) {
-                                        return _c("option", {domProps: {value: data}}, [
-                                            _vm._v(_vm._s(data.name))
-                                        ])
-                                    })
-                                ],
-                                2
-                            )
-                        ]),
-                        _vm._v(" "),
-                        _c("div", {staticClass: "uk-width-1-3@m uk-width-1-1@s"}, [
-                            _c(
-                                "select",
-                                {
-                                    directives: [
-                                        {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.form.township,
-                                            expression: "form.township"
-                                        }
-                                    ],
-                                    staticClass: "uk-select",
-                                    on: {
-                                        change: function ($event) {
-                                            var $$selectedVal = Array.prototype.filter
-                                                .call($event.target.options, function (o) {
-                                                    return o.selected
-                                                })
-                                                .map(function (o) {
-                                                    var val = "_value" in o ? o._value : o.value
-                                                    return val
-                                                })
-                                            _vm.$set(
-                                                _vm.form,
-                                                "township",
-                                                $event.target.multiple
-                                                    ? $$selectedVal
-                                                    : $$selectedVal[0]
-                                            )
-                                        }
-                                    }
-                                },
-                                [
-                                    _c("option", {attrs: {value: ""}}, [
-                                        _vm._v(_vm._s(_vm.translate("home.select_township")))
-                                    ]),
-                                    _vm._v(" "),
-                                    _vm._l(_vm.townships, function (data) {
-                                        return _c("option", {domProps: {value: data}}, [
-                                            _vm._v(_vm._s(data.name))
-                                        ])
-                                    })
-                                ],
-                                2
-                            )
-                        ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "uk-width-1-3@m uk-width-1-1@s" }, [
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("base-layout", [
+    _c("div", { staticClass: "uk-section uk-margin" }, [
+      _c("div", { staticClass: "uk-container" }, [
+        _c(
+          "div",
+          {
+            staticClass: "uk-grid-small uk-flex-center",
+            attrs: { "uk-grid": "" }
+          },
+          [
+            _c("div", { staticClass: "uk-width-2-3" }, [
+              _c("h3", [_vm._v(_vm._s(_vm.translate("post.new.heading")))]),
+              _vm._v(" "),
               _c(
-                  "button",
-                  {
-                      staticClass: "uk-button uk-button-primary",
-                      attrs: {disabled: _vm.form.processing, type: "submit"}
-                  },
-                  [
-                      _vm._v(
-                          "\n            " +
-                          _vm._s(_vm.translate("home.search")) +
-                          "\n          "
+                "form",
+                { staticClass: "uk-grid-small", attrs: { "uk-grid": "" } },
+                [
+                  _c("div", { staticClass: "uk-width-1-1" }, [
+                    _c("div", { staticClass: "uk-form-controls" }, [
+                      _c("label", { staticClass: "uk-margin-small-right" }, [
+                        _c("input", {
+                          staticClass: "uk-radio",
+                          attrs: {
+                            checked: "",
+                            name: "is_offer",
+                            type: "radio",
+                            value: "1"
+                          }
+                        }),
+                        _vm._v(" " + _vm._s(_vm.translate("post.new.is_offer")))
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { staticClass: "uk-margin-small-right" }, [
+                        _c("input", {
+                          staticClass: "uk-radio",
+                          attrs: { name: "is_offer", type: "radio", value: "0" }
+                        }),
+                        _vm._v(
+                          "\n                  " +
+                            _vm._s(_vm.translate("post.new.not_offer"))
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "uk-width-1-2" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "uk-form-label",
+                        attrs: { for: "region" }
+                      },
+                      [_vm._v(_vm._s(_vm.translate("post.new.region")))]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "uk-form-controls" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.region,
+                              expression: "region"
+                            }
+                          ],
+                          staticClass: "uk-select",
+                          attrs: { id: "region" },
+                          on: {
+                            change: [
+                              function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.region = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              },
+                              function($event) {
+                                return _vm.regionSelected()
+                              }
+                            ]
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v(_vm._s(_vm.translate("main.select_region")))
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.regions.data, function(data) {
+                            return _c("option", { domProps: { value: data } }, [
+                              _vm._v(_vm._s(data.name))
+                            ])
+                          })
+                        ],
+                        2
                       )
-                  ]
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "uk-width-1-2" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "uk-form-label",
+                        attrs: { for: "township" }
+                      },
+                      [_vm._v(_vm._s(_vm.translate("post.new.township")))]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "uk-form-controls" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.township,
+                              expression: "township"
+                            }
+                          ],
+                          staticClass: "uk-select",
+                          attrs: { id: "township" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.township = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "" } }, [
+                            _vm._v(
+                              _vm._s(_vm.translate("main.select_township"))
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.townships, function(data) {
+                            return _c("option", { domProps: { value: data } }, [
+                              _vm._v(_vm._s(data.name))
+                            ])
+                          })
+                        ],
+                        2
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "uk-width-1-1" }, [
+                    _c("div", { staticClass: "uk-form-label" }, [
+                      _vm._v(_vm._s(_vm.translate("post.new.type")))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "uk-form-controls" },
+                      _vm._l(_vm.post_types, function(value, key) {
+                        return _c(
+                          "label",
+                          { key: key, staticClass: "uk-margin-small-right" },
+                          [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.type,
+                                  expression: "type"
+                                }
+                              ],
+                              staticClass: "uk-radio",
+                              attrs: {
+                                checked: "",
+                                name: "type",
+                                type: "radio"
+                              },
+                              domProps: {
+                                value: key,
+                                checked: _vm._q(_vm.type, key)
+                              },
+                              on: {
+                                change: function($event) {
+                                  _vm.type = key
+                                }
+                              }
+                            }),
+                            _vm._v(
+                              "\n                  " +
+                                _vm._s(_vm.translate("post.types." + key)) +
+                                "\n                "
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "uk-width-1-1" }, [
+                    _c(
+                      "label",
+                      { staticClass: "uk-form-label", attrs: { for: "title" } },
+                      [_vm._v(_vm._s(_vm.translate("post.new.title")))]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "uk-form-controls" }, [
+                      _c("input", {
+                        staticClass: "uk-input",
+                        attrs: {
+                          id: "title",
+                          placeholder: _vm.translate(
+                            "post.new.title_placeholder"
+                          ),
+                          name: "title",
+                          type: "text"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "uk-width-1-1" }, [
+                    _c(
+                      "label",
+                      { staticClass: "uk-form-label", attrs: { for: "body" } },
+                      [_vm._v(_vm._s(_vm.translate("post.new.body")))]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "uk-form-controls" }, [
+                      _c("textarea", {
+                        staticClass: "uk-textarea",
+                        attrs: {
+                          id: "body",
+                          placeholder: _vm.translate(
+                            "post.new.body_placeholder"
+                          ),
+                          name: "body",
+                          rows: "10"
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "uk-width-1-1" }, [
+                    _c("div", { staticClass: "uk-form-controls" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "uk-button uk-button-primary uk-width-1-1",
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v(_vm._s(_vm.translate("post.new.submit")))]
+                      )
+                    ])
+                  ])
+                ]
               )
             ])
-                    ]
-                )
-            ])
-        ])
+          ]
+        )
+      ])
     ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -24648,45 +24778,45 @@ var render = function() {
             staticClass: "uk-grid-margin-small uk-child-width-1-2",
             attrs: { "uk-grid": "" }
           },
-            [
-                _c("div", [
-                    _c("p", [
-                        _c("strong", [_vm._v(_vm._s(_vm.appName))]),
-                        _vm._v(" © 2021.\n          Developed and maintained by "),
-                        _c(
-                            "a",
-                            {
-                                staticClass: "uk-link-muted",
-                                attrs: {href: "https://hiyan.xyz"}
-                            },
-                            [_vm._v("Yan")]
-                        ),
-                        _vm._v(".\n        ")
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(0)
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                    _c("p", {staticClass: "uk-align-right"}, [
-                        _c(
-                            "a",
-                            {
-                                staticClass: "uk-link-text",
-                                attrs: {href: _vm.localeUrls.my}
-                            },
-                            [_vm._v("မြန်မာ")]
-                        ),
-                        _vm._v(" /\n          "),
-                        _c(
-                            "a",
-                            {
-                                staticClass: "uk-link-text",
-                                attrs: {href: _vm.localeUrls.en}
-                            },
-                            [_vm._v("English")]
-                        )
-                    ])
+          [
+            _c("div", [
+              _c("p", [
+                _c("strong", [_vm._v(_vm._s(_vm.appName))]),
+                _vm._v(" © 2021.\n          Developed and maintained by "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "uk-link-muted",
+                    attrs: { href: "https://hiyan.xyz" }
+                  },
+                  [_vm._v("Yan")]
+                ),
+                _vm._v(".\n        ")
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("p", { staticClass: "uk-align-right" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "uk-link-text",
+                    attrs: { href: _vm.localeUrls.my }
+                  },
+                  [_vm._v("မြန်မာ")]
+                ),
+                _vm._v(" /\n          "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "uk-link-text",
+                    attrs: { href: _vm.localeUrls.en }
+                  },
+                  [_vm._v("English")]
+                )
+              ])
             ])
           ]
         )
@@ -24696,30 +24826,39 @@ var render = function() {
 }
 var staticRenderFns = [
   function() {
-      var _vm = this
-      var _h = _vm.$createElement
-      var _c = _vm._self._c || _h
-      return _c("p", [
-          _vm._v("\n          Used "),
-          _c(
-              "a",
-              {
-                  staticClass: "uk-link-muted",
-                  attrs: {href: "https://getuikit.com/", target: "_blank"}
-              },
-              [_vm._v("UIkit")]
-          ),
-          _vm._v(".\n          Powered by "),
-          _c(
-              "a",
-              {
-                  staticClass: "uk-link-muted",
-                  attrs: {href: "https://laravel.com/", target: "_blank"}
-              },
-              [_vm._v("Laravel")]
-          ),
-          _vm._v(".\n        ")
-      ])
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v("\n          Powered by "),
+      _c(
+        "a",
+        {
+          staticClass: "uk-link-muted",
+          attrs: { href: "https://getuikit.com/", target: "_blank" }
+        },
+        [_vm._v("UIkit")]
+      ),
+      _vm._v(", \n          "),
+      _c(
+        "a",
+        {
+          staticClass: "uk-link-muted",
+          attrs: { href: "https://laravel.com/", target: "_blank" }
+        },
+        [_vm._v("Laravel")]
+      ),
+      _vm._v(", \n          "),
+      _c(
+        "a",
+        {
+          staticClass: "uk-link-muted",
+          attrs: { href: "https://vuejs.org/", target: "_blank" }
+        },
+        [_vm._v("Vue.js")]
+      ),
+      _vm._v(".\n        ")
+    ])
   }
 ]
 render._withStripped = true
@@ -24754,7 +24893,7 @@ var render = function() {
               staticClass: "uk-navbar-item uk-logo",
               attrs: { href: _vm.route("home") }
             },
-              [_vm._v(_vm._s(_vm.appName))]
+            [_vm._v(_vm._s(_vm.appName))]
           )
         ]),
         _vm._v(" "),
@@ -24767,26 +24906,26 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("li", [
-                _c("a", {attrs: {href: _vm.route("home")}}, [
-                    _vm._v(_vm._s(_vm.translate("main.contact")))
-                ])
+              _c("a", { attrs: { href: _vm.route("home") } }, [
+                _vm._v(_vm._s(_vm.translate("main.contact")))
+              ])
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "uk-navbar-item" }, [
             _c(
-                "a",
-                {
-                    staticClass: "uk-button uk-button-primary",
-                    attrs: {href: _vm.route("new")}
-                },
-                [
-                    _vm._v(
-                        "\n            " +
-                        _vm._s(_vm.translate("main.post_new")) +
-                        "\n          "
-                    )
-                ]
+              "a",
+              {
+                staticClass: "uk-button uk-button-primary",
+                attrs: { href: _vm.route("new") }
+              },
+              [
+                _vm._v(
+                  "\n            " +
+                    _vm._s(_vm.translate("main.post_new")) +
+                    "\n          "
+                )
+              ]
             )
           ])
         ])
@@ -36950,11 +37089,10 @@ webpackContext.id = "./resources/js/Pages sync recursive ^\\.\\/.*$";
   \*******************************************************/
 /***/ ((module) => {
 
-            "use strict";
-            module.exports = JSON.parse("{\"en\":{\"home\":{\"browse_listings_by\":\"Browse Listings By\",\"search\":\"Search\"},\"main\":{\"listings\":\"Listings\",\"contact\":\"Contact\",\"post_new\":\"Post New\",\"select_region\":\"Select Region\",\"select_township\":\"Select Township\",\"offer\":\"Offer\"},\"post\":{\"types\":{\"aid\":\"Aid\",\"shelter\":\"Shelter\",\"labour\":\"labour\",\"service\":\"Service\"}}},\"my\":{\"home\":{\"browse_listings_by\":\"စီစစ်ပြီး ကြည့်ရန်\",\"search\":\"စီစစ်မယ်\"},\"main\":{\"listings\":\"စာရင်းများ\",\"contact\":\"ဆက်သွယ်ရန်\",\"post_new\":\"အသစ်တင်မယ်\",\"select_region\":\"တိုင်းဒေသကြီးရွေးပါ\",\"select_township\":\"မြို့နယ်ရွေးပါ\",\"offer\":\"ကမ်းလှမ်း\"},\"post\":{\"types\":{\"aid\":\"အထောက်အပံ့\",\"shelter\":\"ခိုလှုံနားရာ\",\"labour\":\"လူအင်အား\",\"service\":\"ဝန်ဆောင်မှု\"}}}}");
+"use strict";
+module.exports = JSON.parse("{\"en\":{\"home\":{\"browse_listings_by\":\"Browse Listings By\",\"search\":\"Search\"},\"main\":{\"listings\":\"Listings\",\"contact\":\"Contact\",\"post_new\":\"Post New\",\"select_region\":\"Select Region\",\"select_township\":\"Select Township\",\"offer\":\"Offer\"},\"post\":{\"types\":{\"aid\":\"Aid\",\"shelter\":\"Shelter\",\"labour\":\"Labour\",\"service\":\"Service\"},\"new\":{\"heading\":\"New Post\",\"is_offer\":\"We are offering\",\"not_offer\":\"We are seeking\",\"region\":\"Region\",\"township\":\"Township\",\"type\":\"Listing Type\",\"title\":\"Title\",\"title_placeholder\":\"Short and clear title for your listing\",\"body\":\"Listing Details\",\"body_placeholder\":\"Details description about your listing\",\"submit\":\"Submit\"}}},\"my\":{\"home\":{\"browse_listings_by\":\"စီစစ်ပြီး ကြည့်ရန်\",\"search\":\"စီစစ်မယ်\"},\"main\":{\"listings\":\"ပိုစ့်များ\",\"contact\":\"ဆက်သွယ်ရန်\",\"post_new\":\"အသစ်တင်မယ်\",\"select_region\":\"တိုင်းဒေသကြီးရွေးပါ\",\"select_township\":\"မြို့နယ်ရွေးပါ\",\"offer\":\"ကမ်းလှမ်း\"},\"post\":{\"types\":{\"aid\":\"အထောက်အပံ့\",\"shelter\":\"ခိုလှုံနားရာ\",\"labour\":\"လူအင်အား\",\"service\":\"ဝန်ဆောင်မှု\"},\"new\":{\"heading\":\"ပိုစ့်အသစ်\",\"is_offer\":\"ကမ်းလှမ်းချင်တာပါ။\",\"not_offer\":\"လိုအပ်တာပါ။\",\"region\":\"တိုင်းဒေသကြီး\",\"township\":\"မြို့နယ်\",\"type\":\"အမျိုးအစား\",\"title\":\"ခေါင်းစဥ်\",\"title_placeholder\":\"တိုတိုရှင်းရှင်း ဖေါ်ပြနိုင်သည့် ခေါင်းစဥ်ရေးရန်\",\"body\":\"အသေးစိတ်အချက်အလက်\",\"body_placeholder\":\"အသေးစိတ်အကြောင်းအရာများအား ပြည့်စုံစွာရေးရန်\",\"submit\":\"ပိုစ့်တင်မယ်\"}}}}");
 
-            /***/
-        })
+/***/ })
 
 /******/ 	});
 /************************************************************************/

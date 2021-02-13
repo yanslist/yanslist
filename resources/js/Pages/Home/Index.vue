@@ -5,15 +5,17 @@
         <h3>{{ translate('home.browse_listings_by') }}</h3>
         <form class="" uk-grid>
           <div class="uk-width-1-2@m uk-width-1-1@s">
-            <select v-model="region" class="uk-select" @change="regionSelected()">
+            <label class="uk-hidden" for="region">{{ translate('main.select_region') }}</label>
+            <select id="region" v-model="region" class="uk-select" @change="regionSelected()">
               <option value="">{{ translate('main.select_region') }}</option>
-              <option v-for="data in regions.data" :value="data">{{ data.id }} {{ data.name }}</option>
+              <option v-for="data in regions.data" :value="data">{{ data.name }}</option>
             </select>
           </div>
           <div class="uk-width-1-2@m uk-width-1-1@s">
-            <select v-model="township" class="uk-select" @change="townshipSelected()">
+            <label class="uk-hidden" for="township">{{ translate('main.select_township') }}</label>
+            <select id="township" v-model="township" class="uk-select">
               <option value="">{{ translate('main.select_township') }}</option>
-              <option v-for="data in townships" :value="data">{{ data.id }} {{ data.name }}</option>
+              <option v-for="data in townships" :value="data">{{ data.name }}</option>
             </select>
           </div>
         </form>
