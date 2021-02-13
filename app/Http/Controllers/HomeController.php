@@ -9,6 +9,7 @@ use App\Presenters\RegionPresenter;
 use App\Repositories\PostRepository;
 use App\Repositories\RegionRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 /**
  * Class HomeController.
@@ -51,19 +52,32 @@ class HomeController extends Controller
             'body' => 'required',
             'region_id' => 'required',
             'township_id' => 'required',
+            'recaptcha_token' => 'required'
         ]);
 
-        do {
-            $bytes = random_bytes(4);
-            $token = bin2hex($bytes);
-        } while (Post::where('token', $token)->first());
-        $inputs = $request->all();
-        $inputs['token'] = $token;
-        $inputs['user_id'] = 1;
+        $captcha_result = $this->captcha($request->recaptcha_token);
 
-        Post::create($inputs);
+        if ($captcha_result['success']) {
+            do {
+                $bytes = random_bytes(4);
+                $token = bin2hex($bytes);
+            } while (Post::where('token', $token)->first());
+            $inputs = $request->all();
+            $inputs['token'] = $token;
+            $inputs['user_id'] = 1;
 
-        return redirect()->route('home');
+            Post::create($inputs);
+
+            $route = 'home';
+            $flash['type'] = 'success';
+            $flash['message'] = 'Successfully posted.';
+        } else {
+            $route = 'new';
+            $flash['type'] = 'danger';
+            $flash['message'] = 'Something wrong. Please try again.';
+        }
+
+        return redirect()->route($route)->with($flash);
     }
 
     public function test()
@@ -72,5 +86,19 @@ class HomeController extends Controller
         $token = bin2hex($bytes);
         $result = Post::where('token', '75331680')->first();
         dd(['token' => $token, 'result' => $result]);
+    }
+
+    /**
+     * @param  String  $token
+     * @return array|mixed
+     */
+    protected function captcha(string $token)
+    {
+        $response = Http::asForm()->post(config('services.recaptcha.domain'), [
+            'secret' => config('services.recaptcha.secret'),
+            'response' => $token,
+        ]);
+
+        return $response->json();
     }
 }

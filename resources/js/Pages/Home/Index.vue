@@ -48,16 +48,19 @@
         <div class="uk-grid-small uk-flex-center uk-flex-middle" uk-grid>
           <div class="uk-width-2-3 uk-padding-large uk-height-viewport">
             <article class="uk-article">
-              <h3>
+              <h3 class="uk-article-title">
+                {{ translate('post.types.' + modalPost.type) }}
                 <small>
                   <span v-if="modalPost.is_offer" class="uk-label uk-label-success">{{
                       translate('main.is_offer')
                     }}</span>
                   <span v-else class="uk-label uk-label-warning">{{ translate('main.not_offer') }}</span>
                 </small>
-                {{ modalPost.title }}
               </h3>
               <hr class="uk-divider-small">
+              <h3>
+                {{ modalPost.title }}
+              </h3>
               <p>{{ modalPost.body }}</p>
               <p class="uk-text-meta">
                 @{{ modalPost.location }}
@@ -88,6 +91,7 @@ export default {
       modalPost: {
         title: '',
         body: '',
+        type: '',
         is_offer: true,
         location: '',
       }

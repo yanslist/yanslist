@@ -3,7 +3,7 @@
     <div class="uk-container">
       <div uk-navbar>
         <div class="uk-navbar-left">
-          <a :href="route('home')" class="uk-navbar-item uk-logo">{{ appName }}</a>
+          <a :href="route('home')" class="uk-navbar-item uk-logo">{{ $page.props.appName }}</a>
         </div>
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
@@ -28,10 +28,5 @@
 <script>
 export default {
   name: "HeaderComponent",
-  data() {
-    return {
-      appName: process.env.MIX_APP_NAME
-    }
-  }
 }
 </script>

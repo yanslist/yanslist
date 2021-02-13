@@ -63,6 +63,13 @@
               </div>
               <div class="uk-width-1-1">
                 <div class="uk-form-controls">
+                  <vue-recaptcha
+                      ref="recaptcha"
+                      :sitekey="recaptchaSiteKey"
+                      size="invisible"
+                      @expired="onCaptchaExpired"
+                      @verify="onCaptchaVerified">
+                  </vue-recaptcha>
                   <button class="uk-button uk-button-primary uk-width-1-1" type="submit">
                     {{ translate('post.new.submit') }}
                   </button>
@@ -79,13 +86,16 @@
 
 <script>
 import BaseLayout from "../../Layouts/BaseLayout";
+import VueRecaptcha from 'vue-recaptcha';
 
 export default {
   components: {
     BaseLayout,
+    VueRecaptcha
   },
   data() {
     return {
+      recaptchaSiteKey: process.env.MIX_RECAPTCHA_SITEKEY,
       townships: null,
       form: {
         is_offer: true,
@@ -93,14 +103,15 @@ export default {
         township_id: '',
         type: '',
         title: '',
-        body: ''
+        body: '',
+        recaptcha_token: ''
       },
     }
   },
   props: {
     regions: Object,
     post_types: Object,
-    default_post_type: String
+    default_post_type: String,
   },
   methods: {
     regionSelected() {
@@ -111,9 +122,18 @@ export default {
       }
     },
     submit() {
+      this.$refs.recaptcha.execute();
+    },
+    onCaptchaVerified: function (recaptchaToken) {
+      const self = this;
+      self.$refs.recaptcha.reset();
       this.form.region_id = this.form.region_id.id;
       this.form.township_id = this.form.township_id.id;
+      this.form.recaptcha_token = recaptchaToken;
       this.$inertia.post(route('store'), this.form);
+    },
+    onCaptchaExpired: function () {
+      this.$refs.recaptcha.reset();
     }
   },
   created() {
