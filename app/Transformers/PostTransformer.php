@@ -12,6 +12,8 @@ use League\Fractal\TransformerAbstract;
  */
 class PostTransformer extends TransformerAbstract
 {
+//    protected $defaultIncludes = ['region'];
+
     /**
      * Transform the Post entity.
      *
@@ -28,9 +30,19 @@ class PostTransformer extends TransformerAbstract
             'slug' => $model->slug,
             'body' => $model->body,
             'region_id' => $model->region_id,
+            'region' => $model->region,
             'township_id' => $model->township_id,
             'created_at' => $model->created_at,
             'updated_at' => $model->updated_at
         ];
     }
+
+//    public function includeRegion(Post $model)
+//    {
+//        if ($model->region) {
+//            return $this->item($model->region, new RegionTransformer());
+//        } else {
+//            return null;
+//        }
+//    }
 }

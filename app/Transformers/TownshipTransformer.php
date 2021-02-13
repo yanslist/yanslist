@@ -4,7 +4,6 @@ namespace App\Transformers;
 
 use App\Models\Township;
 use League\Fractal\TransformerAbstract;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /**
  * Class PostTransformer.
@@ -23,10 +22,9 @@ class TownshipTransformer extends TransformerAbstract
      */
     public function transform(Township $model): array
     {
-        $name = (LaravelLocalization::getCurrentLocale() == 'my') ? $model->name_mm : $model->name;
         return [
             'id' => (int) $model->id,
-            'name' => (string) $name,
+            'name' => (string) $model->localized_name,
         ];
     }
 }
