@@ -9,6 +9,7 @@ return [
     ],
     "new" => [
         "heading" => "New Post",
+        "help_text" => "You cannot edit after submission. Please only enter correct and confirm information.",
         "is_offer" => "We are offering",
         "not_offer" => "We are seeking",
         "region" => "Region",

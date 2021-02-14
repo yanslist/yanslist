@@ -5,7 +5,7 @@
         <div>
           <p>
             <strong>{{ $page.props.appName }}</strong> &copy; 2021.
-            Developed and maintained by <a class="uk-link-muted" href="https://hiyan.xyz">Yan</a>
+            Developed and maintained by <a class="uk-link-muted" href="https://hiyan.xyz">Yan</a>.
           </p>
           <p>
             Powered by <a class="uk-link-muted" href="https://getuikit.com/" target="_blank">UIkit</a>,&nbsp;
