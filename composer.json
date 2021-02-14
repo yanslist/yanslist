@@ -22,7 +22,6 @@
       "laravel/ui": "^3.2",
       "league/fractal": "^0.19.2",
       "mcamara/laravel-localization": "^1.6",
-      "orchid/platform": "^9.19",
       "prettus/l5-repository": "^2.7",
       "spatie/laravel-sluggable": "^2.6",
       "spatie/laravel-tags": "^2.7",
