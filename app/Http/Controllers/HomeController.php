@@ -59,8 +59,7 @@ class HomeController extends Controller
 
         if ($captcha_result['success']) {
             do {
-                $bytes = random_bytes(4);
-                $token = bin2hex($bytes);
+                $token = makeToken();
             } while (Post::where('token', $token)->first());
             $inputs = $request->all();
             $inputs['token'] = $token;
@@ -69,12 +68,10 @@ class HomeController extends Controller
             Post::create($inputs);
 
             $route = 'home';
-            $flash['type'] = 'success';
-            $flash['message'] = 'Successfully posted.';
+            $flash = flashMsg('success', 'Successfully posted.');
         } else {
             $route = 'new';
-            $flash['type'] = 'danger';
-            $flash['message'] = 'Something wrong. Please try again.';
+            $flash = flashMsg('danger', 'Something wrong, please try again.');
         }
 
         return redirect()->route($route)->with($flash);
@@ -82,13 +79,12 @@ class HomeController extends Controller
 
     public function test()
     {
-        $bytes = random_bytes(4);
-        $token = bin2hex($bytes);
-        $result = Post::where('token', '75331680')->first();
-        dd(['token' => $token, 'result' => $result]);
+        //
     }
 
     /**
+     * Submit recaptcha to google api.
+     *
      * @param  String  $token
      * @return array|mixed
      */

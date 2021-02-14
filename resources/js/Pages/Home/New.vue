@@ -5,6 +5,9 @@
         <div class="uk-grid-small uk-flex-center" uk-grid>
           <div class="uk-width-2-3">
             <h3>{{ translate('post.new.heading') }}</h3>
+            <div class="uk-alert uk-alert-primary">
+              {{ translate('post.new.help_text') }}
+            </div>
             <form class="uk-grid-small" uk-grid @submit.prevent="submit">
               <div class="uk-width-1-1">
                 <div class="uk-form-controls">
