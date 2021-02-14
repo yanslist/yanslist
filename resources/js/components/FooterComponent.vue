@@ -11,7 +11,7 @@
             Powered by <a class="uk-link-muted" href="https://getuikit.com/" target="_blank">UIkit</a>,&nbsp;
             <a class="uk-link-muted" href="https://laravel.com/" target="_blank">Laravel</a>,&nbsp;
             <a class="uk-link-muted" href="https://vuejs.org/" target="_blank">Vue.js</a>.
-            <a class="uk-margin-small-left" href="https://github.com/mrlinnth/yanslist" target="_blank"
+            <a class="uk-margin-small-left" href="https://github.com/yanslist/yanslist" target="_blank"
                uk-icon="github"></a>
           </p>
         </div>
