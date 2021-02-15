@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\PostRepository;
+use App\Criteria\ActivePostCriteria;
 use App\Models\Post;
 use App\Validators\PostValidator;
+use Prettus\Repository\Criteria\RequestCriteria;
+use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
  * Class PostRepositoryEloquent.
@@ -43,6 +43,7 @@ class PostRepositoryEloquent extends BaseRepository implements PostRepository
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+        $this->pushCriteria(ActivePostCriteria::class);
     }
 
 }

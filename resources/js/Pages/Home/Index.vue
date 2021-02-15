@@ -29,7 +29,7 @@
             <h2>{{ translate('post.types.' + key) }}</h2>
             <ul class="uk-list">
               <li v-for="post in filtered_posts[key]">
-                <a :href="post.slug" class="uk-link-text" @click.prevent="openModal(post)">
+                <a :href="route('view', {post: post})" class="uk-link-text">
                   <span v-if="post.is_offer" class="uk-label uk-label-success">{{ translate('main.is_offer') }}</span>
                   <span v-else class="uk-label uk-label-warning">{{ translate('main.not_offer') }}</span>
                   {{ post.title }}
@@ -37,33 +37,6 @@
                 </a>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="post-modal" class="uk-modal-full" uk-modal>
-      <div class="uk-modal-dialog">
-        <button class="uk-align-right uk-button uk-modal-close" type="button">{{ translate('main.close') }}</button>
-        <div class="uk-flex-center uk-flex-middle">
-          <div class="uk-padding-large uk-height-viewport">
-            <article class="uk-article">
-              <h3 class="uk-article-title">
-                {{ translate('post.types.' + modalPost.type) }}
-                <small>
-                  <span v-if="modalPost.is_offer" class="uk-label uk-label-success">{{
-                      translate('main.is_offer')
-                    }}</span>
-                  <span v-else class="uk-label uk-label-warning">{{ translate('main.not_offer') }}</span>
-                </small>
-              </h3>
-              <hr class="uk-divider-small">
-              <h3>
-                {{ modalPost.title }}
-              </h3>
-              <p class="uk-text-meta">{{ modalPost.duration }} @{{ modalPost.location }}</p>
-              <p>{{ modalPost.body }}</p>
-            </article>
           </div>
         </div>
       </div>
@@ -85,26 +58,17 @@ export default {
       township: '',
       townships: null,
       listings: null,
-      modalPost: {
-        type: '',
-        is_offer: true,
-        title: '',
-        slug: '',
-        body: '',
-        location: '',
-        duration: ''
-      }
     }
   },
   props: {
     regions: Object,
     post_types: Object,
-    posts: Array
+    posts: Object
   },
   computed: {
     filtered_posts() {
       const raw = {};
-      this.listings = this.posts;
+      this.listings = this.posts.data;
       Object.keys(this.post_types).forEach(key => {
         raw[key] = this.listings.filter(post => {
           return post.type === key;
@@ -133,10 +97,6 @@ export default {
         this.townships = this.region.townships.data;
       }
     },
-    openModal(post) {
-      this.modalPost = post;
-      window.UIkit.modal(document.getElementById('post-modal')).show();
-    }
   }
 }
 </script>

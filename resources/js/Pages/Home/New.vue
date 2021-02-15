@@ -77,6 +77,7 @@
               <div class="uk-width-1-1@s">
                 <div class="uk-form-controls">
                   <vue-recaptcha
+                      v-if="process.env.MIX_APP_ENV!=='local'"
                       ref="recaptcha"
                       :sitekey="recaptchaSiteKey"
                       size="invisible"
@@ -138,18 +139,24 @@ export default {
       }
     },
     submit() {
+      if (process.env.MIX_APP_ENV === 'local') {
+        this.save();
+      }
       this.$refs.recaptcha.execute();
     },
     onCaptchaVerified: function (recaptchaToken) {
       const self = this;
       self.$refs.recaptcha.reset();
+      this.save();
+    },
+    onCaptchaExpired: function () {
+      this.$refs.recaptcha.reset();
+    },
+    save() {
       this.form.region_id = this.form.region_id.id;
       this.form.township_id = this.form.township_id.id;
       this.form.recaptcha_token = recaptchaToken;
       this.$inertia.post(route('store'), this.form);
-    },
-    onCaptchaExpired: function () {
-      this.$refs.recaptcha.reset();
     }
   },
   created() {

@@ -9,6 +9,7 @@ use App\Presenters\PostPresenter;
 use App\Presenters\RegionPresenter;
 use App\Repositories\PostRepository;
 use App\Repositories\RegionRepository;
+use App\Transformers\PostTransformer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -20,28 +21,42 @@ use Illuminate\Support\Facades\Http;
  */
 class HomeController extends Controller
 {
+    protected $postRepo;
+
+    protected $regionRepo;
+
+    protected $postType;
+
+    public function __construct(PostRepository $postRepo, RegionRepository $regionRepo, PostType $postType)
+    {
+        $this->postRepo = $postRepo;
+        $this->regionRepo = $regionRepo;
+        $this->postType = $postType;
+    }
+
     public function home()
     {
-        $regionRepo = app(RegionRepository::class);
-        $regionRepo->setPresenter(new RegionPresenter());
-        $regions = $regionRepo->all();
-        $post_types = PostType::choices();
+        $this->regionRepo->setPresenter(new RegionPresenter());
+        $regions = $this->regionRepo->all();
+        $post_types = $this->postType->choices();
 
-        $postRepo = app(PostRepository::class);
-        $postRepo->setPresenter(new PostPresenter());
-        $posts = $postRepo->active()->orderBy('created_at', 'desc')->get();
+        $this->postRepo->setPresenter(new PostPresenter());
+        $posts = $this->postRepo->orderBy('created_at', 'desc')->all();
+
         return inertia('Home/Index', compact('regions', 'post_types', 'posts'));
     }
 
     public function new()
     {
-        $regionRepo = app(RegionRepository::class);
-        $regionRepo->setPresenter(new RegionPresenter());
-        $regions = $regionRepo->all();
-        $post_types = PostType::choices();
-        $default_post_type = PostType::defaultValue();
+        $this->regionRepo->setPresenter(new RegionPresenter());
+        $regions = $this->regionRepo->all();
+
+        $post_types = $this->postType->choices();
+        $default_post_type = $this->postType->defaultValue();
+
         $expire_options = ExpireOption::choices();
         $default_expire_option = ExpireOption::defaultValue();
+
         return inertia(
             'Home/New',
             compact(
@@ -56,7 +71,6 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'type' => 'required',
             'is_offer' => 'required',
@@ -67,7 +81,11 @@ class HomeController extends Controller
             'recaptcha_token' => 'required'
         ]);
 
-        $captcha_result = $this->captcha($request->recaptcha_token);
+        if (config('app.env' === 'local')) {
+            $captcha_result = ['success' => true];
+        } else {
+            $captcha_result = $this->captcha($request->recaptcha_token);
+        }
 
         if ($captcha_result['success']) {
             do {
@@ -88,6 +106,23 @@ class HomeController extends Controller
         }
 
         return redirect()->route($route)->with($flash);
+    }
+
+    public function view(Post $post)
+    {
+        $post_types = $this->postType->choices();
+
+        $this->postRepo->setPresenter(new PostPresenter());
+        $postTransformer = new PostTransformer();
+        $post = $postTransformer->transform($post);
+
+        return inertia(
+            'Home/View',
+            compact(
+                'post_types',
+                'post'
+            )
+        );
     }
 
     /**

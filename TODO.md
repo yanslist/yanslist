@@ -2,7 +2,7 @@
 
 - [x] expire date
 - [ ] post validation
-- [ ] responsive menu
+- [x] responsive
   - [ ] radio input display issue on mobile
 - [ ] comments feature
   - [ ] show comments on post

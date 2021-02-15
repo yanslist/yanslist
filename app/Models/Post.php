@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Konekt\Enum\Eloquent\CastsEnums;
@@ -22,8 +21,6 @@ class Post extends Model implements Transformable
     use TransformableTrait, CastsEnums, Uuids, HasFactory, HasSlug;
 
     protected $table = 'posts';
-
-    protected $guarded = ['uuid', 'created_at', 'updated_at'];
 
     protected $fillable = [
         'type', 'is_offer', 'title', 'body', 'region_id', 'township_id', 'user_id', 'token', 'expire_at'
@@ -67,6 +64,11 @@ class Post extends Model implements Transformable
         return $this->belongsTo(Township::class);
     }
 
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Comments::class);
+    }
+
     public function getLocationAttribute()
     {
         return $this->township->localized_name.', '.$this->region->localized_name;
@@ -75,11 +77,6 @@ class Post extends Model implements Transformable
     public function getDurationAttribute()
     {
         return $this->created_at->format(config('ylist.format.date')).' - '.$this->expire_at->format(config('ylist.format.date'));
-    }
-
-    public function scopeActive($query)
-    {
-        return $query->where('expire_at', '>=', Carbon::now());
     }
 
 }
