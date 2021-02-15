@@ -45,8 +45,8 @@
     <div id="post-modal" class="uk-modal-full" uk-modal>
       <div class="uk-modal-dialog">
         <button class="uk-align-right uk-button uk-modal-close" type="button">{{ translate('main.close') }}</button>
-        <div class="uk-grid-small uk-flex-center uk-flex-middle" uk-grid>
-          <div class="uk-width-2-3 uk-padding-large uk-height-viewport">
+        <div class="uk-flex-center uk-flex-middle">
+          <div class="uk-padding-large uk-height-viewport">
             <article class="uk-article">
               <h3 class="uk-article-title">
                 {{ translate('post.types.' + modalPost.type) }}
