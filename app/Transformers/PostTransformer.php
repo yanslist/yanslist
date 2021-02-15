@@ -29,11 +29,8 @@ class PostTransformer extends TransformerAbstract
             'title' => $model->title,
             'slug' => $model->slug,
             'body' => $model->body,
-            'region_id' => $model->region_id,
             'location' => $model->location,
-            'township_id' => $model->township_id,
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'duration' => $model->duration,
         ];
     }
 

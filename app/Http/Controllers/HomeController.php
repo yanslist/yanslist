@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ExpireOption;
 use App\Models\Post;
 use App\Models\PostType;
 use App\Presenters\PostPresenter;
 use App\Presenters\RegionPresenter;
 use App\Repositories\PostRepository;
 use App\Repositories\RegionRepository;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -27,7 +29,7 @@ class HomeController extends Controller
 
         $postRepo = app(PostRepository::class);
         $postRepo->setPresenter(new PostPresenter());
-        $posts = $postRepo->orderBy('created_at', 'desc')->all();
+        $posts = $postRepo->active()->orderBy('created_at', 'desc')->get();
         return inertia('Home/Index', compact('regions', 'post_types', 'posts'));
     }
 
@@ -37,9 +39,19 @@ class HomeController extends Controller
         $regionRepo->setPresenter(new RegionPresenter());
         $regions = $regionRepo->all();
         $post_types = PostType::choices();
-
         $default_post_type = PostType::defaultValue();
-        return inertia('Home/New', compact('regions', 'post_types', 'default_post_type'));
+        $expire_options = ExpireOption::choices();
+        $default_expire_option = ExpireOption::defaultValue();
+        return inertia(
+            'Home/New',
+            compact(
+                'regions',
+                'post_types',
+                'default_post_type',
+                'expire_options',
+                'default_expire_option'
+            )
+        );
     }
 
     public function store(Request $request)
@@ -64,6 +76,7 @@ class HomeController extends Controller
             $inputs = $request->all();
             $inputs['token'] = $token;
             $inputs['user_id'] = 1;
+            $inputs['expire_at'] = Carbon::now()->add($inputs['expire_at']);
 
             Post::create($inputs);
 
@@ -75,11 +88,6 @@ class HomeController extends Controller
         }
 
         return redirect()->route($route)->with($flash);
-    }
-
-    public function test()
-    {
-        //
     }
 
     /**
@@ -96,5 +104,14 @@ class HomeController extends Controller
         ]);
 
         return $response->json();
+    }
+
+    public function test()
+    {
+        $expiry = Carbon::now()->add('1 month');
+        $post = Post::findOrFail('03805c5b-71a4-368f-93e9-fec2824b76e5');
+        $post->expire_at = $expiry;
+        $post->save();
+        dd($post);
     }
 }
