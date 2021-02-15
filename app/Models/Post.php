@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Konekt\Enum\Eloquent\CastsEnums;
@@ -24,7 +25,13 @@ class Post extends Model implements Transformable
 
     protected $guarded = ['uuid', 'created_at', 'updated_at'];
 
-    protected $appends = ['location'];
+    protected $fillable = [
+        'type', 'is_offer', 'title', 'body', 'region_id', 'township_id', 'user_id', 'token', 'expire_at'
+    ];
+
+    protected $appends = ['location', 'duration'];
+
+    protected $dates = ['expire_at'];
 
     protected $enums = [
         'type' => PostType::class
@@ -50,13 +57,6 @@ class Post extends Model implements Transformable
         return 'slug';
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['type', 'is_offer', 'title', 'body', 'region_id', 'township_id', 'user_id', 'token'];
-
     public function region(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Region::class);
@@ -70,6 +70,16 @@ class Post extends Model implements Transformable
     public function getLocationAttribute()
     {
         return $this->township->localized_name.', '.$this->region->localized_name;
+    }
+
+    public function getDurationAttribute()
+    {
+        return $this->created_at->format(config('ylist.format.date')).' - '.$this->expire_at->format(config('ylist.format.date'));
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('expire_at', '>=', Carbon::now());
     }
 
 }

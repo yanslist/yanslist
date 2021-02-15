@@ -44,7 +44,7 @@
 
     <div id="post-modal" class="uk-modal-full" uk-modal>
       <div class="uk-modal-dialog">
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+        <button class="uk-align-right uk-button uk-modal-close" type="button">{{ translate('main.close') }}</button>
         <div class="uk-grid-small uk-flex-center uk-flex-middle" uk-grid>
           <div class="uk-width-2-3 uk-padding-large uk-height-viewport">
             <article class="uk-article">
@@ -61,12 +61,9 @@
               <h3>
                 {{ modalPost.title }}
               </h3>
+              <p class="uk-text-meta">{{ modalPost.duration }} @{{ modalPost.location }}</p>
               <p>{{ modalPost.body }}</p>
-              <p class="uk-text-meta">
-                @{{ modalPost.location }}
-              </p>
             </article>
-            <button class="uk-align-right uk-button uk-modal-close" type="button">{{ translate('main.close') }}</button>
           </div>
         </div>
       </div>
@@ -89,23 +86,25 @@ export default {
       townships: null,
       listings: null,
       modalPost: {
-        title: '',
-        body: '',
         type: '',
         is_offer: true,
+        title: '',
+        slug: '',
+        body: '',
         location: '',
+        duration: ''
       }
     }
   },
   props: {
     regions: Object,
     post_types: Object,
-    posts: Object
+    posts: Array
   },
   computed: {
     filtered_posts() {
       const raw = {};
-      this.listings = this.posts.data;
+      this.listings = this.posts;
       Object.keys(this.post_types).forEach(key => {
         raw[key] = this.listings.filter(post => {
           return post.type === key;
