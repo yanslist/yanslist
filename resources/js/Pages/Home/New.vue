@@ -77,7 +77,7 @@
               <div class="uk-width-1-1@s">
                 <div class="uk-form-controls">
                   <vue-recaptcha
-                      v-if="process.env.MIX_APP_ENV!=='local'"
+                      v-if="appEnv!=='local'"
                       ref="recaptcha"
                       :sitekey="recaptchaSiteKey"
                       size="invisible"
@@ -110,6 +110,7 @@ export default {
   data() {
     return {
       recaptchaSiteKey: process.env.MIX_RECAPTCHA_SITEKEY,
+      appEnv: process.env.MIX_APP_ENV,
       townships: null,
       form: {
         is_offer: true,
@@ -139,7 +140,7 @@ export default {
       }
     },
     submit() {
-      if (process.env.MIX_APP_ENV === 'local') {
+      if (this.appEnv === 'local') {
         this.save();
       }
       this.$refs.recaptcha.execute();

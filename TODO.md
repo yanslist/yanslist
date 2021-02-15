@@ -18,7 +18,7 @@
   - [ ] qr code [simple-qrcode](https://github.com/SimpleSoftwareIO/simple-qrcode)
     , [guide](https://kerneldev.com/qr-codes-in-laravel-complete-guide/)
 - [ ] edit feature
-- [ ] no recaptcha on localhost
+- [x] no recaptcha on localhost
 - [ ] api feature
   - [ ] check necessary attributes to hide
   - [ ] security
