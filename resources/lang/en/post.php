@@ -7,17 +7,24 @@ return [
         "labour" => "Labour",
         "service" => "Service"
     ],
+    "expire_options" => [
+        "1 week" => "1 week",
+        "2 weeks" => "2 weeks",
+        "1 month" => "1 month",
+    ],
     "new" => [
         "heading" => "New Post",
         "help_text" => "You cannot edit after submission. Please only enter correct and confirm information.",
+        "aim" => "Aim",
         "is_offer" => "We are offering",
         "not_offer" => "We are seeking",
+        "post_type" => "Category",
         "region" => "Region",
         "township" => "Township",
-        "type" => "Listing Type",
+        "expire_at" => "Expires On",
         "title" => "Title",
         "title_placeholder" => "Short and clear title for your listing",
-        "body" => "Listing Details",
+        "body" => "Details Information",
         "body_placeholder" => "Details description about your listing",
         "submit" => "Submit"
     ]

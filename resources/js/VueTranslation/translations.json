@@ -21,17 +21,24 @@
         "labour": "Labour",
         "service": "Service"
       },
+      "expire_options": {
+        "1 week": "1 week",
+        "2 weeks": "2 weeks",
+        "1 month": "1 month"
+      },
       "new": {
         "heading": "New Post",
         "help_text": "You cannot edit after submission. Please only enter correct and confirm information.",
+        "aim": "Aim",
         "is_offer": "We are offering",
         "not_offer": "We are seeking",
+        "post_type": "Category",
         "region": "Region",
         "township": "Township",
-        "type": "Listing Type",
+        "expire_at": "Expires On",
         "title": "Title",
         "title_placeholder": "Short and clear title for your listing",
-        "body": "Listing Details",
+        "body": "Details Information",
         "body_placeholder": "Details description about your listing",
         "submit": "Submit"
       }
@@ -59,14 +66,21 @@
         "labour": "\u101c\u1030\u1021\u1004\u103a\u1021\u102c\u1038",
         "service": "\u101d\u1014\u103a\u1006\u1031\u102c\u1004\u103a\u1019\u103e\u102f"
       },
+      "expire_options": {
+        "1 week": "\u1010\u1005\u103a\u1015\u1010\u103a",
+        "2 weeks": "\u1014\u103e\u1005\u103a\u1015\u1010\u103a",
+        "1 month": "\u1010\u1005\u103a\u101c"
+      },
       "new": {
         "heading": "\u1015\u102d\u102f\u1005\u1037\u103a\u1021\u101e\u1005\u103a",
         "help_text": "\u1015\u102d\u102f\u1005\u103a\u1037\u1010\u1004\u103a\u1015\u103c\u102e\u1038\u101b\u1004\u103a \u1015\u103c\u1014\u103a\u1015\u103c\u1004\u103a\u101c\u102d\u102f\u1037\u1019\u101b\u1010\u1031\u102c\u1037\u1010\u102c\u1019\u102d\u102f\u1037 \u1021\u1001\u103b\u1000\u103a\u1021\u101c\u1000\u103a\u1010\u103d\u1031\u1000\u102d\u102f \u1019\u103e\u1014\u103a\u1019\u1019\u103e\u1014\u103a\u1005\u102e\u1005\u1005\u103a\u1015\u103c\u102e\u1038 \u101e\u1031\u1001\u103b\u102c\u1019\u103e \u1015\u102d\u102f\u1005\u103a\u1037\u1010\u1004\u103a\u1015\u102b\u104b",
+        "aim": "\u1015\u102d\u102f\u1005\u103a\u1037\u101b\u100a\u103a\u101b\u103d\u101a\u103a\u1001\u103b\u1000\u103a",
         "is_offer": "\u1000\u1019\u103a\u1038\u101c\u103e\u1019\u103a\u1038\u1001\u103b\u1004\u103a\u1010\u102c\u1015\u102b\u104b",
         "not_offer": "\u101c\u102d\u102f\u1021\u1015\u103a\u1014\u1031\u101c\u102d\u102f\u1037\u1015\u102b\u104b",
+        "post_type": "\u1021\u1019\u103b\u102d\u102f\u1038\u1021\u1005\u102c\u1038",
         "region": "\u1010\u102d\u102f\u1004\u103a\u1038\u1012\u1031\u101e\u1000\u103c\u102e\u1038",
         "township": "\u1019\u103c\u102d\u102f\u1037\u1014\u101a\u103a",
-        "type": "\u1021\u1019\u103b\u102d\u102f\u1038\u1021\u1005\u102c\u1038",
+        "expire_at": "\u1015\u102d\u102f\u1005\u103a\u1037\u101e\u1000\u103a\u1010\u1019\u103a\u1038",
         "title": "\u1001\u1031\u102b\u1004\u103a\u1038\u1005\u1025\u103a",
         "title_placeholder": "\u1010\u102d\u102f\u1010\u102d\u102f\u101b\u103e\u1004\u103a\u1038\u101b\u103e\u1004\u103a\u1038 \u1016\u1031\u102b\u103a\u1015\u103c\u1014\u102d\u102f\u1004\u103a\u101e\u100a\u103a\u1037 \u1001\u1031\u102b\u1004\u103a\u1038\u1005\u1025\u103a\u101b\u1031\u1038\u101b\u1014\u103a",
         "body": "\u1021\u101e\u1031\u1038\u1005\u102d\u1010\u103a\u1021\u1001\u103b\u1000\u103a\u1021\u101c\u1000\u103a",
