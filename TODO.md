@@ -2,13 +2,19 @@
 
 - [x] expire date
 - [ ] post validation
-
-### **TODO**
-
 - [ ] comments feature
   - [ ] show comments on post
   - [ ] anon can submit a comment with contact info
   - [ ] only OP can read the contact info
+
+### **TODO**
+
+- [ ] share feature
+  - [ ] to social media
+  - [ ] shorten url [Polr](https://github.com/cydrobolt/polr/)
+    , [laravle-url-shortener](https://github.com/LaraCrafts/laravel-url-shortener)
+  - [ ] qr code [simple-qrcode](https://github.com/SimpleSoftwareIO/simple-qrcode)
+    , [guide](https://kerneldev.com/qr-codes-in-laravel-complete-guide/)
 - [ ] edit feature
 - [ ] no recaptcha on localhost
 - [ ] api feature
