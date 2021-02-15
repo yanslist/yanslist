@@ -12,8 +12,6 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
-TODO.md
-
 # User-specific stuff
 .idea/workspace.xml
 .idea/**/workspace.xml
