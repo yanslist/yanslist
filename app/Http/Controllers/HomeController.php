@@ -141,12 +141,4 @@ class HomeController extends Controller
         return $response->json();
     }
 
-    public function test()
-    {
-        $expiry = Carbon::now()->add('1 month');
-        $post = Post::findOrFail('03805c5b-71a4-368f-93e9-fec2824b76e5');
-        $post->expire_at = $expiry;
-        $post->save();
-        dd($post);
-    }
 }

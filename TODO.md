@@ -7,7 +7,7 @@
 - [ ] comments feature
   - [ ] show comments on post
   - [ ] anon can submit a comment with contact info
-  - [ ] only OP can read the contact info
+  - [ ] only OP can read the comments
 
 ### **TODO**
 
