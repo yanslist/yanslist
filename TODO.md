@@ -13,10 +13,10 @@
   - [ ] comments are encrypted
   - [ ] only OP can read the comments by entering token
 
-- [ ] token
-  - [ ] changed new post with token input, generated from controller, user can also change if they want
-  - [ ] post data submit with token
-  - [ ] hash the token at controller and save to db
+- [x] token
+  - [x] changed new post with token input, generated from controller, user can also change if they want
+  - [x] post data submit with token
+  - [x] hash the token at controller and save to db
 
 ### **TODO**
 

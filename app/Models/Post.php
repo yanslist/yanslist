@@ -66,7 +66,7 @@ class Post extends Model implements Transformable
 
     public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Comments::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function getLocationAttribute()
