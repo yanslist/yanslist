@@ -35,11 +35,11 @@
                 </div>
                 <div class="uk-width-1-2@s">
                   <button v-if="!token_match" class="uk-button uk-button-secondary" type="submit">
-                    {{ translate('comment.view.submit', {count: comment_count}) }}
+                    {{ translate('comment.view.submit', {count: total_comments}) }}
                   </button>
                   <button v-else class="uk-button uk-button-secondary" type="button"
                           uk-toggle="target: #comments-modal">
-                    {{ translate('comment.view.submit', {count: comment_count}) }}
+                    {{ translate('comment.view.submit', {count: total_comments}) }}
                   </button>
                 </div>
               </form>
@@ -48,13 +48,14 @@
 
           <div class="uk-width-1-3@m uk-width-1-1@s">
             <h3 class="uk-heading-bullet">{{ translate('comment.new.text') }}</h3>
-            <form class="uk-grid-small" uk-grid>
+            <form class="uk-grid-small" uk-grid @submit.prevent="commentSubmit">
               <div class="uk-width-1-1@s">
-                <textarea id="" :placeholder="translate('comment.new.placeholder')" class="uk-textarea" name=""
-                          rows="5"></textarea>
+                <textarea id="" v-model="comment_form.text" :placeholder="translate('comment.new.placeholder')"
+                          class="uk-textarea" name="text"
+                          required rows="5"></textarea>
               </div>
               <div class="uk-width-1-1@s">
-                <button class="uk-button uk-align-right">{{ translate('comment.new.submit') }}</button>
+                <button class="uk-button uk-align-right" type="submit">{{ translate('comment.new.submit') }}</button>
               </div>
             </form>
           </div>
@@ -73,9 +74,8 @@
               <dl class="uk-description-list uk-description-list-divider" uk-margin>
                 <template v-for="comment, index in comments">
                   <dt>
-                    <mark>#{{ index + 1 }}</mark>
-                    {{ comment.time_ago }}
-                    <small class="uk-text-meta">| {{ comment.created_at }}</small>
+                    <mark>{{ comment.time_ago }}</mark>
+                    <small class="uk-text-meta"> {{ comment.created_at }}</small>
                   </dt>
                   <dd>{{ comment.text }}</dd>
                 </template>
@@ -105,6 +105,10 @@ export default {
       },
       token_match: false,
       comments: [],
+      comment_form: {
+        text: '',
+      },
+      total_comments: 0
     }
   },
   props: {
@@ -129,6 +133,17 @@ export default {
             }
           });
     },
+    commentSubmit() {
+      window.axios.post(route('api.posts.comment', {post: this.post}), this.comment_form)
+          .then((res) => {
+            this.comment_form.text = '';
+            this.total_comments += 1;
+            this.showNoti('success', this.translate('comment.new.noti'));
+          });
+    }
   },
+  mounted() {
+    this.total_comments = this.comment_count;
+  }
 }
 </script>

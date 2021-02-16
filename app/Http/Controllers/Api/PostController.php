@@ -62,4 +62,25 @@ class PostController extends Controller
         }
         return response()->json($result);
     }
+
+    /**
+     * @param  Post  $post
+     * @param  Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function comment(Post $post, Request $request): \Illuminate\Http\JsonResponse
+    {
+        $validated = $request->validate([
+            'text' => 'required',
+        ]);
+
+        $result = $this->commentRepo->create(
+            [
+                'post_id' => $post->id,
+                'text' => encrypt($request->text)
+            ]
+        );
+
+        return response()->json($result);
+    }
 }

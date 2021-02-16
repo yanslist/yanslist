@@ -8,10 +8,11 @@
   - [ ] radio input display issue on mobile
 
 - [ ] comments feature
-  - [ ] show comments on post
-  - [ ] anon can submit comment
-  - [ ] comments are encrypted
-  - [ ] only OP can read the comments by entering token
+  - [x] show comments on post
+  - [x] anon can submit comment
+  - [x] comments are encrypted
+  - [x] only OP can read the comments by entering token
+  - [ ] comment user can view own comment
 
 - [x] token
   - [x] changed new post with token input, generated from controller, user can also change if they want

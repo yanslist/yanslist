@@ -12,6 +12,7 @@ return [
     "new" => [
         "text" => "Leave a comment",
         "placeholder" => "Enter comment",
-        "submit" => "Submit"
+        "submit" => "Submit",
+        "noti" => "Successfully commented.",
     ]
 ];

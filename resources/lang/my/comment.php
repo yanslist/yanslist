@@ -12,6 +12,7 @@ return [
     "new" => [
         "text" => "မှတ်ချက် တစ်ခုခုပေးခဲ့ရန်",
         "placeholder" => "မိမိပေးလိုသော မှတ်ချက် comment ရေးရန်",
-        "submit" => "Comment ပေးမယ်"
+        "submit" => "Comment ပေးမယ်",
+        "noti" => "Comment ပေးတာ အောင်မြင်ပါတယ်",
     ]
 ];

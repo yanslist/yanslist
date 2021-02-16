@@ -12,7 +12,8 @@
       "new": {
         "text": "Leave a comment",
         "placeholder": "Enter comment",
-        "submit": "Submit"
+        "submit": "Submit",
+        "noti": "Successfully commented."
       }
     },
     "home": {
@@ -77,7 +78,8 @@
       "new": {
         "text": "\u1019\u103e\u1010\u103a\u1001\u103b\u1000\u103a \u1010\u1005\u103a\u1001\u102f\u1001\u102f\u1015\u1031\u1038\u1001\u1032\u1037\u101b\u1014\u103a",
         "placeholder": "\u1019\u102d\u1019\u102d\u1015\u1031\u1038\u101c\u102d\u102f\u101e\u1031\u102c \u1019\u103e\u1010\u103a\u1001\u103b\u1000\u103a comment \u101b\u1031\u1038\u101b\u1014\u103a",
-        "submit": "Comment \u1015\u1031\u1038\u1019\u101a\u103a"
+        "submit": "Comment \u1015\u1031\u1038\u1019\u101a\u103a",
+        "noti": "Comment \u1015\u1031\u1038\u1010\u102c \u1021\u1031\u102c\u1004\u103a\u1019\u103c\u1004\u103a\u1015\u102b\u1010\u101a\u103a"
       }
     },
     "home": {
