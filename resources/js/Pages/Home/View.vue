@@ -64,8 +64,10 @@
 
 <script>
 import BaseLayout from "../../Layouts/BaseLayout";
+import helpers from "../../helpers";
 
 export default {
+  mixins: [helpers],
   components: {
     BaseLayout,
   },
@@ -85,14 +87,14 @@ export default {
   computed: {},
   methods: {
     token_submit() {
-      window.axios.post(route('api.posts.verify', {post: this.post}), this.token_form)
-          .then((res) => {
-            this.showNotification('test');
-            // if (res.success) {
-            //   this.rightToken();
-            // }
-          });
-      ;
+      this.showNoti('success', 'lorem ipsum');
+      // window.axios.post(route('api.posts.verify', {post: this.post}), this.token_form)
+      //     .then((res) => {
+      //       this.showNotification('test');
+      //       // if (res.success) {
+      //       //   this.rightToken();
+      //       // }
+      //     });
     }
   },
 }

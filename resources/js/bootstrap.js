@@ -37,13 +37,3 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-window.CryptoJS = require("crypto-js");
-
-function showNoti(type, msg) {
-    window.UIkit.notification({
-        message: msg,
-        status: type,
-        pos: 'top-right',
-    });
-}
