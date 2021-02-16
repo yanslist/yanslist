@@ -119,13 +119,15 @@ class HomeController extends Controller
 
         $this->postRepo->setPresenter(new PostPresenter());
         $postTransformer = new PostTransformer();
+        $comment_count = $post->comments->count();
         $post = $postTransformer->transform($post);
 
         return inertia(
             'Home/View',
             compact(
                 'post_types',
-                'post'
+                'post',
+                'comment_count'
             )
         );
     }

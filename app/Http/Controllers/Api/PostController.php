@@ -8,6 +8,8 @@ use App\Presenters\CommentPresenter;
 use App\Presenters\PostPresenter;
 use App\Repositories\CommentRepository;
 use App\Repositories\PostRepository;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class RegionController.
@@ -49,5 +51,31 @@ class PostController extends Controller
         $this->commentRepo->setPresenter(new CommentPresenter());
         $comments = $this->commentRepo->orderBy('created_at', 'desc')->findByField('post_id', $post->id);
         return response()->json($comments);
+    }
+
+    /**
+     * @param  Post  $post
+     * @param  Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function verify(Post $post, Request $request): \Illuminate\Http\JsonResponse
+    {
+        $validated = $request->validate([
+            'token' => 'required',
+        ]);
+
+        $result = [
+            'success' => false,
+            'message' => 'Secret token did not match.'
+        ];
+
+        if (Hash::check($request->token, $post->token)) {
+            // token match
+            $result = [
+                'success' => true,
+                'message' => 'Secret token matched.'
+            ];
+        }
+        return response()->json($result);
     }
 }

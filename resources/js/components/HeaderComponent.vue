@@ -9,16 +9,16 @@
         <div class="uk-navbar-right uk-visible@m">
           <ul class="uk-navbar-nav">
             <li>
-              <a :href="route('home')">{{ translate('main.listings') }}</a>
+              <inertia-link :href="route('home')">{{ translate('main.listings') }}</inertia-link>
             </li>
             <li>
-              <a :href="route('home')">{{ translate('main.contact') }}</a>
+              <inertia-link :href="route('home')">{{ translate('main.contact') }}</inertia-link>
             </li>
           </ul>
           <div class="uk-navbar-item">
-            <a :href="route('new')" class="uk-button uk-button-primary">
+            <inertia-link :href="route('new')" class="uk-button uk-button-primary">
               {{ translate('main.post_new') }}
-            </a>
+            </inertia-link>
           </div>
         </div>
         <div class="uk-navbar-right uk-hidden@m">
@@ -32,15 +32,15 @@
         <button class="uk-offcanvas-close uk-icon uk-close" type="button" uk-close></button>
         <ul class="uk-nav uk-nav-default">
           <li>
-            <a :href="route('home')">{{ translate('main.listings') }}</a>
+            <inertia-link :href="route('home')">{{ translate('main.listings') }}</inertia-link>
           </li>
           <li>
-            <a :href="route('home')">{{ translate('main.contact') }}</a>
+            <inertia-link :href="route('home')">{{ translate('main.contact') }}</inertia-link>
           </li>
           <li class="uk-margin-small-top">
-            <a :href="route('new')" class="uk-button uk-button-primary">
+            <inertia-link :href="route('new')" class="uk-button uk-button-primary">
               {{ translate('main.post_new') }}
-            </a>
+            </inertia-link>
           </li>
         </ul>
       </div>

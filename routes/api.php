@@ -27,5 +27,5 @@ Route::group(
 
     Route::get('regions', [RegionController::class, 'index'])->name('api.regions.index');
     Route::get('posts/{post}/comments', [PostController::class, 'comments'])->name('api.posts.comments');
-
+    Route::post('posts/{post}/verify', [PostController::class, 'verify'])->name('api.posts.verify');
 });

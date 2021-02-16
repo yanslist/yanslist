@@ -28,13 +28,14 @@
             <div class="uk-margin">
               <hr class="">
               <p class="uk-text-meta uk-text-small">{{ translate('comment.view.text') }}</p>
-              <form class="uk-grid-small" uk-grid>
+              <form class="uk-grid-small" uk-grid @submit.prevent="token_submit">
                 <div class="uk-width-1-2@s">
-                  <input :placeholder="translate('comment.view.placeholder')" class="uk-input" type="text">
+                  <input v-model="token_form.token" :placeholder="translate('comment.view.placeholder')"
+                         class="uk-input" required type="text">
                 </div>
                 <div class="uk-width-1-2@s">
                   <button class="uk-button uk-button-secondary" type="submit">
-                    {{ translate('comment.view.submit', {count: 5}) }}
+                    {{ translate('comment.view.submit', {count: comment_count}) }}
                   </button>
                 </div>
               </form>
@@ -69,13 +70,30 @@ export default {
     BaseLayout,
   },
   data() {
-    return {}
+    return {
+      token_form: {
+        token: '',
+        result: null,
+      }
+    }
   },
   props: {
     post_types: Object,
-    post: Object
+    post: Object,
+    comment_count: Number
   },
   computed: {},
-  methods: {},
+  methods: {
+    token_submit() {
+      window.axios.post(route('api.posts.verify', {post: this.post}), this.token_form)
+          .then((res) => {
+            this.showNotification('test');
+            // if (res.success) {
+            //   this.rightToken();
+            // }
+          });
+      ;
+    }
+  },
 }
 </script>
