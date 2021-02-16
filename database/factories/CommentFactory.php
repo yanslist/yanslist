@@ -23,7 +23,7 @@ class CommentFactory extends Factory
     {
         return [
             'post_id' => '7cabff35-e074-497f-a311-e5f04b844c79',
-            'text' => $this->faker->catchPhrase,
+            'text' => encrypt($this->faker->catchPhrase),
         ];
     }
 

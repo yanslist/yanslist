@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Comment;
-use App\Validators\CommentsValidator;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 

@@ -23,9 +23,7 @@ class CommentTransformer extends TransformerAbstract
     {
         return [
             'id' => (int) $model->id,
-            'text' => (string) $model->text,
-            'contact' => (string) $model->contact,
-            'op_like' => (boolean) $model->op_like,
+            'text' => (string) decrypt($model->text),
             'created_at' => $model->created_at,
         ];
     }
