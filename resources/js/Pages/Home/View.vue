@@ -34,7 +34,11 @@
                          class="uk-input" required type="text">
                 </div>
                 <div class="uk-width-1-2@s">
-                  <button class="uk-button uk-button-secondary" type="submit">
+                  <button v-if="!token_match" class="uk-button uk-button-secondary" type="submit">
+                    {{ translate('comment.view.submit', {count: comment_count}) }}
+                  </button>
+                  <button v-else class="uk-button uk-button-secondary" type="button"
+                          uk-toggle="target: #comments-modal">
                     {{ translate('comment.view.submit', {count: comment_count}) }}
                   </button>
                 </div>
@@ -61,21 +65,20 @@
       <div id="comments-modal" class="uk-modal-full" uk-modal>
         <div class="uk-modal-dialog">
           <button class="uk-modal-close-full uk-button uk-padding-small uk-padding-remove-vertical" type="button">
-            Close
+            {{ translate('main.close') }}
           </button>
-          <div class="uk-grid-small uk-flex uk-flex-center uk-flex-middle" uk-grid>
-            <div class="uk-padding-large uk-height-viewport">
-              <dl class="uk-description-list uk-description-list-divider">
-                <dt>Description term</dt>
-                <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</dd>
-                <dt>Description term</dt>
-                <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.
-                </dd>
-                <dt>Description term</dt>
-                <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.
-                </dd>
+          <div class="uk-grid-small uk-flex uk-flex-center" uk-grid>
+            <div class="uk-width-1-2@s uk-padding-large uk-height-viewport">
+              <h3 class="uk-heading-bullet">{{ translate('comment.view.heading') }}</h3>
+              <dl class="uk-description-list uk-description-list-divider" uk-margin>
+                <template v-for="comment, index in comments">
+                  <dt>
+                    <mark>#{{ index + 1 }}</mark>
+                    {{ comment.time_ago }}
+                    <small class="uk-text-meta">| {{ comment.created_at }}</small>
+                  </dt>
+                  <dd>{{ comment.text }}</dd>
+                </template>
               </dl>
             </div>
           </div>
@@ -99,8 +102,9 @@ export default {
     return {
       token_form: {
         token: '',
-        result: null,
-      }
+      },
+      token_match: false,
+      comments: [],
     }
   },
   props: {
@@ -111,19 +115,20 @@ export default {
   computed: {},
   methods: {
     tokenSubmit() {
-      window.axios.post(route('api.posts.verify', {post: this.post}), this.token_form)
+      window.axios.post(route('api.posts.comments', {post: this.post}), this.token_form)
           .then((res) => {
-            if (res.data.success) {
-              this.showNoti('success', res.data.message);
-              this.rightToken();
+            if (res.data === false) {
+              this.token_match = false;
+              this.comments = [];
+              this.showNoti('danger', this.translate('comment.view.token_not_match'));
             } else {
-              this.showNoti('danger', res.data.message);
+              this.token_match = true;
+              this.comments = res.data.data;
+              window.UIkit.modal(document.getElementById('comments-modal')).show();
+              this.showNoti('success', this.translate('comment.view.token_match'));
             }
           });
     },
-    rightToken() {
-      window.UIkit.modal(document.getElementById('comments-modal')).show();
-    }
   },
 }
 </script>

@@ -44,37 +44,21 @@ class PostController extends Controller
 
     /**
      * @param  Post  $post
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function comments(Post $post): \Illuminate\Http\JsonResponse
-    {
-        $this->commentRepo->setPresenter(new CommentPresenter());
-        $comments = $this->commentRepo->orderBy('created_at', 'desc')->findByField('post_id', $post->id);
-        return response()->json($comments);
-    }
-
-    /**
-     * @param  Post  $post
      * @param  Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function verify(Post $post, Request $request): \Illuminate\Http\JsonResponse
+    public function comments(Post $post, Request $request): \Illuminate\Http\JsonResponse
     {
         $validated = $request->validate([
             'token' => 'required',
         ]);
 
-        $result = [
-            'success' => false,
-            'message' => 'Secret token did not match.'
-        ];
+        $result = false;
 
         if (Hash::check($request->token, $post->token)) {
             // token match
-            $result = [
-                'success' => true,
-                'message' => 'Secret token matched.'
-            ];
+            $this->commentRepo->setPresenter(new CommentPresenter());
+            $result = $this->commentRepo->orderBy('created_at', 'desc')->findByField('post_id', $post->id);
         }
         return response()->json($result);
     }

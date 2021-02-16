@@ -24,7 +24,8 @@ class CommentTransformer extends TransformerAbstract
         return [
             'id' => (int) $model->id,
             'text' => (string) decrypt($model->text),
-            'created_at' => $model->created_at,
+            'time_ago' => $model->created_at->diffForHumans(),
+            'created_at' => $model->created_at->format('d/m/Y')
         ];
     }
 }

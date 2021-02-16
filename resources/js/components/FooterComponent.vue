@@ -6,12 +6,12 @@
         <a :href="localeUrls.en" class="uk-link-text">English</a>
       </p>
       <p>
-        <strong>{{ $page.props.appName }}</strong> &copy; 2021.
+        <strong>{{ $page.props.appName }}</strong> &copy; {{ new Date().getFullYear() }}.
         Developed and maintained by
         <inertia-link class="uk-link-muted" href="https://hiyan.xyz">Yan</inertia-link>
         .
         Powered by
-        <inertia-link class="uk-link-muted" href="https://getuikit.com/">English</inertia-link>
+        <inertia-link class="uk-link-muted" href="https://getuikit.com/">UIkit</inertia-link>
         ,&nbsp;
         <inertia-link class="uk-link-muted" href="https://laravel.com/">Laravel</inertia-link>
         ,
