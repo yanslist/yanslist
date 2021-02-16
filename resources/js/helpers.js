@@ -4,7 +4,7 @@ export default {
             window.UIkit.notification({
                 status: type,
                 message: msg,
-                pos: 'top-right',
+                pos: 'bottom-center',
             });
         }
     }
