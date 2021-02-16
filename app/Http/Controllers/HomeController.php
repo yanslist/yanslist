@@ -12,6 +12,7 @@ use App\Repositories\RegionRepository;
 use App\Transformers\PostTransformer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 
 /**
@@ -57,6 +58,10 @@ class HomeController extends Controller
         $expire_options = ExpireOption::choices();
         $default_expire_option = ExpireOption::defaultValue();
 
+        do {
+            $token = makeToken();
+        } while (Post::where('token', $token)->first());
+
         return inertia(
             'Home/New',
             compact(
@@ -64,7 +69,8 @@ class HomeController extends Controller
                 'post_types',
                 'default_post_type',
                 'expire_options',
-                'default_expire_option'
+                'default_expire_option',
+                'token'
             )
         );
     }
@@ -78,6 +84,7 @@ class HomeController extends Controller
             'body' => 'required',
             'region_id' => 'required',
             'township_id' => 'required',
+            'token' => 'required',
             'recaptcha_token' => 'required'
         ]);
 
@@ -88,11 +95,8 @@ class HomeController extends Controller
         }
 
         if ($captcha_result['success']) {
-            do {
-                $token = makeToken();
-            } while (Post::where('token', $token)->first());
             $inputs = $request->all();
-            $inputs['token'] = $token;
+            $inputs['token'] = Hash::make($inputs['token']);
             $inputs['user_id'] = 1;
             $inputs['expire_at'] = Carbon::now()->add($inputs['expire_at']);
 

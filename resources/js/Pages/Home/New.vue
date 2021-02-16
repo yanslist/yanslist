@@ -75,6 +75,23 @@
                 </div>
               </div>
               <div class="uk-width-1-1@s">
+                <p class="uk-text-meta uk-text-small">
+                  {{ translate('post.new.token_info') }}<br>
+                  {{ translate('post.new.submit_info') }}
+                </p>
+              </div>
+              <div class="uk-width-1-2@m uk-width-1-1@s">
+                <label class="uk-form-label" for="token">
+                  {{ translate('post.new.token') }}
+                </label>
+                <div class="uk-form-controls">
+                  <input id="token" v-model="form.token" :placeholder="translate('post.new.token_placeholder')"
+                         class="uk-input" name="token"
+                         type="text">
+                </div>
+              </div>
+              <div class="uk-width-1-2@m uk-width-1-1@s">
+                <br class="uk-visible@m">
                 <div class="uk-form-controls">
                   <vue-recaptcha
                       v-if="appEnv!=='local'"
@@ -84,7 +101,7 @@
                       @expired="onCaptchaExpired"
                       @verify="onCaptchaVerified">
                   </vue-recaptcha>
-                  <button class="uk-button uk-button-primary uk-width-1-1" type="submit">
+                  <button id="submit_btn" class="uk-button uk-button-primary uk-width-1-1" type="submit">
                     {{ translate('post.new.submit') }}
                   </button>
                 </div>
@@ -120,6 +137,7 @@ export default {
         expire_at: '',
         title: '',
         body: '',
+        token: '',
         recaptcha_token: ''
       },
     }
@@ -130,6 +148,7 @@ export default {
     default_post_type: String,
     expire_options: Object,
     default_expire_option: String,
+    token: String,
   },
   methods: {
     regionSelected() {
@@ -160,9 +179,10 @@ export default {
       this.$inertia.post(route('store'), this.form);
     }
   },
-  created() {
+  mounted() {
     this.form.type = this.default_post_type;
     this.form.expire_at = this.default_expire_option;
+    this.form.token = this.token;
   }
 }
 </script>
