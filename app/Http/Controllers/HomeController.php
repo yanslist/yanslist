@@ -61,6 +61,7 @@ class HomeController extends Controller
         do {
             $token = makeToken();
         } while (Post::where('token', $token)->first());
+        $token = (config('app.env') === 'local') ? 'password' : $token;
 
         return inertia(
             'Home/New',
@@ -88,7 +89,7 @@ class HomeController extends Controller
             'recaptcha_token' => 'required'
         ]);
 
-        if (config('app.env' === 'local')) {
+        if (config('app.env') === 'local') {
             $captcha_result = ['success' => true];
         } else {
             $captcha_result = $this->captcha($request->recaptcha_token);

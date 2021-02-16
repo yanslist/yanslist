@@ -9,9 +9,9 @@ class PostType extends Enum
     const __DEFAULT = self::AID;
 
     const AID = 'aid';
-    const LABOUR = 'labour';
     const SERVICE = 'service';
     const SHELTER = 'shelter';
+    const LABOUR = 'labour';
 
     protected static $labels = [];
 
@@ -19,9 +19,9 @@ class PostType extends Enum
     {
         static::$labels = [
             self::AID => __('Aid'),
-            self::LABOUR => __('Labour'),
             self::SERVICE => __('Service'),
             self::SHELTER => __('Shelter'),
+            self::LABOUR => __('Labour'),
         ];
     }
 }

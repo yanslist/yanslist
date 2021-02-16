@@ -83,6 +83,7 @@
               <div class="uk-width-1-2@m uk-width-1-1@s">
                 <label class="uk-form-label" for="token">
                   {{ translate('post.new.token') }}
+                  <small class="uk-margin-small-left uk-text-muted">{{ translate('post.new.token_helptext') }}</small>
                 </label>
                 <div class="uk-form-controls">
                   <input id="token" v-model="form.token" :placeholder="translate('post.new.token_placeholder')"
@@ -93,14 +94,15 @@
               <div class="uk-width-1-2@m uk-width-1-1@s">
                 <br class="uk-visible@m">
                 <div class="uk-form-controls">
-                  <vue-recaptcha
-                      v-if="appEnv!=='local'"
-                      ref="recaptcha"
-                      :sitekey="recaptchaSiteKey"
-                      size="invisible"
-                      @expired="onCaptchaExpired"
-                      @verify="onCaptchaVerified">
-                  </vue-recaptcha>
+                  <template v-if="appEnv!=='local'">
+                    <vue-recaptcha
+                        ref="recaptcha"
+                        :sitekey="recaptchaSiteKey"
+                        size="invisible"
+                        @expired="onCaptchaExpired"
+                        @verify="onCaptchaVerified">
+                    </vue-recaptcha>
+                  </template>
                   <button id="submit_btn" class="uk-button uk-button-primary uk-width-1-1" type="submit">
                     {{ translate('post.new.submit') }}
                   </button>
@@ -161,8 +163,9 @@ export default {
     submit() {
       if (this.appEnv === 'local') {
         this.save();
+      } else {
+        this.$refs.recaptcha.execute();
       }
-      this.$refs.recaptcha.execute();
     },
     onCaptchaVerified: function (recaptchaToken) {
       const self = this;
@@ -175,7 +178,7 @@ export default {
     save() {
       this.form.region_id = this.form.region_id.id;
       this.form.township_id = this.form.township_id.id;
-      this.form.recaptcha_token = recaptchaToken;
+      this.form.recaptcha_token = (this.appEnv === 'local') ? true : recaptchaToken;
       this.$inertia.post(route('store'), this.form);
     }
   },

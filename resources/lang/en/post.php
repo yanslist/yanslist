@@ -27,6 +27,7 @@ return [
         "body" => "Details Information",
         "body_placeholder" => "Details description about your listing",
         "token" => "Secret Token",
+        "token_helptext" => "You can use your own instead of generated one.",
         "token_placeholder" => "Secret token to check comments",
         "token_info" => "You need a secret token to read comments to your post. System does not know your token, so do not lose it.",
         "submit_info" => "Before submit, be sure to check all information and save your secret token.",
