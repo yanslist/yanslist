@@ -1,36 +1,36 @@
 ### **WIP**
 
-- [x] expire date
-
 - [ ] post validation
+  - [ ] title length, token length
+
+- [ ] refactor post token feature
+  - [x] remove token col
+  - [x] add email col
+  - [x] remove token feature
+  - [x] email is encrypted
+
+- [ ] refactor comment feature
+  - [x] everyone can see comments
+  - [x] remove contact and like_by columns
+  - [x] add is_message column
+  - [ ] submit as comment or send as message button
+  - [x] text encrypted
+  - [ ] messages are sent to OP email directly
+  - [ ] messages are not shown as comment
 
 - [x] responsive
   - [ ] radio input display issue on mobile
-
-- [ ] comments feature
-  - [x] show comments on post
-  - [x] anon can submit comment
-  - [x] comments are encrypted
-  - [x] only OP can read the comments by entering token
-  - [ ] comment user can view own comment
-
-- [x] token
-  - [x] changed new post with token input, generated from controller, user can also change if they want
-  - [x] post data submit with token
-  - [x] hash the token at controller and save to db
 
 ### **TODO**
 
 - [ ] share feature
   - [ ] to social media
   - [ ] shorten url [Polr](https://github.com/cydrobolt/polr/)
-    , [laravle-url-shortener](https://github.com/LaraCrafts/laravel-url-shortener)
+    , [laravel-url-shortener](https://github.com/LaraCrafts/laravel-url-shortener)
   - [ ] qr code [simple-qrcode](https://github.com/SimpleSoftwareIO/simple-qrcode)
     , [guide](https://kerneldev.com/qr-codes-in-laravel-complete-guide/)
 
 - [ ] edit feature
-
-- [x] no recaptcha on localhost
 
 - [ ] api feature
   - [ ] check necessary attributes to hide
@@ -54,3 +54,22 @@
 - [ ] get() vs all()
 
 - [ ] cron to auto update expired posts status
+
+- [ ] refactor controllers
+
+### **DONE**
+
+- [x] no recaptcha on localhost
+
+- [x] expire date
+
+- Token
+  - [x] changed new post with token input, generated from controller, user can also change if they want
+  - [x] post data submit with token
+  - [x] hash the token at the controller and save to db
+
+- Comments
+  - [x] show comments on post
+  - [x] anon can submit comment
+  - [x] comments are encrypted
+  - [x] only OP can read the comments by entering token

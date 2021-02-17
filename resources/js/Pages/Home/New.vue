@@ -76,19 +76,18 @@
               </div>
               <div class="uk-width-1-1@s">
                 <p class="uk-text-meta uk-text-small">
-                  {{ translate('post.new.token_info') }}<br>
+                  {{ translate('post.new.email_info') }}<br>
                   {{ translate('post.new.submit_info') }}
                 </p>
               </div>
               <div class="uk-width-1-2@m uk-width-1-1@s">
-                <label class="uk-form-label" for="token">
-                  {{ translate('post.new.token') }}
-                  <small class="uk-margin-small-left uk-text-muted">{{ translate('post.new.token_helptext') }}</small>
+                <label class="uk-form-label" for="email">
+                  {{ translate('post.new.email') }}
                 </label>
                 <div class="uk-form-controls">
-                  <input id="token" v-model="form.token" :placeholder="translate('post.new.token_placeholder')"
-                         class="uk-input" name="token"
-                         type="text">
+                  <input id="email" v-model="form.email" :placeholder="translate('post.new.email_placeholder')"
+                         class="uk-input" name="email"
+                         type="email">
                 </div>
               </div>
               <div class="uk-width-1-2@m uk-width-1-1@s">
@@ -139,7 +138,7 @@ export default {
         expire_at: '',
         title: '',
         body: '',
-        token: '',
+        email: '',
         recaptcha_token: ''
       },
     }
@@ -150,7 +149,6 @@ export default {
     default_post_type: String,
     expire_options: Object,
     default_expire_option: String,
-    token: String,
   },
   methods: {
     regionSelected() {
@@ -185,7 +183,6 @@ export default {
   mounted() {
     this.form.type = this.default_post_type;
     this.form.expire_at = this.default_expire_option;
-    this.form.token = this.token;
   }
 }
 </script>

@@ -26,11 +26,10 @@ return [
         "title_placeholder" => "Short and clear title for your listing",
         "body" => "Details Information",
         "body_placeholder" => "Details description about your listing",
-        "token" => "Secret Token",
-        "token_helptext" => "You can use your own instead of generated one.",
-        "token_placeholder" => "Secret token to check comments",
-        "token_info" => "You need a secret token to read comments to your post. System does not know your token, so do not lose it.",
-        "submit_info" => "Before submit, be sure to check all information and save your secret token.",
+        "email" => "Your email",
+        "email_placeholder" => "Enter email address to receive messages",
+        "email_info" => "You must provide an email address for people to contact. Your email will not be shown. System will mail the message on behalf of the sender.",
+        "submit_info" => "Before submit, be sure to check all information and your email address.",
         "submit" => "Submit"
     ]
 ];

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ExpireOption;
 use App\Models\Post;
 use App\Models\PostType;
+use App\Presenters\CommentPresenter;
 use App\Presenters\PostPresenter;
 use App\Presenters\RegionPresenter;
 use App\Repositories\PostRepository;
@@ -12,7 +13,6 @@ use App\Repositories\RegionRepository;
 use App\Transformers\PostTransformer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 
 /**
@@ -58,11 +58,6 @@ class HomeController extends Controller
         $expire_options = ExpireOption::choices();
         $default_expire_option = ExpireOption::defaultValue();
 
-        do {
-            $token = makeToken();
-        } while (Post::where('token', $token)->first());
-        $token = (config('app.env') === 'local') ? 'password' : $token;
-
         return inertia(
             'Home/New',
             compact(
@@ -70,8 +65,7 @@ class HomeController extends Controller
                 'post_types',
                 'default_post_type',
                 'expire_options',
-                'default_expire_option',
-                'token'
+                'default_expire_option'
             )
         );
     }
@@ -81,11 +75,11 @@ class HomeController extends Controller
         $validated = $request->validate([
             'type' => 'required',
             'is_offer' => 'required',
-            'title' => 'required',
+            'title' => 'required|min:20',
             'body' => 'required',
             'region_id' => 'required',
             'township_id' => 'required',
-            'token' => 'required',
+            'email' => 'required|email',
             'recaptcha_token' => 'required'
         ]);
 
@@ -97,7 +91,7 @@ class HomeController extends Controller
 
         if ($captcha_result['success']) {
             $inputs = $request->all();
-            $inputs['token'] = Hash::make($inputs['token']);
+            $inputs['email'] = encrypt($inputs['email']);
             $inputs['user_id'] = 1;
             $inputs['expire_at'] = Carbon::now()->add($inputs['expire_at']);
 
@@ -117,9 +111,13 @@ class HomeController extends Controller
     {
         $post_types = $this->postType->choices();
 
+        // assign comments first using Post Model object
+        $commentPresenter = new CommentPresenter();
+        $comments = $commentPresenter->present($post->comments()->orderBy('created_at', 'desc')->get());
+
+        // transform Post Model object
         $this->postRepo->setPresenter(new PostPresenter());
         $postTransformer = new PostTransformer();
-        $comment_count = $post->comments->count();
         $post = $postTransformer->transform($post);
 
         return inertia(
@@ -127,7 +125,7 @@ class HomeController extends Controller
             compact(
                 'post_types',
                 'post',
-                'comment_count'
+                'comments'
             )
         );
     }

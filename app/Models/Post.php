@@ -23,7 +23,7 @@ class Post extends Model implements Transformable
     protected $table = 'posts';
 
     protected $fillable = [
-        'type', 'is_offer', 'title', 'body', 'region_id', 'township_id', 'user_id', 'token', 'expire_at'
+        'type', 'is_offer', 'title', 'body', 'region_id', 'township_id', 'user_id', 'email', 'expire_at'
     ];
 
     protected $appends = ['location', 'duration'];

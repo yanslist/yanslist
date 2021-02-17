@@ -18,36 +18,30 @@
 
         <div class="uk-grid-large" uk-grid>
 
-          <article class="uk-article uk-width-2-3@m uk-width-1-1@s">
-            <h3>
-              {{ post.title }}
-            </h3>
-            <p class="uk-text-meta">{{ post.duration }} @{{ post.location }}</p>
-            <p>{{ post.body }}</p>
-
-            <div class="uk-margin">
-              <hr class="">
-              <p class="uk-text-meta uk-text-small">{{ translate('comment.view.text') }}</p>
-              <form class="uk-grid-small" uk-grid @submit.prevent="tokenSubmit">
-                <div class="uk-width-1-2@s">
-                  <input v-model="token_form.token" :placeholder="translate('comment.view.placeholder')"
-                         class="uk-input" required type="text">
-                </div>
-                <div class="uk-width-1-2@s">
-                  <button v-if="!token_match" class="uk-button uk-button-secondary" type="submit">
-                    {{ translate('comment.view.submit', {count: total_comments}) }}
-                  </button>
-                  <button v-else class="uk-button uk-button-secondary" type="button"
-                          uk-toggle="target: #comments-modal">
-                    {{ translate('comment.view.submit', {count: total_comments}) }}
-                  </button>
-                </div>
-              </form>
+          <div class="uk-width-2-3@m uk-width-1-1@s">
+            <article class="uk-article uk-width-1-1@s">
+              <h3>
+                {{ post.title }}
+              </h3>
+              <p class="uk-text-meta">{{ post.duration }} @{{ post.location }}</p>
+              <p>{{ post.body }}</p>
+            </article>
+            <div class="uk-section uk-section-default">
+              <h3 class="uk-heading-bullet">{{ translate('comment.count', {count: total_comments}) }}</h3>
+              <dl class="uk-description-list uk-description-list-divider" uk-margin>
+                <template v-for="comment, index in comments.data">
+                  <dt>
+                    <mark>{{ comment.time_ago }}</mark>
+                    <small class="uk-text-meta"> {{ comment.created_at }}</small>
+                  </dt>
+                  <dd>{{ comment.text }}</dd>
+                </template>
+              </dl>
             </div>
-          </article>
+          </div>
 
           <div class="uk-width-1-3@m uk-width-1-1@s">
-            <h3 class="uk-heading-bullet">{{ translate('comment.new.text') }}</h3>
+            <h3 class="uk-heading-bullet">{{ translate('comment.heading') }}</h3>
             <form class="uk-grid-small" uk-grid @submit.prevent="commentSubmit">
               <div class="uk-width-1-1@s">
                 <textarea id="" v-model="comment_form.text" :placeholder="translate('comment.new.placeholder')"
@@ -63,27 +57,6 @@
         </div>
       </div>
 
-      <div id="comments-modal" class="uk-modal-full" uk-modal>
-        <div class="uk-modal-dialog">
-          <button class="uk-modal-close-full uk-button uk-padding-small uk-padding-remove-vertical" type="button">
-            {{ translate('main.close') }}
-          </button>
-          <div class="uk-grid-small uk-flex uk-flex-center" uk-grid>
-            <div class="uk-width-1-2@s uk-padding-large uk-height-viewport">
-              <h3 class="uk-heading-bullet">{{ translate('comment.view.heading') }}</h3>
-              <dl class="uk-description-list uk-description-list-divider" uk-margin>
-                <template v-for="comment, index in comments">
-                  <dt>
-                    <mark>{{ comment.time_ago }}</mark>
-                    <small class="uk-text-meta"> {{ comment.created_at }}</small>
-                  </dt>
-                  <dd>{{ comment.text }}</dd>
-                </template>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
   </base-layout>
@@ -100,11 +73,6 @@ export default {
   },
   data() {
     return {
-      token_form: {
-        token: '',
-      },
-      token_match: false,
-      comments: [],
       comment_form: {
         text: '',
       },
@@ -114,36 +82,22 @@ export default {
   props: {
     post_types: Object,
     post: Object,
-    comment_count: Number
+    comments: Object
   },
   computed: {},
   methods: {
-    tokenSubmit() {
-      window.axios.post(route('api.posts.comments', {post: this.post}), this.token_form)
-          .then((res) => {
-            if (res.data === false) {
-              this.token_match = false;
-              this.comments = [];
-              this.showNoti('danger', this.translate('comment.view.token_not_match'));
-            } else {
-              this.token_match = true;
-              this.comments = res.data.data;
-              window.UIkit.modal(document.getElementById('comments-modal')).show();
-              this.showNoti('success', this.translate('comment.view.token_match'));
-            }
-          });
-    },
     commentSubmit() {
       window.axios.post(route('api.posts.comment', {post: this.post}), this.comment_form)
           .then((res) => {
             this.comment_form.text = '';
             this.total_comments += 1;
+            this.comments.data.unshift(res.data);
             this.showNoti('success', this.translate('comment.new.noti'));
           });
     }
   },
   mounted() {
-    this.total_comments = this.comment_count;
+    this.total_comments = this.comments.data.length;
   }
 }
 </script>

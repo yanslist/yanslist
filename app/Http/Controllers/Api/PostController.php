@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use App\Presenters\CommentPresenter;
 use App\Presenters\PostPresenter;
 use App\Repositories\CommentRepository;
 use App\Repositories\PostRepository;
+use App\Transformers\CommentTransformer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 /**
  * Class RegionController.
@@ -47,27 +46,6 @@ class PostController extends Controller
      * @param  Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function comments(Post $post, Request $request): \Illuminate\Http\JsonResponse
-    {
-        $validated = $request->validate([
-            'token' => 'required',
-        ]);
-
-        $result = false;
-
-        if (Hash::check($request->token, $post->token)) {
-            // token match
-            $this->commentRepo->setPresenter(new CommentPresenter());
-            $result = $this->commentRepo->orderBy('created_at', 'desc')->findByField('post_id', $post->id);
-        }
-        return response()->json($result);
-    }
-
-    /**
-     * @param  Post  $post
-     * @param  Request  $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function comment(Post $post, Request $request): \Illuminate\Http\JsonResponse
     {
         $validated = $request->validate([
@@ -81,6 +59,9 @@ class PostController extends Controller
             ]
         );
 
-        return response()->json($result);
+        $commentTransformer = new CommentTransformer();
+        $comment = $commentTransformer->transform($result);
+
+        return response()->json($comment);
     }
 }

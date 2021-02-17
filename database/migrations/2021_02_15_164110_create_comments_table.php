@@ -17,8 +17,7 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->uuid('post_id');
             $table->mediumText('text');
-            $table->string('contact')->nullable();
-            $table->boolean('op_like')->default(false);
+            $table->boolean('is_message')->default(false);
             $table->timestamps();
         });
     }

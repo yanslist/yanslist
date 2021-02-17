@@ -26,6 +26,5 @@ Route::group(
     ], function () {
 
     Route::get('regions', [RegionController::class, 'index'])->name('api.regions.index');
-    Route::post('posts/{post}/comments', [PostController::class, 'comments'])->name('api.posts.comments');
     Route::post('posts/{post}/comment', [PostController::class, 'comment'])->name('api.posts.comment');
 });

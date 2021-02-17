@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Post;
+use Illuminate\Support\Facades\Hash;
+
 if (!function_exists('makeToken')) {
 
     /**
@@ -11,8 +14,11 @@ if (!function_exists('makeToken')) {
      */
     function makeToken($length = 4): string
     {
-        $bytes = random_bytes($length);
-        return bin2hex($bytes);
+        do {
+            $bytes = random_bytes($length);
+            $token = bin2hex($bytes);
+            $token = Hash::make($token);
+        } while (Post::where('token', $token)->first());
     }
 }
 
