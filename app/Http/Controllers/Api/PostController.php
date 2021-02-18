@@ -9,6 +9,8 @@ use App\Repositories\CommentRepository;
 use App\Repositories\PostRepository;
 use App\Transformers\CommentTransformer;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class RegionController.
@@ -52,9 +54,17 @@ class PostController extends Controller
             'text' => 'required',
         ]);
 
+        if ($request->is_message) {
+            Mail::raw($request->text, function (Message $message) use ($post) {
+                $message->subject('New message for '.$post->title);
+                $message->to(decrypt($post->email));
+            });
+        }
+
         $result = $this->commentRepo->create(
             [
                 'post_id' => $post->id,
+                'is_message' => $request->is_message,
                 'text' => encrypt($request->text)
             ]
         );

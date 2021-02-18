@@ -38,7 +38,7 @@ class PostFactory extends Factory
             'region_id' => $region_id,
             'township_id' => $this->faker->randomElement($township_ids),
             'user_id' => 1,
-            'email' => $this->faker->email,
+            'email' => encrypt($this->faker->email),
         ];
     }
 

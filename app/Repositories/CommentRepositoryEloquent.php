@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Criteria\NotMessageCriteria;
 use App\Models\Comment;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
@@ -30,6 +31,7 @@ class CommentRepositoryEloquent extends BaseRepository implements CommentReposit
     public function boot()
     {
         $this->pushCriteria(app(RequestCriteria::class));
+        $this->pushCriteria(NotMessageCriteria::class);
     }
 
 }

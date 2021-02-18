@@ -23,7 +23,7 @@ class Comment extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['post_id', 'text'];
+    protected $fillable = ['post_id', 'text', 'is_message'];
 
     public function post(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

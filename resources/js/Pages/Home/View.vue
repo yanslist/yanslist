@@ -26,22 +26,11 @@
               <p class="uk-text-meta">{{ post.duration }} @{{ post.location }}</p>
               <p>{{ post.body }}</p>
             </article>
-            <div class="uk-section uk-section-default">
-              <h3 class="uk-heading-bullet">{{ translate('comment.count', {count: total_comments}) }}</h3>
-              <dl class="uk-description-list uk-description-list-divider" uk-margin>
-                <template v-for="comment, index in comments.data">
-                  <dt>
-                    <mark>{{ comment.time_ago }}</mark>
-                    <small class="uk-text-meta"> {{ comment.created_at }}</small>
-                  </dt>
-                  <dd>{{ comment.text }}</dd>
-                </template>
-              </dl>
-            </div>
           </div>
 
           <div class="uk-width-1-3@m uk-width-1-1@s">
             <h3 class="uk-heading-bullet">{{ translate('comment.heading') }}</h3>
+            <p class="uk-text-meta">{{ translate('comment.text') }}</p>
             <form class="uk-grid-small" uk-grid @submit.prevent="commentSubmit">
               <div class="uk-width-1-1@s">
                 <textarea id="" v-model="comment_form.text" :placeholder="translate('comment.new.placeholder')"
@@ -49,11 +38,38 @@
                           required rows="5"></textarea>
               </div>
               <div class="uk-width-1-1@s">
-                <button class="uk-button uk-align-right" type="submit">{{ translate('comment.new.submit') }}</button>
+                <label for="is_message"><input id="is_message" v-model="comment_form.is_message" class="uk-checkbox"
+                                               name="is_message" type="checkbox">
+                  {{ translate('comment.new.is_message') }}</label>
+              </div>
+              <div class="uk-width-1-1@s">
+                <button class="uk-button uk-width-1-1" type="submit">
+                  <template v-if="comment_form.is_message">
+                    {{ translate('comment.new.message_submit') }}
+                  </template>
+                  <template v-else>
+                    {{ translate('comment.new.comment_submit') }}
+                  </template>
+                </button>
               </div>
             </form>
           </div>
 
+        </div>
+
+        <div class="uk-section uk-section-default" uk-grid>
+          <div class="uk-width-1-2@m uk-width-1-1@s">
+            <h3 class="uk-heading-bullet">{{ translate('comment.count', {count: total_comments}) }}</h3>
+            <dl class="uk-description-list uk-description-list-divider" uk-margin>
+              <template v-for="comment, index in comments.data">
+                <dt>
+                  <mark>{{ comment.time_ago }}</mark>
+                  <small class="uk-text-meta"> {{ comment.created_at }}</small>
+                </dt>
+                <dd>{{ comment.text }}</dd>
+              </template>
+            </dl>
+          </div>
         </div>
       </div>
 
@@ -75,6 +91,7 @@ export default {
     return {
       comment_form: {
         text: '',
+        is_message: false
       },
       total_comments: 0
     }
@@ -89,9 +106,14 @@ export default {
     commentSubmit() {
       window.axios.post(route('api.posts.comment', {post: this.post}), this.comment_form)
           .then((res) => {
+            if (!this.comment_form.is_message) {
+              this.total_comments += 1;
+              this.comments.data.unshift(res.data);
+            }
+
             this.comment_form.text = '';
-            this.total_comments += 1;
-            this.comments.data.unshift(res.data);
+            this.comment_form.is_message = false;
+
             this.showNoti('success', this.translate('comment.new.noti'));
           });
     }

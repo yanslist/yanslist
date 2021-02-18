@@ -8,6 +8,7 @@ use App\Models\PostType;
 use App\Presenters\CommentPresenter;
 use App\Presenters\PostPresenter;
 use App\Presenters\RegionPresenter;
+use App\Repositories\CommentRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\RegionRepository;
 use App\Transformers\PostTransformer;
@@ -28,11 +29,18 @@ class HomeController extends Controller
 
     protected $postType;
 
-    public function __construct(PostRepository $postRepo, RegionRepository $regionRepo, PostType $postType)
-    {
+    protected $commentRepo;
+
+    public function __construct(
+        PostRepository $postRepo,
+        RegionRepository $regionRepo,
+        PostType $postType,
+        CommentRepository $commentRepo
+    ) {
         $this->postRepo = $postRepo;
         $this->regionRepo = $regionRepo;
         $this->postType = $postType;
+        $this->commentRepo = $commentRepo;
     }
 
     public function home()
@@ -112,8 +120,8 @@ class HomeController extends Controller
         $post_types = $this->postType->choices();
 
         // assign comments first using Post Model object
-        $commentPresenter = new CommentPresenter();
-        $comments = $commentPresenter->present($post->comments()->orderBy('created_at', 'desc')->get());
+        $this->commentRepo->setPresenter(new CommentPresenter());
+        $comments = $this->commentRepo->orderBy('created_at', 'desc')->findByField('post_id', $post->id);
 
         // transform Post Model object
         $this->postRepo->setPresenter(new PostPresenter());
