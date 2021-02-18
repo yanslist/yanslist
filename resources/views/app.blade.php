@@ -21,8 +21,10 @@
 <body>
 @routes
 @inertia
-<script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer>
-</script>
+@if(config('app.env') !== 'local')
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer>
+    </script>
+@endif
 <script src="{{ mix('/js/app.js') }}" defer></script>
 </body>
 </html>

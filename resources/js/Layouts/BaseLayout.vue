@@ -8,8 +8,10 @@
 <script>
 import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
+import helpers from "../helpers";
 
 export default {
+  mixins: [helpers],
   name: "BaseLayout",
   components: {
     HeaderComponent,
@@ -18,12 +20,8 @@ export default {
   mounted() {
     if (this.$page.props.flash.message) {
       const icon = (this.$page.props.flash.type === 'danger') ? 'warning' : 'bell';
-      const msg = "<span uk-icon='icon: " + icon + "'></span> ";
-      window.UIkit.notification({
-        message: msg + this.$page.props.flash.message,
-        status: this.$page.props.flash.type,
-        pos: 'top-right',
-      });
+      const msg = "<span uk-icon='icon: " + icon + "'></span> " + this.$page.props.flash.message;
+      this.showNoti(this.$page.props.flash.type, msg);
     }
   }
 };

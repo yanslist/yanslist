@@ -13,9 +13,9 @@ Vue.use(plugin);
 // ziggy route
 Vue.mixin({methods: {route}});
 
+// uikit
 UIkit.use(Icons);
 window.UIkit = UIkit;
-Vue.prototype.$uikit = UIkit
 
 // laravel to vue translation
 Vue.prototype.translate = require('./VueTranslation/Translation').default.translate;

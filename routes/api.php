@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\RegionsController;
+use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\RegionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +24,7 @@ Route::group(
     [
         'middleware' => ['api']
     ], function () {
-    Route::get('regions', [RegionsController::class, 'index']);
+
+    Route::get('regions', [RegionController::class, 'index'])->name('api.regions.index');
+    Route::post('posts/{post}/comment', [PostController::class, 'comment'])->name('api.posts.comment');
 });

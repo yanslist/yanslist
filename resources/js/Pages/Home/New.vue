@@ -3,13 +3,13 @@
     <div class="uk-section">
       <div class="uk-container">
         <div class="uk-grid-small uk-flex-center" uk-grid>
-          <div class="uk-width-3-4">
+          <div class="uk-width-3-4@m uk-width-expand@s">
             <h3>{{ translate('post.new.heading') }}</h3>
             <div class="uk-alert uk-alert-primary">
               {{ translate('post.new.help_text') }}
             </div>
             <form class="uk-grid-small" uk-grid @submit.prevent="submit">
-              <div class="uk-width-1-2">
+              <div class="uk-width-1-2@m uk-width-1-1@s">
                 <div class="uk-form-label">{{ translate('post.new.aim') }}</div>
                 <div class="uk-form-controls">
                   <label class="uk-margin-small-right">
@@ -22,7 +22,7 @@
                   </label>
                 </div>
               </div>
-              <div class="uk-width-1-2">
+              <div class="uk-width-1-2@m uk-width-1-1@s">
                 <div class="uk-form-label">{{ translate('post.new.expire_at') }}</div>
                 <div class="uk-form-controls">
                   <label v-for="(value, key) in expire_options" :key="key" class="uk-margin-small-right">
@@ -31,7 +31,7 @@
                   </label>
                 </div>
               </div>
-              <div class="uk-width-1-1">
+              <div class="uk-width-1-1@s">
                 <div class="uk-form-label">{{ translate('post.new.post_type') }}</div>
                 <div class="uk-form-controls">
                   <label v-for="(value, key) in post_types" :key="key" class="uk-margin-small-right">
@@ -40,7 +40,7 @@
                   </label>
                 </div>
               </div>
-              <div class="uk-width-1-2">
+              <div class="uk-width-1-2@m uk-width-1-1@s">
                 <label class="uk-form-label" for="region">{{ translate('post.new.region') }}</label>
                 <div class="uk-form-controls">
                   <select id="region" v-model="form.region_id" class="uk-select" @change="regionSelected()">
@@ -49,7 +49,7 @@
                   </select>
                 </div>
               </div>
-              <div class="uk-width-1-2">
+              <div class="uk-width-1-2@m uk-width-1-1@s">
                 <label class="uk-form-label" for="township">{{ translate('post.new.township') }}</label>
                 <div class="uk-form-controls">
                   <select id="township" v-model="form.township_id" class="uk-select">
@@ -58,7 +58,7 @@
                   </select>
                 </div>
               </div>
-              <div class="uk-width-1-1">
+              <div class="uk-width-1-1@s">
                 <label class="uk-form-label" for="title">{{ translate('post.new.title') }}</label>
                 <div class="uk-form-controls">
                   <input id="title" v-model="form.title" :placeholder="translate('post.new.title_placeholder')"
@@ -66,7 +66,7 @@
                          type="text">
                 </div>
               </div>
-              <div class="uk-width-1-1">
+              <div class="uk-width-1-1@s">
                 <label class="uk-form-label" for="body">{{ translate('post.new.body') }}</label>
                 <div class="uk-form-controls">
                   <textarea id="body" v-model="form.body" :placeholder="translate('post.new.body_placeholder')"
@@ -74,16 +74,35 @@
                             rows="5"></textarea>
                 </div>
               </div>
-              <div class="uk-width-1-1">
+              <div class="uk-width-1-1@s">
+                <p class="uk-text-meta uk-text-small">
+                  {{ translate('post.new.email_info') }}<br>
+                  {{ translate('post.new.submit_info') }}
+                </p>
+              </div>
+              <div class="uk-width-1-2@m uk-width-1-1@s">
+                <label class="uk-form-label" for="email">
+                  {{ translate('post.new.email') }}
+                </label>
                 <div class="uk-form-controls">
-                  <vue-recaptcha
-                      ref="recaptcha"
-                      :sitekey="recaptchaSiteKey"
-                      size="invisible"
-                      @expired="onCaptchaExpired"
-                      @verify="onCaptchaVerified">
-                  </vue-recaptcha>
-                  <button class="uk-button uk-button-primary uk-width-1-1" type="submit">
+                  <input id="email" v-model="form.email" :placeholder="translate('post.new.email_placeholder')"
+                         class="uk-input" name="email"
+                         type="email">
+                </div>
+              </div>
+              <div class="uk-width-1-2@m uk-width-1-1@s">
+                <br class="uk-visible@m">
+                <div class="uk-form-controls">
+                  <template v-if="appEnv!=='local'">
+                    <vue-recaptcha
+                        ref="recaptcha"
+                        :sitekey="recaptchaSiteKey"
+                        size="invisible"
+                        @expired="onCaptchaExpired"
+                        @verify="onCaptchaVerified">
+                    </vue-recaptcha>
+                  </template>
+                  <button id="submit_btn" class="uk-button uk-button-primary uk-width-1-1" type="submit">
                     {{ translate('post.new.submit') }}
                   </button>
                 </div>
@@ -109,6 +128,7 @@ export default {
   data() {
     return {
       recaptchaSiteKey: process.env.MIX_RECAPTCHA_SITEKEY,
+      appEnv: process.env.MIX_APP_ENV,
       townships: null,
       form: {
         is_offer: true,
@@ -118,6 +138,7 @@ export default {
         expire_at: '',
         title: '',
         body: '',
+        email: '',
         recaptcha_token: ''
       },
     }
@@ -138,21 +159,28 @@ export default {
       }
     },
     submit() {
-      this.$refs.recaptcha.execute();
+      if (this.appEnv === 'local') {
+        this.save();
+      } else {
+        this.$refs.recaptcha.execute();
+      }
     },
     onCaptchaVerified: function (recaptchaToken) {
       const self = this;
       self.$refs.recaptcha.reset();
-      this.form.region_id = this.form.region_id.id;
-      this.form.township_id = this.form.township_id.id;
-      this.form.recaptcha_token = recaptchaToken;
-      this.$inertia.post(route('store'), this.form);
+      this.save();
     },
     onCaptchaExpired: function () {
       this.$refs.recaptcha.reset();
+    },
+    save() {
+      this.form.region_id = this.form.region_id.id;
+      this.form.township_id = this.form.township_id.id;
+      this.form.recaptcha_token = (this.appEnv === 'local') ? true : recaptchaToken;
+      this.$inertia.post(route('store'), this.form);
     }
   },
-  created() {
+  mounted() {
     this.form.type = this.default_post_type;
     this.form.expire_at = this.default_expire_option;
   }

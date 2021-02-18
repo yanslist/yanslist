@@ -29,6 +29,8 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Repositories\DistrictRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\TownshipRepository::class,
             \App\Repositories\TownshipRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\CommentRepository::class,
+            \App\Repositories\CommentRepositoryEloquent::class);
         //:end-bindings:
     }
 }
