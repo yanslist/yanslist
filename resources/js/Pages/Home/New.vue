@@ -78,8 +78,7 @@
               </div>
               <div class="uk-width-1-1@s">
                 <p class="uk-text-meta uk-text-small">
-                  {{ translate('post.new.email_info') }}<br>
-                  {{ translate('post.new.submit_info') }}
+                  {{ translate('post.new.email_info') }}
                 </p>
               </div>
               <div class="uk-width-1-2@m uk-width-1-1@s">
@@ -94,7 +93,7 @@
                 </div>
               </div>
               <div class="uk-width-1-2@m uk-width-1-1@s">
-                <br class="uk-visible@m">
+                <span class="uk-text-meta uk-text-small">{{ translate('post.new.submit_info') }}</span>
                 <div class="uk-form-controls">
                   <template v-if="appEnv!=='local'">
                     <vue-recaptcha
