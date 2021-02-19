@@ -13,11 +13,11 @@
                 <div class="uk-form-label">{{ translate('post.new.aim') }}</div>
                 <div class="uk-form-controls">
                   <label class="uk-margin-small-right">
-                    <input v-model="form.is_offer" :value="true" class="uk-radio" name="is_offer" type="radio">&nbsp;
+                    <input v-model="form.is_offer" :value="1" class="uk-radio" name="is_offer" type="radio">
                     {{ translate('post.new.is_offer') }}
                   </label>
                   <label class="uk-margin-small-right">
-                    <input v-model="form.is_offer" :value="false" class="uk-radio" name="is_offer" type="radio">&nbsp;
+                    <input v-model="form.is_offer" :value="0" class="uk-radio" name="is_offer" type="radio">&nbsp;
                     {{ translate('post.new.not_offer') }}
                   </label>
                 </div>
@@ -43,18 +43,18 @@
               <div class="uk-width-1-2@m uk-width-1-1@s">
                 <label class="uk-form-label" for="region">{{ translate('post.new.region') }}</label>
                 <div class="uk-form-controls">
-                  <select id="region" v-model="form.region_id" class="uk-select" @change="regionSelected()">
+                  <select id="region" v-model="form.region_id" class="uk-select" required @change="regionSelected()">
                     <option value="">{{ translate('main.select_region') }}</option>
-                    <option v-for="data in regions.data" :value="data">{{ data.name }}</option>
+                    <option v-for="data in regions.data" :value="data.id">{{ data.name }}</option>
                   </select>
                 </div>
               </div>
               <div class="uk-width-1-2@m uk-width-1-1@s">
                 <label class="uk-form-label" for="township">{{ translate('post.new.township') }}</label>
                 <div class="uk-form-controls">
-                  <select id="township" v-model="form.township_id" class="uk-select">
+                  <select id="township" v-model="form.township_id" class="uk-select" required>
                     <option value="">{{ translate('main.select_township') }}</option>
-                    <option v-for="data in townships" :value="data">{{ data.name }}</option>
+                    <option v-for="data in townships" :value="data.id">{{ data.name }}</option>
                   </select>
                 </div>
               </div>
@@ -62,16 +62,18 @@
                 <label class="uk-form-label" for="title">{{ translate('post.new.title') }}</label>
                 <div class="uk-form-controls">
                   <input id="title" v-model="form.title" :placeholder="translate('post.new.title_placeholder')"
-                         class="uk-input" name="title"
-                         type="text">
+                         :class="{ 'uk-form-danger': errors.title }" class="uk-input"
+                         maxlength="200" minlength="20" name="title" required type="text">
+                  <p v-if="errors.title" class="uk-text-danger">{{ translate(errors.title) }}</p>
                 </div>
               </div>
               <div class="uk-width-1-1@s">
                 <label class="uk-form-label" for="body">{{ translate('post.new.body') }}</label>
                 <div class="uk-form-controls">
                   <textarea id="body" v-model="form.body" :placeholder="translate('post.new.body_placeholder')"
-                            class="uk-textarea" name="body"
-                            rows="5"></textarea>
+                            :class="{ 'uk-form-danger': errors.body }" class="uk-textarea"
+                            minlength="20" name="body" required rows="5"></textarea>
+                  <p v-if="errors.body" class="uk-text-danger">{{ translate(errors.body) }}</p>
                 </div>
               </div>
               <div class="uk-width-1-1@s">
@@ -86,8 +88,9 @@
                 </label>
                 <div class="uk-form-controls">
                   <input id="email" v-model="form.email" :placeholder="translate('post.new.email_placeholder')"
-                         class="uk-input" name="email"
-                         type="email">
+                         :class="{ 'uk-form-danger': errors.email }" class="uk-input"
+                         name="email" required type="email">
+                  <p v-if="errors.email" class="uk-text-danger">{{ translate(errors.email) }}</p>
                 </div>
               </div>
               <div class="uk-width-1-2@m uk-width-1-1@s">
@@ -131,7 +134,7 @@ export default {
       appEnv: process.env.MIX_APP_ENV,
       townships: null,
       form: {
-        is_offer: true,
+        is_offer: 1,
         region_id: '',
         township_id: '',
         type: '',
@@ -149,13 +152,15 @@ export default {
     default_post_type: String,
     expire_options: Object,
     default_expire_option: String,
+    errors: Object
   },
   methods: {
     regionSelected() {
       if (this.form.region_id === '') {
         this.townships = null
       } else {
-        this.townships = this.form.region_id.townships.data;
+        const reg = this.regions.data.filter(region => region.id === this.form.region_id);
+        this.townships = reg[0].townships.data;
       }
     },
     submit() {
@@ -174,8 +179,8 @@ export default {
       this.$refs.recaptcha.reset();
     },
     save() {
-      this.form.region_id = this.form.region_id.id;
-      this.form.township_id = this.form.township_id.id;
+      // this.form.region_id = this.form.region_id.id;
+      // this.form.township_id = this.form.township_id.id;
       this.form.recaptcha_token = (this.appEnv === 'local') ? true : recaptchaToken;
       this.$inertia.post(route('store'), this.form);
     }

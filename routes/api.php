@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(
     [
-        'middleware' => ['api']
+        'middleware' => ['api', 'xssSanitizer']
     ], function () {
 
     Route::get('regions', [RegionController::class, 'index'])->name('api.regions.index');

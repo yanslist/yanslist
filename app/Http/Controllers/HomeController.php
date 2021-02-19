@@ -80,15 +80,15 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'type' => 'required',
-            'is_offer' => 'required',
-            'title' => 'required|min:20',
-            'body' => 'required',
-            'region_id' => 'required',
-            'township_id' => 'required',
-            'email' => 'required|email',
-            'recaptcha_token' => 'required'
+        $request->validate([
+            'type' => ['required'],
+            'is_offer' => ['boolean'],
+            'region_id' => ['required'],
+            'township_id' => ['required'],
+            'title' => ['required', 'min:20', 'max:200'],
+            'body' => ['required', 'min:20'],
+            'email' => ['required', 'email'],
+            'recaptcha_token' => ['required']
         ]);
 
         if (config('app.env') === 'local') {
