@@ -1,7 +1,7 @@
 ### **WIP**
 
-- [ ] post validation
-  - [ ] title length, token length
+- [x] post validation
+  - [x] title length, body length
 
 - [ ] input text sanitize
 
@@ -13,6 +13,8 @@
     , [guide](https://kerneldev.com/qr-codes-in-laravel-complete-guide/)
 
 ### **TODO**
+
+- [ ] add user_id to comments
 
 - [ ] edit feature
   - [ ] send post edit link to email after submit?
