@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "25960a4d70a947c3c3debcfdd74e79e8",
+  "content-hash": "af2af43b7360e2f78f03b6f624ff5e1c",
   "packages": [
     {
       "name": "asm89/stack-cors",
@@ -45,30 +45,83 @@
         "MIT"
       ],
       "authors": [
-                {
-                    "name": "Alexander",
-                    "email": "iam.asm89@gmail.com"
-                }
-            ],
-            "description": "Cross-origin resource sharing library and stack middleware",
-            "homepage": "https://github.com/asm89/stack-cors",
-            "keywords": [
-                "cors",
-                "stack"
-            ],
-            "time": "2020-10-29T16:03:21+00:00"
-        },
         {
-            "name": "brick/math",
-            "version": "0.9.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/brick/math.git",
-                "reference": "dff976c2f3487d42c1db75a3b180e2b9f0e72ce0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/brick/math/zipball/dff976c2f3487d42c1db75a3b180e2b9f0e72ce0",
+          "name": "Alexander",
+          "email": "iam.asm89@gmail.com"
+        }
+      ],
+      "description": "Cross-origin resource sharing library and stack middleware",
+      "homepage": "https://github.com/asm89/stack-cors",
+      "keywords": [
+        "cors",
+        "stack"
+      ],
+      "time": "2020-10-29T16:03:21+00:00"
+    },
+    {
+      "name": "bacon/bacon-qr-code",
+      "version": "2.0.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Bacon/BaconQrCode.git",
+        "reference": "3e9d791b67d0a2912922b7b7c7312f4b37af41e4"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/3e9d791b67d0a2912922b7b7c7312f4b37af41e4",
+        "reference": "3e9d791b67d0a2912922b7b7c7312f4b37af41e4",
+        "shasum": ""
+      },
+      "require": {
+        "dasprid/enum": "^1.0.3",
+        "ext-iconv": "*",
+        "php": "^7.1 || ^8.0"
+      },
+      "require-dev": {
+        "phly/keep-a-changelog": "^1.4",
+        "phpunit/phpunit": "^7 | ^8 | ^9",
+        "squizlabs/php_codesniffer": "^3.4"
+      },
+      "suggest": {
+        "ext-imagick": "to generate QR code images"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "BaconQrCode\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "BSD-2-Clause"
+      ],
+      "authors": [
+        {
+          "name": "Ben Scholzen 'DASPRiD'",
+          "email": "mail@dasprids.de",
+          "homepage": "https://dasprids.de/",
+          "role": "Developer"
+        }
+      ],
+      "description": "BaconQrCode is a QR code generator for PHP.",
+      "homepage": "https://github.com/Bacon/BaconQrCode",
+      "support": {
+        "issues": "https://github.com/Bacon/BaconQrCode/issues",
+        "source": "https://github.com/Bacon/BaconQrCode/tree/2.0.3"
+      },
+      "time": "2020-10-30T02:02:47+00:00"
+    },
+    {
+      "name": "brick/math",
+      "version": "0.9.2",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/brick/math.git",
+        "reference": "dff976c2f3487d42c1db75a3b180e2b9f0e72ce0"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/brick/math/zipball/dff976c2f3487d42c1db75a3b180e2b9f0e72ce0",
                 "reference": "dff976c2f3487d42c1db75a3b180e2b9f0e72ce0",
                 "shasum": ""
             },
@@ -102,25 +155,72 @@
                 "brick",
                 "math"
             ],
-            "funding": [
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/brick/math",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-01-20T22:51:39+00:00"
-        },
+      "funding": [
         {
-            "name": "dnoegel/php-xdg-base-dir",
-            "version": "v0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dnoegel/php-xdg-base-dir.git",
-                "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dnoegel/php-xdg-base-dir/zipball/8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
+          "url": "https://tidelift.com/funding/github/packagist/brick/math",
+          "type": "tidelift"
+        }
+      ],
+      "time": "2021-01-20T22:51:39+00:00"
+    },
+    {
+      "name": "dasprid/enum",
+      "version": "1.0.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/DASPRiD/Enum.git",
+        "reference": "5abf82f213618696dda8e3bf6f64dd042d8542b2"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/DASPRiD/Enum/zipball/5abf82f213618696dda8e3bf6f64dd042d8542b2",
+        "reference": "5abf82f213618696dda8e3bf6f64dd042d8542b2",
+        "shasum": ""
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^7 | ^8 | ^9",
+        "squizlabs/php_codesniffer": "^3.4"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "DASPRiD\\Enum\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "BSD-2-Clause"
+      ],
+      "authors": [
+        {
+          "name": "Ben Scholzen 'DASPRiD'",
+          "email": "mail@dasprids.de",
+          "homepage": "https://dasprids.de/",
+          "role": "Developer"
+        }
+      ],
+      "description": "PHP 7.1 enum implementation",
+      "keywords": [
+        "enum",
+        "map"
+      ],
+      "support": {
+        "issues": "https://github.com/DASPRiD/Enum/issues",
+        "source": "https://github.com/DASPRiD/Enum/tree/1.0.3"
+      },
+      "time": "2020-10-02T16:03:48+00:00"
+    },
+    {
+      "name": "dnoegel/php-xdg-base-dir",
+      "version": "v0.1.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/dnoegel/php-xdg-base-dir.git",
+        "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/dnoegel/php-xdg-base-dir/zipball/8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
                 "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
                 "shasum": ""
             },
@@ -451,15 +551,15 @@
                 "php": ">=5.5",
                 "symfony/polyfill-intl-idn": "^1.10"
             },
-            "require-dev": {
-                "dominicsayers/isemail": "^3.0.7",
-                "phpunit/phpunit": "^4.8.36|^7.5.15",
-                "satooshi/php-coveralls": "^1.0.1"
-            },
-            "suggest": {
-                "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
-            },
-            "type": "library",
+          "require-dev": {
+            "dominicsayers/isemail": "^3.0.7",
+            "phpunit/phpunit": "^4.8.36|^7.5.15",
+            "satooshi/php-coveralls": "^1.0.1"
+          },
+          "suggest": {
+            "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
+          },
+          "type": "library",
           "extra": {
             "branch-alias": {
               "dev-master": "2.1.x-dev"
@@ -683,16 +783,16 @@
         "MIT"
       ],
       "authors": [
-                {
-                    "name": "Chris Fidao",
-                    "email": "fideloper@gmail.com"
-                }
-            ],
-            "description": "Set trusted proxies for Laravel",
-            "keywords": [
-                "load balancing",
-                "proxy",
-                "trusted proxy"
+        {
+          "name": "Chris Fidao",
+          "email": "fideloper@gmail.com"
+        }
+      ],
+      "description": "Set trusted proxies for Laravel",
+      "keywords": [
+        "load balancing",
+        "proxy",
+        "trusted proxy"
             ],
             "time": "2020-10-22T13:48:01+00:00"
         },
@@ -1223,25 +1323,88 @@
                 "issues": "https://github.com/itsgoingd/clockwork/issues",
                 "source": "https://github.com/itsgoingd/clockwork/tree/v5.0.6"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/itsgoingd",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-12-27T00:18:25+00:00"
+          "funding": [
+            {
+              "url": "https://github.com/itsgoingd",
+              "type": "github"
+            }
+          ],
+          "time": "2020-12-27T00:18:25+00:00"
         },
+    {
+      "name": "jorenvanhocht/laravel-share",
+      "version": "4.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/jorenvh/laravel-share.git",
+        "reference": "a8f4bd843f2dba8d6c968edb3dadc8f27de09303"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/jorenvh/laravel-share/zipball/a8f4bd843f2dba8d6c968edb3dadc8f27de09303",
+        "reference": "a8f4bd843f2dba8d6c968edb3dadc8f27de09303",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=7.3"
+      },
+      "require-dev": {
+        "orchestra/testbench": "~6.7",
+        "phpunit/phpunit": "9.4.*"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Jorenvh\\Share\\Providers\\ShareServiceProvider"
+          ],
+          "aliases": {
+            "Share": "Jorenvh\\Share\\ShareFacade"
+          }
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Jorenvh\\Share\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
         {
-            "name": "konekt/enum",
-            "version": "3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/artkonekt/enum.git",
-                "reference": "da96fadf4eda4bd97cc46937e936a6fa6a1e5c94"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/artkonekt/enum/zipball/da96fadf4eda4bd97cc46937e936a6fa6a1e5c94",
+          "name": "Joren Van Hocht",
+          "email": "joren@codeswitch.be",
+          "homepage": "https://codeswitch.be",
+          "role": "Developer"
+        }
+      ],
+      "description": "Optional package for Laravel to generate social share links.",
+      "homepage": "https://github.com/jorenvh/laravel-share",
+      "keywords": [
+        "laravel",
+        "share",
+        "social links",
+        "social share links"
+      ],
+      "support": {
+        "issues": "https://github.com/jorenvh/laravel-share/issues",
+        "source": "https://github.com/jorenvh/laravel-share/tree/4.0.0"
+      },
+      "time": "2021-01-09T20:47:31+00:00"
+    },
+    {
+      "name": "konekt/enum",
+      "version": "3.1.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/artkonekt/enum.git",
+        "reference": "da96fadf4eda4bd97cc46937e936a6fa6a1e5c94"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/artkonekt/enum/zipball/da96fadf4eda4bd97cc46937e936a6fa6a1e5c94",
                 "reference": "da96fadf4eda4bd97cc46937e936a6fa6a1e5c94",
                 "shasum": ""
             },
@@ -1793,14 +1956,14 @@
             ],
             "description": "Filesystem abstraction: Many filesystems, one API.",
             "keywords": [
-                "Cloud Files",
-                "WebDAV",
-                "abstraction",
-                "aws",
-                "cloud",
-                "copy.com",
-                "dropbox",
-                "file systems",
+              "Cloud Files",
+              "WebDAV",
+              "abstraction",
+              "aws",
+              "cloud",
+              "copy.com",
+              "dropbox",
+              "file systems",
               "files",
               "filesystem",
               "filesystems",
@@ -1908,25 +2071,25 @@
       "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.18",
         "phpstan/phpstan": "^0.12.68",
-                "phpunit/phpunit": "^8.5.8 || ^9.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "League\\MimeTypeDetection\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Frank de Jonge",
-                    "email": "info@frankdejonge.nl"
-                }
-            ],
-            "description": "Mime-type detection for Flysystem",
+        "phpunit/phpunit": "^8.5.8 || ^9.3"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "League\\MimeTypeDetection\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Frank de Jonge",
+          "email": "info@frankdejonge.nl"
+        }
+      ],
+      "description": "Mime-type detection for Flysystem",
       "funding": [
         {
           "url": "https://github.com/frankdejonge",
@@ -2046,16 +2209,16 @@
         "php-console/php-console": "^3.1.3",
         "phpspec/prophecy": "^1.6.1",
         "phpstan/phpstan": "^0.12.59",
-                "phpunit/phpunit": "^8.5",
-                "predis/predis": "^1.1",
-                "rollbar/rollbar": "^1.3",
-                "ruflin/elastica": ">=0.90 <7.0.1",
-                "swiftmailer/swiftmailer": "^5.3|^6.0"
-            },
-            "suggest": {
-                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
-                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
-                "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
+        "phpunit/phpunit": "^8.5",
+        "predis/predis": "^1.1",
+        "rollbar/rollbar": "^1.3",
+        "ruflin/elastica": ">=0.90 <7.0.1",
+        "swiftmailer/swiftmailer": "^5.3|^6.0"
+      },
+      "suggest": {
+        "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+        "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+        "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mbstring": "Allow to work properly with unicode symbols",
                 "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
@@ -4698,26 +4861,94 @@
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
-            "homepage": "https://github.com/sebastianbergmann/version",
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-09-28T06:39:44+00:00"
+          "homepage": "https://github.com/sebastianbergmann/version",
+          "funding": [
+            {
+              "url": "https://github.com/sebastianbergmann",
+              "type": "github"
+            }
+          ],
+          "time": "2020-09-28T06:39:44+00:00"
         },
+    {
+      "name": "simplesoftwareio/simple-qrcode",
+      "version": "4.2.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/SimpleSoftwareIO/simple-qrcode.git",
+        "reference": "916db7948ca6772d54bb617259c768c9cdc8d537"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/SimpleSoftwareIO/simple-qrcode/zipball/916db7948ca6772d54bb617259c768c9cdc8d537",
+        "reference": "916db7948ca6772d54bb617259c768c9cdc8d537",
+        "shasum": ""
+      },
+      "require": {
+        "bacon/bacon-qr-code": "^2.0",
+        "ext-gd": "*",
+        "php": ">=7.2|^8.0"
+      },
+      "require-dev": {
+        "mockery/mockery": "~1",
+        "phpunit/phpunit": "~9"
+      },
+      "suggest": {
+        "ext-imagick": "Allows the generation of PNG QrCodes.",
+        "illuminate/support": "Allows for use within Laravel."
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider"
+          ],
+          "aliases": {
+            "QrCode": "SimpleSoftwareIO\\QrCode\\Facades\\QrCode"
+          }
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "SimpleSoftwareIO\\QrCode\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
         {
-            "name": "spatie/eloquent-sortable",
-            "version": "3.11.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/eloquent-sortable.git",
-                "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/b06fa886559f8d40e31c8a69fd32bd45401dc5da",
+          "name": "Simple Software LLC",
+          "email": "support@simplesoftware.io"
+        }
+      ],
+      "description": "Simple QrCode is a QR code generator made for Laravel.",
+      "homepage": "https://www.simplesoftware.io/#/docs/simple-qrcode",
+      "keywords": [
+        "Simple",
+        "generator",
+        "laravel",
+        "qrcode",
+        "wrapper"
+      ],
+      "support": {
+        "issues": "https://github.com/SimpleSoftwareIO/simple-qrcode/issues",
+        "source": "https://github.com/SimpleSoftwareIO/simple-qrcode/tree/4.2.0"
+      },
+      "time": "2021-02-08T20:43:55+00:00"
+    },
+    {
+      "name": "spatie/eloquent-sortable",
+      "version": "3.11.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/spatie/eloquent-sortable.git",
+        "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/b06fa886559f8d40e31c8a69fd32bd45401dc5da",
                 "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da",
                 "shasum": ""
             },
@@ -7269,16 +7500,16 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
-                "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
-                "shasum": ""
+              "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
+              "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
+              "shasum": ""
             },
-            "require": {
-                "ext-dom": "*",
-                "ext-libxml": "*",
-                "php": "^5.5 || ^7.0 || ^8.0",
-                "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
-            },
+          "require": {
+            "ext-dom": "*",
+            "ext-libxml": "*",
+            "php": "^5.5 || ^7.0 || ^8.0",
+            "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
+          },
           "require-dev": {
             "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5"
           },
@@ -7396,16 +7627,16 @@
         "psr-4": {
           "Dotenv\\": "src/"
         }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com",
-                    "homepage": "https://gjcampbell.co.uk/"
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "BSD-3-Clause"
+      ],
+      "authors": [
+        {
+          "name": "Graham Campbell",
+          "email": "graham@alt-three.com",
+          "homepage": "https://gjcampbell.co.uk/"
                 },
                 {
                     "name": "Vance Lucas",

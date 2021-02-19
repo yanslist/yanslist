@@ -15,6 +15,7 @@ use App\Transformers\PostTransformer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Jorenvh\Share\ShareFacade as Share;
 
 /**
  * Class HomeController.
@@ -128,12 +129,17 @@ class HomeController extends Controller
         $postTransformer = new PostTransformer();
         $post = $postTransformer->transform($post);
 
+        $share_links = Share::currentPage()->facebook()
+            ->twitter()
+            ->getRawLinks();
+
         return inertia(
             'Home/View',
             compact(
                 'post_types',
                 'post',
-                'comments'
+                'comments',
+                'share_links'
             )
         );
     }

@@ -1,12 +1,9 @@
 ### **WIP**
 
-- [x] post validation
-  - [x] title length, body length
-
-- [ ] input text sanitize
+- [ ] post filter by type on home page
 
 - [ ] share feature
-  - [ ] to social media
+  - [ ] to social media, [laravel-share](https://github.com/jorenvh/laravel-share)
   - [ ] shorten url [Polr](https://github.com/cydrobolt/polr/)
     , [laravel-url-shortener](https://github.com/LaraCrafts/laravel-url-shortener)
   - [ ] qr code [simple-qrcode](https://github.com/SimpleSoftwareIO/simple-qrcode)
@@ -53,6 +50,10 @@
 - [x] expire date
 
 - [x] responsive
+
+- [x] post validation
+
+- [x] input text sanitize
 
 - Token
   - [x] changed new post with token input, generated from controller, user can also change if they want

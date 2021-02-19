@@ -3,7 +3,6 @@
 
     <div class="uk-section">
       <div class="uk-container">
-
         <h3 class="uk-article-title">
           {{ translate('post.types.' + post.type) }}
           <small>
@@ -29,6 +28,9 @@
           </div>
 
           <div class="uk-width-1-3@m uk-width-1-1@s">
+
+            <share-component :share-links="share_links" class="uk-margin"></share-component>
+
             <h3 class="uk-heading-bullet">{{ translate('comment.heading') }}</h3>
             <p class="uk-text-meta">{{ translate('comment.text') }}</p>
             <form class="uk-grid-small" uk-grid @submit.prevent="commentSubmit">
@@ -81,11 +83,13 @@
 <script>
 import BaseLayout from "../../Layouts/BaseLayout";
 import helpers from "../../helpers";
+import ShareComponent from "../../components/ShareComponent";
 
 export default {
   mixins: [helpers],
   components: {
     BaseLayout,
+    ShareComponent
   },
   data() {
     return {
@@ -99,7 +103,8 @@ export default {
   props: {
     post_types: Object,
     post: Object,
-    comments: Object
+    comments: Object,
+    share_links: Object
   },
   computed: {},
   methods: {

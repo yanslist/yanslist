@@ -24,6 +24,7 @@ Vue.prototype.translate = require('./VueTranslation/Translation').default.transl
 Vue.component('header-component', require('./components/HeaderComponent.vue').default);
 Vue.component('footer-component', require('./components/FooterComponent.vue').default);
 Vue.component('alert-component', require('./components/AlertComponent.vue').default);
+Vue.component('share-component', require('./components/ShareComponent.vue').default);
 // // const files = require.context('./', true, /\.vue$/i)
 // // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
