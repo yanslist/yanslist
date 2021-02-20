@@ -104,7 +104,11 @@ class HomeController extends Controller
             $inputs['user_id'] = 1;
             $inputs['expire_at'] = Carbon::now()->add($inputs['expire_at']);
 
-            Post::create($inputs);
+            $post = Post::create($inputs);
+
+            $qrfile = saveQrcode(route('view', ['post' => $post]));
+            $post->qrcode = $qrfile;
+            $post->save();
 
             $route = 'home';
             $flash = flashMsg('success', 'Successfully posted.');
@@ -139,7 +143,7 @@ class HomeController extends Controller
                 'post_types',
                 'post',
                 'comments',
-                'share_links'
+                'share_links',
             )
         );
     }

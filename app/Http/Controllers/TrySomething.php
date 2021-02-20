@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Mail\Message;
-use Illuminate\Support\Facades\Mail;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TrySomething extends Controller
 {
@@ -16,10 +15,11 @@ class TrySomething extends Controller
      */
     public function __invoke(Request $request)
     {
-        Mail::raw('sample message', function (Message $message) {
-            $message->subject('New message for ');
-            $message->to('ylt@mail.com');
-        });
-        return inertia('Home/Test');
+        $file = '1.png';
+        $qr = QrCode::size(300)
+            ->gradient(29, 29, 80, 141, 131, 237, 'radial')
+            ->format('png')
+            ->generate('Hello Yan!', storage_path('app/public/qrcodes/'.$file));
+//        return inertia('Home/Test');
     }
 }

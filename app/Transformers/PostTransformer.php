@@ -25,6 +25,8 @@ class PostTransformer extends TransformerAbstract
         return [
             'type' => $model->type->value(),
             'is_offer' => $model->is_offer,
+            'region_id' => $model->region_id,
+            'township_id' => $model->township_id,
             'title' => $model->title,
             'slug' => $model->slug,
             'body' => $model->body,

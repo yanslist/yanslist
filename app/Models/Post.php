@@ -76,7 +76,7 @@ class Post extends Model implements Transformable
 
     public function getDurationAttribute()
     {
-        return $this->created_at->format(config('ylist.format.date')).' - '.$this->expire_at->format(config('ylist.format.date'));
+        return $this->expire_at->format(config('ylist.format.date'));
     }
 
 }

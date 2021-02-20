@@ -11,6 +11,7 @@ return [
         "1 week" => "1 week",
         "2 weeks" => "2 weeks",
         "1 month" => "1 month",
+        "2 months" => "2 months"
     ],
     "new" => [
         "heading" => "New Post",

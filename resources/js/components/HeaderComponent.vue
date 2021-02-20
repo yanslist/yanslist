@@ -4,7 +4,7 @@
     <div class="uk-container">
       <div uk-navbar>
         <div class="uk-navbar-left">
-          <a :href="route('home')" class="uk-navbar-item uk-logo">{{ $page.props.appName }}</a>
+          <inertia-link :href="route('home')" class="uk-navbar-item uk-logo">{{ $page.props.appName }}</inertia-link>
         </div>
         <div class="uk-navbar-right uk-visible@m">
           <ul class="uk-navbar-nav">

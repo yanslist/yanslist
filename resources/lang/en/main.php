@@ -8,5 +8,6 @@ return [
     "select_township" => "Select Township",
     "is_offer" => "Offer",
     "not_offer" => "Seeker",
-    "close" => "Close"
+    "close" => "Close",
+    "all" => "All"
 ];

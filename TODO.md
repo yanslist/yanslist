@@ -1,47 +1,8 @@
 ### **WIP**
 
-- [ ] post filter by type on home page
+- [ ] filter on home page
 
-- [ ] share feature
-  - [ ] to social media, [laravel-share](https://github.com/jorenvh/laravel-share)
-  - [ ] shorten url [Polr](https://github.com/cydrobolt/polr/)
-    , [laravel-url-shortener](https://github.com/LaraCrafts/laravel-url-shortener)
-  - [ ] qr code [simple-qrcode](https://github.com/SimpleSoftwareIO/simple-qrcode)
-    , [guide](https://kerneldev.com/qr-codes-in-laravel-complete-guide/)
-
-### **TODO**
-
-- [ ] add user_id to comments
-
-- [ ] edit feature
-  - [ ] send post edit link to email after submit?
-
-- [ ] api feature
-  - [ ] check necessary attributes to hide
-  - [ ] security
-
-- [ ] auth feature
-
-- [ ] switch to vuikit ?
-
-- [ ] csrf ?
-
-- [ ] admin feature
-  - [Orchid Admin](https://www.notion.so/Orchid-Admin-6cf1211499b347f68dad4b00152cffe0)
-
-- [ ] remove presenter composer package ?
-
-- [ ] post repository, use requests feature
-
-- [ ] translate noti text
-
-- [ ] get() vs all()
-
-- [ ] cron to auto update expired posts status
-
-- [ ] refactor controllers
-
-- [ ] radio input display issue on mobile
+- [ ] social share
 
 ### **DONE**
 

@@ -15,14 +15,17 @@
 
         <hr class="uk-divider-small">
 
-        <div class="uk-grid-large" uk-grid>
+        <div class="uk-grid-large" uk-grid="masonry: true">
 
           <div class="uk-width-2-3@m uk-width-1-1@s">
             <article class="uk-article uk-width-1-1@s">
               <h3>
                 {{ post.title }}
               </h3>
-              <p class="uk-text-meta">{{ post.duration }} @{{ post.location }}</p>
+              <p class="uk-text-meta">
+                @{{ post.location }}
+                <span class="uk-align-right">Until {{ post.duration }}</span>
+              </p>
               <p>{{ post.body }}</p>
             </article>
           </div>
@@ -57,9 +60,6 @@
             </form>
           </div>
 
-        </div>
-
-        <div class="uk-section uk-section-default" uk-grid>
           <div class="uk-width-1-2@m uk-width-1-1@s">
             <h3 class="uk-heading-bullet">{{ translate('comment.count', {count: total_comments}) }}</h3>
             <dl class="uk-description-list uk-description-list-divider" uk-margin>
@@ -72,6 +72,7 @@
               </template>
             </dl>
           </div>
+
         </div>
       </div>
 
@@ -104,7 +105,8 @@ export default {
     post_types: Object,
     post: Object,
     comments: Object,
-    share_links: Object
+    share_links: Object,
+    qr: Object
   },
   computed: {},
   methods: {
