@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Post;
 use Illuminate\Console\Command;
 
 class Yan extends Command
@@ -38,13 +37,17 @@ class Yan extends Command
      */
     public function handle()
     {
-        $posts = Post::all();
-        foreach ($posts as $post) {
-            $qrfile = saveQrcode(route('view', ['post' => $post]));
-            $post->qrcode = $qrfile;
-            $post->save();
-        }
-        $this->info('Command finished');
+//        $posts = Post::all();
+//        foreach ($posts as $post) {
+//            do {
+//                $unique_code = makeToken(3);
+//            } while (Post::where('qrcode', $unique_code.'.png')->first());
+//            $url = route('view', ['post' => $post]);
+//            $post->qrcode = saveQrcode($url, $unique_code);
+//            $post->short_url = shortenUrl($url, $unique_code);
+//            $post->save();
+//        }
+//        $this->info('Generating qrcode and short url finished');
         return 0;
     }
 }

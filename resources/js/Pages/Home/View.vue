@@ -23,17 +23,13 @@
                 {{ post.title }}
               </h3>
               <p class="uk-text-meta">
-                @{{ post.location }}
-                <span class="uk-align-right">Until {{ post.duration }}</span>
+                Until {{ post.duration }} @{{ post.location }}
               </p>
               <p>{{ post.body }}</p>
             </article>
           </div>
 
           <div class="uk-width-1-3@m uk-width-1-1@s">
-
-            <share-component :share-links="share_links" class="uk-margin"></share-component>
-
             <h3 class="uk-heading-bullet">{{ translate('comment.heading') }}</h3>
             <p class="uk-text-meta">{{ translate('comment.text') }}</p>
             <form class="uk-grid-small" uk-grid @submit.prevent="commentSubmit">
@@ -58,6 +54,16 @@
                 </button>
               </div>
             </form>
+
+            <h3 class="uk-heading-bullet">{{ translate('main.share') }}</h3>
+            <img :alt="post.title" :data-src="post.qrcode_url" uk-img>
+            <br>
+            <share-component :qrcode="post.qrcode" :share-links="share_links" class="uk-margin"></share-component>
+            <div class="uk-inline uk-width-1-1">
+              <a class="uk-form-icon uk-form-icon-flip" href="#" uk-icon="icon: link"
+                 @click.prevent="copyUrl(post.short_url)"></a>
+              <input id="url_copy" v-model="post.short_url" class="uk-input" readonly type="text">
+            </div>
           </div>
 
           <div class="uk-width-1-2@m uk-width-1-1@s">
@@ -92,13 +98,27 @@ export default {
     BaseLayout,
     ShareComponent
   },
+  metaInfo() {
+    return {
+      meta: [
+        {vmid: 'og:type', property: 'og:type', content: 'website'},
+        {vmid: 'og:url', property: 'og:url', content: window.location.href},
+        {vmid: 'og:title', property: 'og:title', content: this.og_title},
+        {vmid: 'og:description', property: 'og:description', content: this.post.title},
+        {vmid: 'og:image', property: 'og:image', content: this.post.qrcode_url},
+        {vmid: 'twitter:card', property: 'twitter:card', content: 'summary'},
+      ]
+    }
+  },
   data() {
     return {
       comment_form: {
         text: '',
         is_message: false
       },
-      total_comments: 0
+      total_comments: 0,
+      og_title: '',
+      og_image: '',
     }
   },
   props: {
@@ -106,7 +126,6 @@ export default {
     post: Object,
     comments: Object,
     share_links: Object,
-    qr: Object
   },
   computed: {},
   methods: {
@@ -123,10 +142,24 @@ export default {
 
             this.showNoti('success', this.translate('comment.new.noti'));
           });
+    },
+    copyUrl(url) {
+      let el = document.getElementById('url_copy');
+      el.select();
+      document.execCommand('copy');
     }
   },
-  mounted() {
+  created() {
     this.total_comments = this.comments.data.length;
+
+    let ogtitle = this.translate('post.types.' + this.post.type);
+    if (this.post.is_offer) {
+      ogtitle += ' ' + this.translate('main.is_offer');
+    } else {
+      ogtitle += ' ' + this.translate('main.not_offer');
+    }
+    ogtitle += ' @' + this.post.location;
+    this.og_title = ogtitle;
   }
 }
 </script>

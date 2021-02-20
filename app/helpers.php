@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Post;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 if (!function_exists('makeToken')) {
@@ -41,19 +40,55 @@ if (!function_exists('saveQrcode')) {
      * Return filename
      *
      * @param  string  $url
+     * @param  string  $code
      * @return string
-     * @throws Exception
      */
-    function saveQrcode(string $url): string
+    function saveQrcode(string $url, string $code): string
     {
-        do {
-            $filename = makeToken(3).'.png';
-        } while (Post::where('qrcode', $filename)->first());
+        $filename = $code.'.png';
         QrCode::size(300)
             ->gradient(29, 29, 80, 141, 131, 237, 'radial')
             ->format('png')
             ->generate($url, storage_path('app/public/qrcodes/'.$filename));
 
         return $filename;
+    }
+}
+
+if (!function_exists('captcha')) {
+    /**
+     * Submit recaptcha to google api.
+     *
+     * @param  String  $token
+     * @return array|mixed
+     */
+    function captcha(string $token)
+    {
+        $response = Http::asForm()->post(config('services.recaptcha.domain'), [
+            'secret' => config('services.recaptcha.secret'),
+            'response' => $token,
+        ]);
+
+        return $response->json();
+    }
+}
+
+if (!function_exists('shortenUrl')) {
+    /**
+     * Shorten url using Polr API
+     *
+     * @param  string  $url
+     * @param  string  $code
+     * @return string
+     */
+    function shortenUrl(string $url, string $code): string
+    {
+        $endpoint = config('services.polr.domain').'/api/v2/action/shorten';
+        $response = Http::post($endpoint, [
+            'key' => config('services.polr.key'),
+            'url' => $url,
+            'custom_ending' => $code,
+        ]);
+        return $response->body();
     }
 }

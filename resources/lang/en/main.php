@@ -9,5 +9,6 @@ return [
     "is_offer" => "Offer",
     "not_offer" => "Seeker",
     "close" => "Close",
-    "all" => "All"
+    "all" => "All",
+    "share" => "Share"
 ];

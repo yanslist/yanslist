@@ -32,7 +32,8 @@
       "is_offer": "Offer",
       "not_offer": "Seeker",
       "close": "Close",
-      "all": "All"
+      "all": "All",
+      "share": "Share"
     },
     "pagination": {
       "previous": "&laquo; Previous",
@@ -221,7 +222,8 @@
       "is_offer": "\u1000\u1019\u103a\u1038\u101c\u103e\u1019\u103a\u1038",
       "not_offer": "\u101c\u102d\u102f\u1021\u1015\u103a",
       "close": "\u1015\u102d\u1010\u103a\u101b\u1014\u103a",
-      "all": "\u1021\u102c\u1038\u101c\u102f\u1036\u1038"
+      "all": "\u1021\u102c\u1038\u101c\u102f\u1036\u1038",
+      "share": "\u1019\u103b\u103e\u101d\u1031\u1019\u101a\u103a"
     },
     "post": {
       "types": {

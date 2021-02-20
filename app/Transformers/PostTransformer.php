@@ -30,6 +30,9 @@ class PostTransformer extends TransformerAbstract
             'title' => $model->title,
             'slug' => $model->slug,
             'body' => $model->body,
+            'short_url' => $model->short_url,
+            'qrcode_url' => asset('storage/qrcodes/'.$model->qrcode),
+            'qrcode' => $model->qrcode,
             'location' => $model->location,
             'duration' => $model->duration,
         ];

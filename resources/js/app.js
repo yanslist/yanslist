@@ -5,10 +5,13 @@ import Vue from 'vue';
 import {InertiaProgress} from '@inertiajs/progress';
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
+import VueMeta from 'vue-meta'
 
 InertiaProgress.init();
 
 Vue.use(plugin);
+
+Vue.use(VueMeta);
 
 // ziggy route
 Vue.mixin({methods: {route}});
