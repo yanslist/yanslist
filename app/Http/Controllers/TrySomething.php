@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Mail\Message;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
 
 class TrySomething extends Controller
 {
@@ -16,10 +15,11 @@ class TrySomething extends Controller
      */
     public function __invoke(Request $request)
     {
-        Mail::raw('sample message', function (Message $message) {
-            $message->subject('New message for ');
-            $message->to('ylt@mail.com');
-        });
-        return inertia('Home/Test');
+        $endpoint = config('services.polr.domain').'/api/v2/action/shorten';
+        $response = Http::post($endpoint, [
+            'key' => config('services.polr.key'),
+            'url' => 'https://facebook.com',
+        ]);
+        dd($response->body());
     }
 }

@@ -14,7 +14,7 @@ use App\Repositories\RegionRepository;
 use App\Transformers\PostTransformer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use Jorenvh\Share\ShareFacade as Share;
 
 /**
  * Class HomeController.
@@ -94,7 +94,7 @@ class HomeController extends Controller
         if (config('app.env') === 'local') {
             $captcha_result = ['success' => true];
         } else {
-            $captcha_result = $this->captcha($request->recaptcha_token);
+            $captcha_result = captcha($request->recaptcha_token);
         }
 
         if ($captcha_result['success']) {
@@ -103,7 +103,15 @@ class HomeController extends Controller
             $inputs['user_id'] = 1;
             $inputs['expire_at'] = Carbon::now()->add($inputs['expire_at']);
 
-            Post::create($inputs);
+            $post = Post::create($inputs);
+
+            do {
+                $unique_code = makeToken(3);
+            } while (Post::where('qrcode', $unique_code.'.png')->first());
+            $url = route('view', ['post' => $post]);
+            $post->qrcode = saveQrcode($url, $unique_code);
+            $post->short_url = shortenUrl($url, $unique_code);
+            $post->save();
 
             $route = 'home';
             $flash = flashMsg('success', 'Successfully posted.');
@@ -128,30 +136,19 @@ class HomeController extends Controller
         $postTransformer = new PostTransformer();
         $post = $postTransformer->transform($post);
 
+        $share_links = Share::currentPage()->facebook()
+            ->twitter()
+            ->getRawLinks();
+
         return inertia(
             'Home/View',
             compact(
                 'post_types',
                 'post',
-                'comments'
+                'comments',
+                'share_links',
             )
         );
-    }
-
-    /**
-     * Submit recaptcha to google api.
-     *
-     * @param  String  $token
-     * @return array|mixed
-     */
-    protected function captcha(string $token)
-    {
-        $response = Http::asForm()->post(config('services.recaptcha.domain'), [
-            'secret' => config('services.recaptcha.secret'),
-            'response' => $token,
-        ]);
-
-        return $response->json();
     }
 
 }

@@ -19,7 +19,9 @@
     },
     "home": {
       "browse_listings_by": "Browse Listings By",
-      "search": "Search"
+      "search": "Search",
+      "total_listings": "Total :total listings",
+      "all_types": "All Types"
     },
     "main": {
       "listings": "Listings",
@@ -27,9 +29,12 @@
       "post_new": "Post New",
       "select_region": "Select Region",
       "select_township": "Select Township",
+      "select_type": "Select Type",
       "is_offer": "Offer",
       "not_offer": "Seeker",
-      "close": "Close"
+      "close": "Close",
+      "all": "All",
+      "share": "Share"
     },
     "pagination": {
       "previous": "&laquo; Previous",
@@ -52,7 +57,8 @@
       "expire_options": {
         "1 week": "1 week",
         "2 weeks": "2 weeks",
-        "1 month": "1 month"
+        "1 month": "1 month",
+        "2 months": "2 months"
       },
       "new": {
         "heading": "New Post",
@@ -204,7 +210,9 @@
     },
     "home": {
       "browse_listings_by": "\u1005\u102e\u1005\u1005\u103a\u1015\u103c\u102e\u1038 \u1000\u103c\u100a\u103a\u1037\u101b\u1014\u103a",
-      "search": "\u1005\u102e\u1005\u1005\u103a\u1019\u101a\u103a"
+      "search": "\u1005\u102e\u1005\u1005\u103a\u1019\u101a\u103a",
+      "total_listings": "\u1015\u102d\u102f\u1005\u103a\u1037 \u1005\u102f\u1005\u102f\u1015\u1031\u102b\u1004\u103a\u1038 :total \u1001\u102f",
+      "all_types": "\u1000\u100f\u1039\u100d\u1021\u102c\u1038\u101c\u102f\u1036\u1038"
     },
     "main": {
       "listings": "\u1015\u102d\u102f\u1005\u103a\u1037\u1019\u103b\u102c\u1038",
@@ -212,9 +220,12 @@
       "post_new": "\u1021\u101e\u1005\u103a\u1010\u1004\u103a\u1019\u101a\u103a",
       "select_region": "\u1010\u102d\u102f\u1004\u103a\u1038\u1012\u1031\u101e\u1000\u103c\u102e\u1038\u101b\u103d\u1031\u1038\u1015\u102b",
       "select_township": "\u1019\u103c\u102d\u102f\u1037\u1014\u101a\u103a\u101b\u103d\u1031\u1038\u1015\u102b",
+      "select_type": "\u1000\u100f\u1039\u100d\u101b\u103d\u1031\u1038\u1015\u102b",
       "is_offer": "\u1000\u1019\u103a\u1038\u101c\u103e\u1019\u103a\u1038",
       "not_offer": "\u101c\u102d\u102f\u1021\u1015\u103a",
-      "close": "\u1015\u102d\u1010\u103a\u101b\u1014\u103a"
+      "close": "\u1015\u102d\u1010\u103a\u101b\u1014\u103a",
+      "all": "\u1021\u102c\u1038\u101c\u102f\u1036\u1038",
+      "share": "\u1019\u103b\u103e\u101d\u1031\u1019\u101a\u103a"
     },
     "post": {
       "types": {
@@ -226,7 +237,8 @@
       "expire_options": {
         "1 week": "\u1010\u1005\u103a\u1015\u1010\u103a",
         "2 weeks": "\u1014\u103e\u1005\u103a\u1015\u1010\u103a",
-        "1 month": "\u1010\u1005\u103a\u101c"
+        "1 month": "\u1010\u1005\u103a\u101c",
+        "2 months": "\u1014\u103e\u1005\u103a\u101c"
       },
       "new": {
         "heading": "\u1015\u102d\u102f\u1005\u1037\u103a\u1021\u101e\u1005\u103a",
@@ -248,6 +260,119 @@
         "submit_info": "\u1015\u102d\u102f\u1005\u103a\u1037\u1019\u1010\u1004\u103a\u1001\u1004\u103a \u1000\u102d\u102f\u101a\u103a\u1037\u1019\u1031\u1038\u101c\u103a\u1021\u1015\u102b\u1021\u101d\u1004\u103a \u1021\u1001\u103b\u1000\u103a\u1021\u101c\u1000\u103a\u1021\u1000\u103c\u1031\u102c\u1004\u103a\u1038\u1021\u101b\u102c\u1010\u103d\u1031 \u1019\u103e\u1014\u103a\u101c\u102c\u1038\u1011\u1015\u103a\u1005\u1005\u103a\u1015\u102b\u104b",
         "submit": "\u1015\u102d\u102f\u1005\u103a\u1037\u1010\u1004\u103a\u1019\u101a\u103a"
       }
+    },
+    "validation": {
+      "accepted": "The :attribute must be accepted.",
+      "active_url": "The :attribute is not a valid URL.",
+      "after": "The :attribute must be a date after :date.",
+      "after_or_equal": "The :attribute must be a date after or equal to :date.",
+      "alpha": "The :attribute may only contain letters.",
+      "alpha_dash": "The :attribute may only contain letters, numbers, dashes and underscores.",
+      "alpha_num": "The :attribute may only contain letters and numbers.",
+      "array": "The :attribute must be an array.",
+      "before": "The :attribute must be a date before :date.",
+      "before_or_equal": "The :attribute must be a date before or equal to :date.",
+      "between": {
+        "numeric": "The :attribute must be between :min and :max.",
+        "file": "The :attribute must be between :min and :max kilobytes.",
+        "string": "The :attribute must be between :min and :max characters.",
+        "array": "The :attribute must have between :min and :max items."
+      },
+      "boolean": "The :attribute field must be true or false.",
+      "confirmed": "The :attribute confirmation does not match.",
+      "date": "The :attribute is not a valid date.",
+      "date_equals": "The :attribute must be a date equal to :date.",
+      "date_format": "The :attribute does not match the format :format.",
+      "different": "The :attribute and :other must be different.",
+      "digits": "The :attribute must be :digits digits.",
+      "digits_between": "The :attribute must be between :min and :max digits.",
+      "dimensions": "The :attribute has invalid image dimensions.",
+      "distinct": "The :attribute field has a duplicate value.",
+      "email": "The :attribute must be a valid email address.",
+      "ends_with": "The :attribute must end with one of the following: :values.",
+      "exists": "The selected :attribute is invalid.",
+      "file": "The :attribute must be a file.",
+      "filled": "The :attribute field must have a value.",
+      "gt": {
+        "numeric": "The :attribute must be greater than :value.",
+        "file": "The :attribute must be greater than :value kilobytes.",
+        "string": "The :attribute must be greater than :value characters.",
+        "array": "The :attribute must have more than :value items."
+      },
+      "gte": {
+        "numeric": "The :attribute must be greater than or equal :value.",
+        "file": "The :attribute must be greater than or equal :value kilobytes.",
+        "string": "The :attribute must be greater than or equal :value characters.",
+        "array": "The :attribute must have :value items or more."
+      },
+      "image": "The :attribute must be an image.",
+      "in": "The selected :attribute is invalid.",
+      "in_array": "The :attribute field does not exist in :other.",
+      "integer": "The :attribute must be an integer.",
+      "ip": "The :attribute must be a valid IP address.",
+      "ipv4": "The :attribute must be a valid IPv4 address.",
+      "ipv6": "The :attribute must be a valid IPv6 address.",
+      "json": "The :attribute must be a valid JSON string.",
+      "lt": {
+        "numeric": "The :attribute must be less than :value.",
+        "file": "The :attribute must be less than :value kilobytes.",
+        "string": "The :attribute must be less than :value characters.",
+        "array": "The :attribute must have less than :value items."
+      },
+      "lte": {
+        "numeric": "The :attribute must be less than or equal :value.",
+        "file": "The :attribute must be less than or equal :value kilobytes.",
+        "string": "The :attribute must be less than or equal :value characters.",
+        "array": "The :attribute must not have more than :value items."
+      },
+      "max": {
+        "numeric": "The :attribute may not be greater than :max.",
+        "file": "The :attribute may not be greater than :max kilobytes.",
+        "string": "The :attribute may not be greater than :max characters.",
+        "array": "The :attribute may not have more than :max items."
+      },
+      "mimes": "The :attribute must be a file of type: :values.",
+      "mimetypes": "The :attribute must be a file of type: :values.",
+      "min": {
+        "numeric": "The :attribute must be at least :min.",
+        "file": "The :attribute must be at least :min kilobytes.",
+        "string": "The :attribute must be at least :min characters.",
+        "array": "The :attribute must have at least :min items."
+      },
+      "multiple_of": "The :attribute must be a multiple of :value.",
+      "not_in": "The selected :attribute is invalid.",
+      "not_regex": "The :attribute format is invalid.",
+      "numeric": "The :attribute must be a number.",
+      "password": "The password is incorrect.",
+      "present": "The :attribute field must be present.",
+      "regex": "The :attribute format is invalid.",
+      "required": "The :attribute field is required.",
+      "required_if": "The :attribute field is required when :other is :value.",
+      "required_unless": "The :attribute field is required unless :other is in :values.",
+      "required_with": "The :attribute field is required when :values is present.",
+      "required_with_all": "The :attribute field is required when :values are present.",
+      "required_without": "The :attribute field is required when :values is not present.",
+      "required_without_all": "The :attribute field is required when none of :values are present.",
+      "same": "The :attribute and :other must match.",
+      "size": {
+        "numeric": "The :attribute must be :size.",
+        "file": "The :attribute must be :size kilobytes.",
+        "string": "The :attribute must be :size characters.",
+        "array": "The :attribute must contain :size items."
+      },
+      "starts_with": "The :attribute must start with one of the following: :values.",
+      "string": "The :attribute must be a string.",
+      "timezone": "The :attribute must be a valid zone.",
+      "unique": "The :attribute has already been taken.",
+      "uploaded": "The :attribute failed to upload.",
+      "url": "The :attribute format is invalid.",
+      "uuid": "The :attribute must be a valid UUID.",
+      "custom": {
+        "attribute-name": {
+          "rule-name": "custom-message"
+        }
+      },
+      "attributes": []
     }
   }
 }
