@@ -35,4 +35,9 @@ return [
         'secret' => env('RECAPTCHA_SECRET'),
     ],
 
+    'polr' => [
+        'domain' => env('POLR_API_DOMAIN', 'https://yans.link'),
+        'key' => env('POLR_API_KEY'),
+    ]
+
 ];

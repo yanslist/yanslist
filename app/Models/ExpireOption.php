@@ -11,6 +11,7 @@ class ExpireOption extends Enum
     const ONE_WEEK = '1 week';
     const TWO_WEEK = '2 weeks';
     const ONE_MONTH = '1 month';
+    const TWO_MONTH = '2 months';
 
     protected static $labels = [];
 
@@ -19,7 +20,8 @@ class ExpireOption extends Enum
         static::$labels = [
             self::ONE_WEEK => __('1 week'),
             self::TWO_WEEK => __('2 weeks'),
-            self::ONE_MONTH => __('1 month')
+            self::ONE_MONTH => __('1 month'),
+            self::TWO_MONTH => __('2 months')
         ];
     }
 }

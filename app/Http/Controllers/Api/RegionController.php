@@ -7,11 +7,11 @@ use App\Presenters\RegionPresenter;
 use App\Repositories\RegionRepository;
 
 /**
- * Class RegionsController.
+ * Class RegionController.
  *
  * @package namespace App\Http\Controllers\Api;
  */
-class RegionsController extends Controller
+class RegionController extends Controller
 {
     /**
      * @var RegionRepository
@@ -19,7 +19,7 @@ class RegionsController extends Controller
     protected $repository;
 
     /**
-     * RegionsController constructor.
+     * RegionController constructor.
      *
      * @param  RegionRepository  $repository
      */
