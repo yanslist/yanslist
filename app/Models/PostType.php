@@ -11,7 +11,7 @@ class PostType extends Enum
     const AID = 'aid';
     const SERVICE = 'service';
     const SHELTER = 'shelter';
-    const LABOUR = 'labour';
+    const HEALTHCARE = 'healthcare';
 
     protected static $labels = [];
 
@@ -21,7 +21,7 @@ class PostType extends Enum
             self::AID => __('Aid'),
             self::SERVICE => __('Service'),
             self::SHELTER => __('Shelter'),
-            self::LABOUR => __('Labour'),
+            self::HEALTHCARE => __('Health-care'),
         ];
     }
 }
