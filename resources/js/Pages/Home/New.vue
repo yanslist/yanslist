@@ -172,15 +172,19 @@ export default {
     onCaptchaVerified: function (recaptchaToken) {
       const self = this;
       self.$refs.recaptcha.reset();
-      this.save();
+      this.save(recaptchaToken);
     },
     onCaptchaExpired: function () {
       this.$refs.recaptcha.reset();
     },
-    save() {
-      // this.form.region_id = this.form.region_id.id;
-      // this.form.township_id = this.form.township_id.id;
-      this.form.recaptcha_token = (this.appEnv === 'local') ? true : recaptchaToken;
+    save(recaptchaToken) {
+      if (this.appEnv === 'local') {
+        console.log('in local');
+        this.form.recaptcha_token = true;
+      } else {
+        console.log('in prod');
+        this.form.recaptcha_token = recaptchaToken;
+      }
       this.$inertia.post(route('store'), this.form);
     }
   },
