@@ -32,7 +32,7 @@
     <div class="uk-section">
       <div class="uk-container">
         <h3 class="uk-heading-bullet">{{ translate('home.total_listings', {total: filtered_posts.length}) }}</h3>
-        <ul class="uk-list uk-margin-medium-top">
+        <ul class="uk-list uk-list-large uk-margin-medium-top">
           <li v-for="post in filtered_posts">
             <a :href="route('view', {post: post})" class="uk-link-text">
               <span v-if="post.is_offer" class="uk-label uk-label-success">{{ translate('main.is_offer') }}</span>
