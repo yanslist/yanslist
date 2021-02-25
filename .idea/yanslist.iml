@@ -136,6 +136,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/bacon/bacon-qr-code" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/simplesoftwareio/simple-qrcode" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/dasprid/enum" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sendinblue/api-v3-sdk" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/anlutro/l4-settings" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webup/laravel-sendinblue" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
