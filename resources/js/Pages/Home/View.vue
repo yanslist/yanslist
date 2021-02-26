@@ -130,6 +130,8 @@ export default {
   computed: {},
   methods: {
     commentSubmit() {
+      // transform true, false into 1, 0
+      this.comment_form.is_message = this.comment_form.is_message * 1;
       window.axios.post(route('api.posts.comment', {post: this.post}), this.comment_form)
           .then((res) => {
             if (!this.comment_form.is_message) {
