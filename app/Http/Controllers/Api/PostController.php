@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewMessage;
 use App\Models\Post;
 use App\Presenters\PostPresenter;
 use App\Repositories\CommentRepository;
 use App\Repositories\PostRepository;
 use App\Transformers\CommentTransformer;
 use Illuminate\Http\Request;
-use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
 
 /**
@@ -55,10 +55,8 @@ class PostController extends Controller
         ]);
 
         if ($request->is_message) {
-            Mail::raw($request->text, function (Message $message) use ($post) {
-                $message->subject('New message for '.$post->title);
-                $message->to(decrypt($post->email));
-            });
+            Mail::to(decrypt($post->email))->send(new NewMessage($post, $request->text));
+            return response()->json(['message' => 'Message successfully sent.']);
         }
 
         $result = $this->commentRepo->create(

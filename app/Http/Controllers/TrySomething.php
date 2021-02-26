@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 
 class TrySomething extends Controller
 {
@@ -11,15 +11,16 @@ class TrySomething extends Controller
      * Handle the incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response|\Inertia\Response|\Inertia\ResponseFactory
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|int
      */
     public function __invoke(Request $request)
     {
-        $endpoint = config('services.polr.domain').'/api/v2/action/shorten';
-        $response = Http::post($endpoint, [
-            'key' => config('services.polr.key'),
-            'url' => 'https://facebook.com',
-        ]);
-        dd($response->body());
+        $message = Comment::findOrFail(5);
+        return view('emails.new-message')
+            ->with([
+                'postTitle' => $message->post->title,
+                'postUrl' => route('view', ['post' => $message->post]),
+                'message' => decrypt($message->text),
+            ]);
     }
 }

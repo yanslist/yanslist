@@ -38,6 +38,12 @@ return [
     'polr' => [
         'domain' => env('POLR_API_DOMAIN', 'https://yans.link'),
         'key' => env('POLR_API_KEY'),
-    ]
+    ],
+
+    'sendinblue' => [
+        // api-key or partner-key
+        'key_identifier' => env('SENDINBLUE_KEY_IDENTIFIER', 'api-key'),
+        'key' => env('SENDINBLUE_KEY'),
+    ],
 
 ];

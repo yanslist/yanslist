@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "f04452d8d1421f3599d0b49532548087",
+  "content-hash": "e080c86283e78c7121f41d4fa15f9ab4",
   "packages": [
     {
       "name": "anlutro/l4-settings",
@@ -196,19 +196,19 @@
       "require-dev": {
         "php-coveralls/php-coveralls": "^2.2",
         "phpunit/phpunit": "^7.5.15 || ^8.5 || ^9.0",
-                "vimeo/psalm": "4.3.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Brick\\Math\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Arbitrary-precision arithmetic library",
+        "vimeo/psalm": "4.3.2"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Brick\\Math\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "description": "Arbitrary-precision arithmetic library",
       "keywords": [
         "Arbitrary-precision",
         "BigInteger",
@@ -295,16 +295,16 @@
         "phpunit/phpunit": "~7.0|~6.0|~5.0|~4.8.35"
       },
       "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "XdgBaseDir\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "implementation of xdg base directory specification for php",
+      "autoload": {
+        "psr-4": {
+          "XdgBaseDir\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "description": "implementation of xdg base directory specification for php",
             "time": "2019-12-04T15:06:13+00:00"
         },
         {
@@ -600,16 +600,16 @@
             "name": "egulias/email-validator",
             "version": "2.1.25",
             "source": {
-                "type": "git",
-                "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4"
+              "type": "git",
+              "url": "https://github.com/egulias/EmailValidator.git",
+              "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4"
             },
-            "dist": {
-              "type": "zip",
-              "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/0dbf5d78455d4d6a41d186da50adc1122ec066f4",
-              "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4",
-              "shasum": ""
-            },
+          "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/0dbf5d78455d4d6a41d186da50adc1122ec066f4",
+            "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4",
+            "shasum": ""
+          },
           "require": {
             "doctrine/lexer": "^1.0.1",
             "php": ">=5.5",
@@ -867,16 +867,16 @@
         "type": "git",
         "url": "https://github.com/fruitcake/laravel-cors.git",
         "reference": "01de0fe5f71c70d1930ee9a80385f9cc28e0f63a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fruitcake/laravel-cors/zipball/01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
-                "reference": "01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
-                "shasum": ""
-            },
-            "require": {
-                "asm89/stack-cors": "^2.0.1",
-                "illuminate/contracts": "^6|^7|^8|^9",
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/fruitcake/laravel-cors/zipball/01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
+        "reference": "01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
+        "shasum": ""
+      },
+      "require": {
+        "asm89/stack-cors": "^2.0.1",
+        "illuminate/contracts": "^6|^7|^8|^9",
                 "illuminate/support": "^6|^7|^8|^9",
                 "php": ">=7.2",
                 "symfony/http-foundation": "^4|^5",
@@ -1110,26 +1110,30 @@
             "description": "Guzzle is a PHP HTTP client library",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "psr-18",
-                "psr-7",
-                "rest",
-                "web service"
+              "client",
+              "curl",
+              "framework",
+              "http",
+              "http client",
+              "psr-18",
+              "psr-7",
+              "rest",
+              "web service"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
+          "support": {
+            "issues": "https://github.com/guzzle/guzzle/issues",
+            "source": "https://github.com/guzzle/guzzle/tree/7.2.0"
+          },
+          "funding": [
+            {
+              "url": "https://github.com/GrahamCampbell",
+              "type": "github"
+            },
+            {
+              "url": "https://github.com/Nyholm",
+              "type": "github"
+            },
+            {
                     "url": "https://github.com/alexeyshockov",
                     "type": "github"
                 },
@@ -1373,16 +1377,16 @@
                 }
             ],
             "description": "php dev tools in your browser",
-            "homepage": "https://underground.works/clockwork",
-            "keywords": [
-                "Devtools",
-                "debugging",
-              "laravel",
-              "logging",
-              "lumen",
-              "profiling",
-              "slim"
-            ],
+          "homepage": "https://underground.works/clockwork",
+          "keywords": [
+            "Devtools",
+            "debugging",
+            "laravel",
+            "logging",
+            "lumen",
+            "profiling",
+            "slim"
+          ],
           "support": {
             "issues": "https://github.com/itsgoingd/clockwork/issues",
             "source": "https://github.com/itsgoingd/clockwork/tree/v5.0.6"
@@ -1479,16 +1483,16 @@
         "phpunit/phpunit": "7 - 9"
       },
       "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Konekt\\Enum\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
+      "autoload": {
+        "psr-4": {
+          "Konekt\\Enum\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
                 {
                     "name": "Attila Fulop",
                     "homepage": "https://github.com/fulopattila122"
@@ -2293,16 +2297,16 @@
         "rollbar/rollbar": "Allow sending log messages to Rollbar",
         "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
       },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "2.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Monolog\\": "src/Monolog"
-                }
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-main": "2.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Monolog\\": "src/Monolog"
+        }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4908,15 +4912,15 @@
                     "dev-master": "3.0-dev"
                 }
             },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-              "BSD-3-Clause"
-            ],
+          "autoload": {
+            "classmap": [
+              "src/"
+            ]
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+            "BSD-3-Clause"
+          ],
           "authors": [
             {
               "name": "Sebastian Bergmann",
@@ -5086,16 +5090,16 @@
       },
       "require-dev": {
         "orchestra/testbench": "^4.0|^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\EloquentSortable\\EloquentSortableServiceProvider"
-                    ]
-                }
-            },
+        "phpunit/phpunit": "^8.0|^9.0"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Spatie\\EloquentSortable\\EloquentSortableServiceProvider"
+          ]
+        }
+      },
             "autoload": {
                 "psr-4": {
                     "Spatie\\EloquentSortable\\": "src/"
@@ -7617,55 +7621,55 @@
             },
             "time": "2021-02-05T15:30:28+00:00"
         },
+    {
+      "name": "tijsverkoyen/css-to-inline-styles",
+      "version": "2.2.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
+        "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
+        "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
+        "shasum": ""
+      },
+      "require": {
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "php": "^5.5 || ^7.0 || ^8.0",
+        "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "2.2.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "TijsVerkoyen\\CssToInlineStyles\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "BSD-3-Clause"
+      ],
+      "authors": [
         {
-            "name": "tijsverkoyen/css-to-inline-styles",
-            "version": "2.2.3",
-            "source": {
-              "type": "git",
-              "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
-              "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5"
-            },
-          "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
-            "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
-            "shasum": ""
-          },
-          "require": {
-            "ext-dom": "*",
-            "ext-libxml": "*",
-            "php": "^5.5 || ^7.0 || ^8.0",
-            "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
-          },
-          "require-dev": {
-            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5"
-          },
-          "type": "library",
-          "extra": {
-            "branch-alias": {
-              "dev-master": "2.2.x-dev"
-            }
-          },
-          "autoload": {
-            "psr-4": {
-              "TijsVerkoyen\\CssToInlineStyles\\": "src"
-            }
-          },
-          "notification-url": "https://packagist.org/downloads/",
-          "license": [
-            "BSD-3-Clause"
-          ],
-          "authors": [
-            {
-              "name": "Tijs Verkoyen",
-              "email": "css_to_inline_styles@verkoyen.eu",
-              "role": "Developer"
-            }
-          ],
-          "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
-          "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
-          "time": "2020-07-13T06:12:54+00:00"
-        },
+          "name": "Tijs Verkoyen",
+          "email": "css_to_inline_styles@verkoyen.eu",
+          "role": "Developer"
+        }
+      ],
+      "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
+      "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
+      "time": "2020-07-13T06:12:54+00:00"
+    },
     {
       "name": "tohidplus/laravel-vue-translation",
       "version": "2.0.0",
@@ -7774,16 +7778,16 @@
       "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
       "keywords": [
         "dotenv",
-                "env",
-                "environment"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/vlucas/phpdotenv",
+        "env",
+        "environment"
+      ],
+      "funding": [
+        {
+          "url": "https://github.com/GrahamCampbell",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/vlucas/phpdotenv",
                     "type": "tidelift"
                 }
             ],
@@ -7890,16 +7894,16 @@
                     "Webmozart\\Assert\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernhard Schussek",
-                  "email": "bschussek@gmail.com"
-                }
-            ],
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+            "MIT"
+          ],
+          "authors": [
+            {
+              "name": "Bernhard Schussek",
+              "email": "bschussek@gmail.com"
+            }
+          ],
           "description": "Assertions to validate method input/output with nice error messages.",
           "keywords": [
             "assert",
@@ -7973,16 +7977,16 @@
       "time": "2020-10-02T18:21:40+00:00"
     }
   ],
-    "packages-dev": [
-        {
-            "name": "facade/flare-client-php",
-            "version": "1.3.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/facade/flare-client-php.git",
-                "reference": "fd688d3c06658f2b3b5f7bb19f051ee4ddf02492"
-            },
-            "dist": {
+  "packages-dev": [
+    {
+      "name": "facade/flare-client-php",
+      "version": "1.3.7",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/facade/flare-client-php.git",
+        "reference": "fd688d3c06658f2b3b5f7bb19f051ee4ddf02492"
+      },
+      "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/facade/flare-client-php/zipball/fd688d3c06658f2b3b5f7bb19f051ee4ddf02492",
                 "reference": "fd688d3c06658f2b3b5f7bb19f051ee4ddf02492",
