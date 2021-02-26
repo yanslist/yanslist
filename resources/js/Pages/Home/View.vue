@@ -25,7 +25,7 @@
               <p class="uk-text-meta">
                 Until {{ post.duration }} @{{ post.location }}
               </p>
-              <p>{{ post.body }}</p>
+              <p v-html="post.body"></p>
             </article>
           </div>
 

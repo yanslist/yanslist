@@ -7,10 +7,11 @@ import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
 import VueMeta from 'vue-meta'
 
+// inertia
 InertiaProgress.init();
-
 Vue.use(plugin);
 
+// vue-meta
 Vue.use(VueMeta);
 
 // ziggy route

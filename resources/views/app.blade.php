@@ -17,6 +17,7 @@
     <meta name="msapplication-config" content="{{asset('/favicons/browserconfig.xml')}}">
     <meta name="theme-color" content="#fbf7ff">
     <link href="{{ asset('/css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 @routes

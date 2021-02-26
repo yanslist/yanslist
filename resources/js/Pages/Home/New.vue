@@ -70,9 +70,10 @@
               <div class="uk-width-1-1@s">
                 <label class="uk-form-label" for="body">{{ translate('post.new.body') }}</label>
                 <div class="uk-form-controls">
-                  <textarea id="body" v-model="form.body" :placeholder="translate('post.new.body_placeholder')"
-                            :class="{ 'uk-form-danger': errors.body }" class="uk-textarea"
-                            minlength="20" name="body" required rows="5"></textarea>
+                  <!--                  <textarea id="body" v-model="form.body" :placeholder="translate('post.new.body_placeholder')"-->
+                  <!--                            :class="{ 'uk-form-danger': errors.body }" class="uk-textarea"-->
+                  <!--                            minlength="20" name="body" required rows="5"></textarea>-->
+                  <ckeditor v-model="form.body" :config="editorConfig" :editor="editor"></ckeditor>
                   <p v-if="errors.body" class="uk-text-danger">{{ translate(errors.body) }}</p>
                 </div>
               </div>
@@ -121,11 +122,14 @@
 <script>
 import BaseLayout from "../../Layouts/BaseLayout";
 import VueRecaptcha from 'vue-recaptcha';
+import CKEditor from '@ckeditor/ckeditor5-vue2';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default {
   components: {
     BaseLayout,
-    VueRecaptcha
+    VueRecaptcha,
+    ckeditor: CKEditor.component
   },
   data() {
     return {
@@ -143,6 +147,11 @@ export default {
         email: '',
         recaptcha_token: ''
       },
+      editor: ClassicEditor,
+      editorConfig: {
+        toolbar: ['bold', 'italic', 'bulletedList', 'numberedList', 'link'],
+        placeholder: this.translate('post.new.body_placeholder')
+      }
     }
   },
   props: {
@@ -194,3 +203,22 @@ export default {
   }
 }
 </script>
+
+<style>
+.ck.ck-editor__main > .ck-editor__editable {
+  background-color: #fffade;
+}
+
+.ck.ck-toolbar, .ck.ck-editor__editable_inline {
+  border: 0px;
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+  border-color: #fffade;
+  box-shadow: none;
+}
+
+.ck.ck-placeholder:before, .ck .ck-placeholder:before {
+  color: #D1C6FF;
+}
+</style>
