@@ -9,10 +9,11 @@
   "license": "MIT",
   "require": {
     "php": "^7.3|^8.0",
+    "anlutro/l4-settings": "^1.0",
     "fideloper/proxy": "^4.4",
     "fruitcake/laravel-cors": "^2.0",
     "guilhermegonzaga/presenter": "^1.0",
-    "guzzlehttp/guzzle": "^7.0.1",
+    "guzzlehttp/guzzle": "^7.2",
     "inertiajs/inertia-laravel": "^0.3.6",
     "itsgoingd/clockwork": "^5.0",
     "jorenvanhocht/laravel-share": "^4.0",
@@ -28,7 +29,8 @@
     "spatie/laravel-sluggable": "^2.6",
     "spatie/laravel-tags": "^2.7",
     "tightenco/ziggy": "^1.0",
-    "tohidplus/laravel-vue-translation": "^2.0"
+    "tohidplus/laravel-vue-translation": "^2.0",
+    "webup/laravel-sendinblue": "^3.1"
   },
   "require-dev": {
     "facade/ignition": "^2.5",

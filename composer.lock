@@ -4,8 +4,72 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "af2af43b7360e2f78f03b6f624ff5e1c",
+  "content-hash": "e080c86283e78c7121f41d4fa15f9ab4",
   "packages": [
+    {
+      "name": "anlutro/l4-settings",
+      "version": "v1.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/anlutro/laravel-settings.git",
+        "reference": "179b2719b13d37f054895193cfd82bd0f32adbca"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/anlutro/laravel-settings/zipball/179b2719b13d37f054895193cfd82bd0f32adbca",
+        "reference": "179b2719b13d37f054895193cfd82bd0f32adbca",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/cache": ">=4.2 <9.0",
+        "illuminate/support": ">=4.2 <9.0",
+        "php": ">=5.4.0"
+      },
+      "require-dev": {
+        "laravel/framework": ">=4.2",
+        "mockery/mockery": "^1.2",
+        "phpunit/phpunit": "^8.0"
+      },
+      "suggest": {
+        "illuminate/database": "Save settings to a database table.",
+        "illuminate/filesystem": "Save settings to a JSON file."
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "aliases": {
+            "Setting": "anlutro\\LaravelSettings\\Facade"
+          },
+          "providers": [
+            "anlutro\\LaravelSettings\\ServiceProvider"
+          ]
+        }
+      },
+      "autoload": {
+        "files": [
+          "src/helpers.php"
+        ],
+        "psr-4": {
+          "anlutro\\LaravelSettings\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "Andreas Lutro",
+          "email": "anlutro@gmail.com"
+        }
+      ],
+      "description": "Persistent settings in Laravel.",
+      "support": {
+        "issues": "https://github.com/anlutro/laravel-settings/issues",
+        "source": "https://github.com/anlutro/laravel-settings/tree/v1.0.0"
+      },
+      "time": "2020-09-09T13:15:05+00:00"
+    },
     {
       "name": "asm89/stack-cors",
       "version": "v2.0.2",
@@ -122,39 +186,39 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/brick/math/zipball/dff976c2f3487d42c1db75a3b180e2b9f0e72ce0",
-                "reference": "dff976c2f3487d42c1db75a3b180e2b9f0e72ce0",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": "^7.1 || ^8.0"
-            },
-            "require-dev": {
-                "php-coveralls/php-coveralls": "^2.2",
-                "phpunit/phpunit": "^7.5.15 || ^8.5 || ^9.0",
-                "vimeo/psalm": "4.3.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Brick\\Math\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Arbitrary-precision arithmetic library",
-            "keywords": [
-                "Arbitrary-precision",
-                "BigInteger",
-                "BigRational",
-                "arithmetic",
-                "bigdecimal",
-                "bignum",
-                "brick",
-                "math"
-            ],
+        "reference": "dff976c2f3487d42c1db75a3b180e2b9f0e72ce0",
+        "shasum": ""
+      },
+      "require": {
+        "ext-json": "*",
+        "php": "^7.1 || ^8.0"
+      },
+      "require-dev": {
+        "php-coveralls/php-coveralls": "^2.2",
+        "phpunit/phpunit": "^7.5.15 || ^8.5 || ^9.0",
+        "vimeo/psalm": "4.3.2"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Brick\\Math\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "description": "Arbitrary-precision arithmetic library",
+      "keywords": [
+        "Arbitrary-precision",
+        "BigInteger",
+        "BigRational",
+        "arithmetic",
+        "bigdecimal",
+        "bignum",
+        "brick",
+        "math"
+      ],
       "funding": [
         {
           "url": "https://tidelift.com/funding/github/packagist/brick/math",
@@ -221,26 +285,26 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/dnoegel/php-xdg-base-dir/zipball/8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
-                "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~7.0|~6.0|~5.0|~4.8.35"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "XdgBaseDir\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "implementation of xdg base directory specification for php",
+        "reference": "8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd",
+        "shasum": ""
+      },
+      "require": {
+        "php": ">=5.3.2"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "~7.0|~6.0|~5.0|~4.8.35"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "XdgBaseDir\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "description": "implementation of xdg base directory specification for php",
             "time": "2019-12-04T15:06:13+00:00"
         },
         {
@@ -536,21 +600,21 @@
             "name": "egulias/email-validator",
             "version": "2.1.25",
             "source": {
-                "type": "git",
-                "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4"
+              "type": "git",
+              "url": "https://github.com/egulias/EmailValidator.git",
+              "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/0dbf5d78455d4d6a41d186da50adc1122ec066f4",
-                "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/lexer": "^1.0.1",
-                "php": ">=5.5",
-                "symfony/polyfill-intl-idn": "^1.10"
-            },
+          "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/0dbf5d78455d4d6a41d186da50adc1122ec066f4",
+            "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4",
+            "shasum": ""
+          },
+          "require": {
+            "doctrine/lexer": "^1.0.1",
+            "php": ">=5.5",
+            "symfony/polyfill-intl-idn": "^1.10"
+          },
           "require-dev": {
             "dominicsayers/isemail": "^3.0.7",
             "phpunit/phpunit": "^4.8.36|^7.5.15",
@@ -793,26 +857,26 @@
         "load balancing",
         "proxy",
         "trusted proxy"
-            ],
-            "time": "2020-10-22T13:48:01+00:00"
-        },
-        {
-            "name": "fruitcake/laravel-cors",
-            "version": "v2.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fruitcake/laravel-cors.git",
-                "reference": "01de0fe5f71c70d1930ee9a80385f9cc28e0f63a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fruitcake/laravel-cors/zipball/01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
-                "reference": "01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
-                "shasum": ""
-            },
-            "require": {
-                "asm89/stack-cors": "^2.0.1",
-                "illuminate/contracts": "^6|^7|^8|^9",
+      ],
+      "time": "2020-10-22T13:48:01+00:00"
+    },
+    {
+      "name": "fruitcake/laravel-cors",
+      "version": "v2.0.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/fruitcake/laravel-cors.git",
+        "reference": "01de0fe5f71c70d1930ee9a80385f9cc28e0f63a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/fruitcake/laravel-cors/zipball/01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
+        "reference": "01de0fe5f71c70d1930ee9a80385f9cc28e0f63a",
+        "shasum": ""
+      },
+      "require": {
+        "asm89/stack-cors": "^2.0.1",
+        "illuminate/contracts": "^6|^7|^8|^9",
                 "illuminate/support": "^6|^7|^8|^9",
                 "php": ">=7.2",
                 "symfony/http-foundation": "^4|^5",
@@ -1046,26 +1110,30 @@
             "description": "Guzzle is a PHP HTTP client library",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "psr-18",
-                "psr-7",
-                "rest",
-                "web service"
+              "client",
+              "curl",
+              "framework",
+              "http",
+              "http client",
+              "psr-18",
+              "psr-7",
+              "rest",
+              "web service"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
+          "support": {
+            "issues": "https://github.com/guzzle/guzzle/issues",
+            "source": "https://github.com/guzzle/guzzle/tree/7.2.0"
+          },
+          "funding": [
+            {
+              "url": "https://github.com/GrahamCampbell",
+              "type": "github"
+            },
+            {
+              "url": "https://github.com/Nyholm",
+              "type": "github"
+            },
+            {
                     "url": "https://github.com/alexeyshockov",
                     "type": "github"
                 },
@@ -1309,20 +1377,20 @@
                 }
             ],
             "description": "php dev tools in your browser",
-            "homepage": "https://underground.works/clockwork",
-            "keywords": [
-                "Devtools",
-                "debugging",
-                "laravel",
-                "logging",
-                "lumen",
-                "profiling",
-                "slim"
-            ],
-            "support": {
-                "issues": "https://github.com/itsgoingd/clockwork/issues",
-                "source": "https://github.com/itsgoingd/clockwork/tree/v5.0.6"
-            },
+          "homepage": "https://underground.works/clockwork",
+          "keywords": [
+            "Devtools",
+            "debugging",
+            "laravel",
+            "logging",
+            "lumen",
+            "profiling",
+            "slim"
+          ],
+          "support": {
+            "issues": "https://github.com/itsgoingd/clockwork/issues",
+            "source": "https://github.com/itsgoingd/clockwork/tree/v5.0.6"
+          },
           "funding": [
             {
               "url": "https://github.com/itsgoingd",
@@ -1405,26 +1473,26 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/artkonekt/enum/zipball/da96fadf4eda4bd97cc46937e936a6fa6a1e5c94",
-                "reference": "da96fadf4eda4bd97cc46937e936a6fa6a1e5c94",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3 || ^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "7 - 9"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Konekt\\Enum\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
+        "reference": "da96fadf4eda4bd97cc46937e936a6fa6a1e5c94",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.3 || ^8.0"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "7 - 9"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Konekt\\Enum\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
                 {
                     "name": "Attila Fulop",
                     "homepage": "https://github.com/fulopattila122"
@@ -2219,26 +2287,26 @@
         "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
         "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
         "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
-                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                "ext-mbstring": "Allow to work properly with unicode symbols",
-                "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
-                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
-                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
-                "php-console/php-console": "Allow sending log messages to Google Chrome",
-                "rollbar/rollbar": "Allow sending log messages to Rollbar",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "2.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Monolog\\": "src/Monolog"
-                }
+        "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+        "ext-mbstring": "Allow to work properly with unicode symbols",
+        "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
+        "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+        "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
+        "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+        "php-console/php-console": "Allow sending log messages to Google Chrome",
+        "rollbar/rollbar": "Allow sending log messages to Rollbar",
+        "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-main": "2.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Monolog\\": "src/Monolog"
+        }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4844,23 +4912,23 @@
                     "dev-master": "3.0-dev"
                 }
             },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                }
-            ],
-            "description": "Library that helps with managing the version number of Git-hosted PHP projects",
+          "autoload": {
+            "classmap": [
+              "src/"
+            ]
+          },
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+            "BSD-3-Clause"
+          ],
+          "authors": [
+            {
+              "name": "Sebastian Bergmann",
+              "email": "sebastian@phpunit.de",
+              "role": "lead"
+            }
+          ],
+          "description": "Library that helps with managing the version number of Git-hosted PHP projects",
           "homepage": "https://github.com/sebastianbergmann/version",
           "funding": [
             {
@@ -4870,6 +4938,69 @@
           ],
           "time": "2020-09-28T06:39:44+00:00"
         },
+    {
+      "name": "sendinblue/api-v3-sdk",
+      "version": "v7.4.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/sendinblue/APIv3-php-library.git",
+        "reference": "0b86513957d22c3fcd0598f5c961be2513f6c8d6"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/sendinblue/APIv3-php-library/zipball/0b86513957d22c3fcd0598f5c961be2513f6c8d6",
+        "reference": "0b86513957d22c3fcd0598f5c961be2513f6c8d6",
+        "shasum": ""
+      },
+      "require": {
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2 || ^7.0",
+        "php": ">=5.6"
+      },
+      "require-dev": {
+        "friendsofphp/php-cs-fixer": "~1.12",
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "~2.6"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "7.x.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "SendinBlue\\Client\\": "lib/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
+        {
+          "name": "SendinBlue Developers",
+          "email": "contact@sendinblue.com",
+          "homepage": "https://www.sendinblue.com/"
+        }
+      ],
+      "description": "Official SendinBlue provided RESTFul API V3 php library",
+      "homepage": "https://github.com/sendinblue/APIv3-php-library",
+      "keywords": [
+        "api",
+        "php",
+        "sdk",
+        "sendinblue",
+        "swagger"
+      ],
+      "support": {
+        "issues": "https://github.com/sendinblue/APIv3-php-library/issues",
+        "source": "https://github.com/sendinblue/APIv3-php-library/tree/v7.4.0"
+      },
+      "time": "2021-01-22T07:13:16+00:00"
+    },
     {
       "name": "simplesoftwareio/simple-qrcode",
       "version": "4.2.0",
@@ -4949,26 +5080,26 @@
       "dist": {
         "type": "zip",
         "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/b06fa886559f8d40e31c8a69fd32bd45401dc5da",
-                "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "^6.0|^7.0|^8.0",
-                "illuminate/support": "^6.0|^7.0|^8.0",
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\EloquentSortable\\EloquentSortableServiceProvider"
-                    ]
-                }
-            },
+        "reference": "b06fa886559f8d40e31c8a69fd32bd45401dc5da",
+        "shasum": ""
+      },
+      "require": {
+        "illuminate/database": "^6.0|^7.0|^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0",
+        "php": "^7.3|^8.0"
+      },
+      "require-dev": {
+        "orchestra/testbench": "^4.0|^5.0|^6.0",
+        "phpunit/phpunit": "^8.0|^9.0"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Spatie\\EloquentSortable\\EloquentSortableServiceProvider"
+          ]
+        }
+      },
             "autoload": {
                 "psr-4": {
                     "Spatie\\EloquentSortable\\": "src/"
@@ -7490,55 +7621,55 @@
             },
             "time": "2021-02-05T15:30:28+00:00"
         },
+    {
+      "name": "tijsverkoyen/css-to-inline-styles",
+      "version": "2.2.3",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
+        "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
+        "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
+        "shasum": ""
+      },
+      "require": {
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "php": "^5.5 || ^7.0 || ^8.0",
+        "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "2.2.x-dev"
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "TijsVerkoyen\\CssToInlineStyles\\": "src"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "BSD-3-Clause"
+      ],
+      "authors": [
         {
-            "name": "tijsverkoyen/css-to-inline-styles",
-            "version": "2.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
-                "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5"
-            },
-            "dist": {
-                "type": "zip",
-              "url": "https://api.github.com/repos/tijsverkoyen/CssToInlineStyles/zipball/b43b05cf43c1b6d849478965062b6ef73e223bb5",
-              "reference": "b43b05cf43c1b6d849478965062b6ef73e223bb5",
-              "shasum": ""
-            },
-          "require": {
-            "ext-dom": "*",
-            "ext-libxml": "*",
-            "php": "^5.5 || ^7.0 || ^8.0",
-            "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0"
-          },
-          "require-dev": {
-            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5"
-          },
-          "type": "library",
-          "extra": {
-            "branch-alias": {
-              "dev-master": "2.2.x-dev"
-            }
-          },
-          "autoload": {
-            "psr-4": {
-              "TijsVerkoyen\\CssToInlineStyles\\": "src"
-            }
-          },
-          "notification-url": "https://packagist.org/downloads/",
-          "license": [
-            "BSD-3-Clause"
-          ],
-          "authors": [
-            {
-              "name": "Tijs Verkoyen",
-              "email": "css_to_inline_styles@verkoyen.eu",
-              "role": "Developer"
-            }
-          ],
-          "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
-          "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
-          "time": "2020-07-13T06:12:54+00:00"
-        },
+          "name": "Tijs Verkoyen",
+          "email": "css_to_inline_styles@verkoyen.eu",
+          "role": "Developer"
+        }
+      ],
+      "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
+      "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
+      "time": "2020-07-13T06:12:54+00:00"
+    },
     {
       "name": "tohidplus/laravel-vue-translation",
       "version": "2.0.0",
@@ -7637,26 +7768,26 @@
           "name": "Graham Campbell",
           "email": "graham@alt-three.com",
           "homepage": "https://gjcampbell.co.uk/"
-                },
-                {
-                    "name": "Vance Lucas",
-                    "email": "vance@vancelucas.com",
-                    "homepage": "https://vancelucas.com/"
-                }
-            ],
-            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
-            "keywords": [
-                "dotenv",
-                "env",
-                "environment"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/vlucas/phpdotenv",
+        },
+        {
+          "name": "Vance Lucas",
+          "email": "vance@vancelucas.com",
+          "homepage": "https://vancelucas.com/"
+        }
+      ],
+      "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+      "keywords": [
+        "dotenv",
+        "env",
+        "environment"
+      ],
+      "funding": [
+        {
+          "url": "https://github.com/GrahamCampbell",
+          "type": "github"
+        },
+        {
+          "url": "https://tidelift.com/funding/github/packagist/vlucas/phpdotenv",
                     "type": "tidelift"
                 }
             ],
@@ -7763,35 +7894,99 @@
                     "Webmozart\\Assert\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernhard Schussek",
-                    "email": "bschussek@gmail.com"
-                }
-            ],
-            "description": "Assertions to validate method input/output with nice error messages.",
-            "keywords": [
-                "assert",
-                "check",
-                "validate"
-            ],
-            "time": "2020-07-08T17:02:28+00:00"
+          "notification-url": "https://packagist.org/downloads/",
+          "license": [
+            "MIT"
+          ],
+          "authors": [
+            {
+              "name": "Bernhard Schussek",
+              "email": "bschussek@gmail.com"
+            }
+          ],
+          "description": "Assertions to validate method input/output with nice error messages.",
+          "keywords": [
+            "assert",
+            "check",
+            "validate"
+          ],
+          "time": "2020-07-08T17:02:28+00:00"
+        },
+    {
+      "name": "webup/laravel-sendinblue",
+      "version": "v3.1.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/agence-webup/laravel-sendinblue.git",
+        "reference": "dd1deeb9e114945d592a26fb79de08b38bbb8a3d"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/agence-webup/laravel-sendinblue/zipball/dd1deeb9e114945d592a26fb79de08b38bbb8a3d",
+        "reference": "dd1deeb9e114945d592a26fb79de08b38bbb8a3d",
+        "shasum": ""
+      },
+      "require": {
+        "guzzlehttp/guzzle": "^6.2|^7.0",
+        "illuminate/mail": "^7.0|^8.0",
+        "sendinblue/api-v3-sdk": "^7.0"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^8.0|^9.0"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Webup\\LaravelSendinBlue\\SendinBlueServiceProvider"
+          ]
         }
-    ],
-    "packages-dev": [
+      },
+      "autoload": {
+        "psr-4": {
+          "Webup\\LaravelSendinBlue\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
         {
-            "name": "facade/flare-client-php",
-            "version": "1.3.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/facade/flare-client-php.git",
-                "reference": "fd688d3c06658f2b3b5f7bb19f051ee4ddf02492"
-            },
-            "dist": {
+          "name": "Baptiste Ducatel",
+          "email": "baptiste@agence-webup.com",
+          "homepage": "http://agence-webup.com",
+          "role": "Developer"
+        }
+      ],
+      "description": "Laravel's mail transport for SendinBlue",
+      "keywords": [
+        "laravel",
+        "laravel5",
+        "laravel7",
+        "laravel8",
+        "lumen",
+        "mailing",
+        "sendinblue",
+        "stmp"
+      ],
+      "support": {
+        "issues": "https://github.com/agence-webup/laravel-sendinblue/issues",
+        "source": "https://github.com/agence-webup/laravel-sendinblue/tree/v3.1.0"
+      },
+      "time": "2020-10-02T18:21:40+00:00"
+    }
+  ],
+  "packages-dev": [
+    {
+      "name": "facade/flare-client-php",
+      "version": "1.3.7",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/facade/flare-client-php.git",
+        "reference": "fd688d3c06658f2b3b5f7bb19f051ee4ddf02492"
+      },
+      "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/facade/flare-client-php/zipball/fd688d3c06658f2b3b5f7bb19f051ee4ddf02492",
                 "reference": "fd688d3c06658f2b3b5f7bb19f051ee4ddf02492",

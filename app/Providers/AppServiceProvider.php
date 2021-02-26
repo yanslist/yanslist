@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // use smtp mailhog setting for local
+        if (config('app.env') == 'local') {
+            config(['mail.default' => 'smtp']);
+        }
     }
 }
