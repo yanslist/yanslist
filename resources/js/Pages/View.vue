@@ -32,7 +32,7 @@
           <div class="uk-width-1-3@m uk-width-1-1@s">
             <h3 class="uk-heading-bullet">{{ translate('comment.heading') }}</h3>
             <p class="uk-text-meta">{{ translate('comment.text') }}</p>
-            <form class="uk-grid-small" uk-grid @submit.prevent="commentSubmit">
+            <form class="uk-grid-small" uk-grid @submit.prevent="submit">
               <div class="uk-width-1-1@s">
                 <textarea id="" v-model="comment_form.text" :placeholder="translate('comment.new.placeholder')"
                           class="uk-textarea" name="text"
@@ -44,7 +44,16 @@
                   {{ translate('comment.new.is_message') }}</label>
               </div>
               <div class="uk-width-1-1@s">
-                <button class="uk-button uk-width-1-1" type="submit">
+                <template v-if="appEnv!=='local'">
+                  <vue-recaptcha
+                      ref="recaptcha"
+                      :sitekey="recaptchaSiteKey"
+                      size="invisible"
+                      @expired="onCaptchaExpired"
+                      @verify="onCaptchaVerified">
+                  </vue-recaptcha>
+                </template>
+                <button id="submit_btn" class="uk-button uk-width-1-1" type="submit">
                   <template v-if="comment_form.is_message">
                     {{ translate('comment.new.message_submit') }}
                   </template>
@@ -91,12 +100,14 @@
 import BaseLayout from "../../Layouts/BaseLayout";
 import helpers from "../../helpers";
 import ShareComponent from "../../components/ShareComponent";
+import VueRecaptcha from 'vue-recaptcha';
 
 export default {
   mixins: [helpers],
   components: {
     BaseLayout,
-    ShareComponent
+    ShareComponent,
+    VueRecaptcha
   },
   metaInfo() {
     return {
@@ -112,9 +123,12 @@ export default {
   },
   data() {
     return {
+      recaptchaSiteKey: process.env.MIX_RECAPTCHA_SITEKEY,
+      appEnv: process.env.MIX_APP_ENV,
       comment_form: {
         text: '',
-        is_message: false
+        is_message: false,
+        recaptcha_token: ''
       },
       total_comments: 0,
       og_title: '',
@@ -129,7 +143,23 @@ export default {
   },
   computed: {},
   methods: {
-    commentSubmit() {
+    submit() {
+      if (this.appEnv === 'local') {
+        this.save(true);
+      } else {
+        this.$refs.recaptcha.execute();
+      }
+    },
+    onCaptchaVerified: function (recaptchaToken) {
+      const self = this;
+      self.$refs.recaptcha.reset();
+      this.save(recaptchaToken);
+    },
+    onCaptchaExpired: function () {
+      this.$refs.recaptcha.reset();
+    },
+    save(recaptchaToken) {
+      this.comment_form.recaptcha_token = recaptchaToken;
       // transform true, false into 1, 0
       this.comment_form.is_message = this.comment_form.is_message * 1;
       window.axios.post(route('api.posts.comment', {post: this.post}), this.comment_form)

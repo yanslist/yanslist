@@ -52,7 +52,7 @@ class HomeController extends Controller
         $this->postRepo->setPresenter(new PostPresenter());
         $posts = $this->postRepo->orderBy('created_at', 'desc')->all();
 
-        return inertia('Home/Index', compact('regions', 'post_types', 'posts'));
+        return inertia('Index', compact('regions', 'post_types', 'posts'));
     }
 
     public function new()
@@ -67,7 +67,7 @@ class HomeController extends Controller
         $default_expire_option = ExpireOption::defaultValue();
 
         return inertia(
-            'Home/New',
+            'New',
             compact(
                 'regions',
                 'post_types',
@@ -141,7 +141,7 @@ class HomeController extends Controller
             ->getRawLinks();
 
         return inertia(
-            'Home/View',
+            'View',
             compact(
                 'post_types',
                 'post',

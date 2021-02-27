@@ -173,7 +173,7 @@ export default {
     },
     submit() {
       if (this.appEnv === 'local') {
-        this.save();
+        this.save(true);
       } else {
         this.$refs.recaptcha.execute();
       }
@@ -187,13 +187,7 @@ export default {
       this.$refs.recaptcha.reset();
     },
     save(recaptchaToken) {
-      if (this.appEnv === 'local') {
-        console.log('in local');
-        this.form.recaptcha_token = true;
-      } else {
-        console.log('in prod');
-        this.form.recaptcha_token = recaptchaToken;
-      }
+      this.form.recaptcha_token = recaptchaToken;
       this.$inertia.post(route('store'), this.form);
     }
   },
