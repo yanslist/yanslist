@@ -120,15 +120,13 @@
 </template>
 
 <script>
-import BaseLayout from "../../Layouts/BaseLayout";
-import VueRecaptcha from 'vue-recaptcha';
+import BaseLayout from "../Layouts/BaseLayout";
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default {
   components: {
     BaseLayout,
-    VueRecaptcha,
     ckeditor: CKEditor.component
   },
   data() {

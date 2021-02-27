@@ -97,17 +97,15 @@
 </template>
 
 <script>
-import BaseLayout from "../../Layouts/BaseLayout";
-import helpers from "../../helpers";
-import ShareComponent from "../../components/ShareComponent";
-import VueRecaptcha from 'vue-recaptcha';
+import BaseLayout from "../Layouts/BaseLayout";
+import helpers from "../helpers";
+import ShareComponent from "../components/ShareComponent";
 
 export default {
   mixins: [helpers],
   components: {
     BaseLayout,
     ShareComponent,
-    VueRecaptcha
   },
   metaInfo() {
     return {
