@@ -129,6 +129,14 @@ export default {
     BaseLayout,
     ckeditor: CKEditor.component
   },
+  metaInfo() {
+    return {
+      meta: [
+        {name: 'title', content: "New Listing - Yan's List"},
+        {name: 'description', content: "Simple listing website where anyone can easily submit and browse listings."},
+      ]
+    }
+  },
   data() {
     return {
       recaptchaSiteKey: process.env.MIX_RECAPTCHA_SITEKEY,
