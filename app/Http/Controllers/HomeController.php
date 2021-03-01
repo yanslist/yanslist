@@ -12,6 +12,8 @@ use App\Repositories\CommentRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\RegionRepository;
 use App\Transformers\PostTransformer;
+use Butschster\Head\Facades\Meta;
+use Butschster\Head\Packages\Entities\OpenGraphPackage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Jorenvh\Share\ShareFacade as Share;
@@ -125,6 +127,18 @@ class HomeController extends Controller
 
     public function view(Post $post)
     {
+        Meta::setTitle($post->ogs['title'])
+            ->setDescription($post->ogs['description']);
+
+        $og = new OpenGraphPackage('OG');
+        $og->setTitle($post->ogs['title'])
+            ->setDescription($post->ogs['description'])
+            ->setType($post->ogs['type'])
+            ->setUrl($post->ogs['url'])
+            ->addImage($post->ogs['image']);
+
+        Meta::registerPackage($og);
+
         $post_types = $this->postType->choices();
 
         // assign comments first using Post Model object
