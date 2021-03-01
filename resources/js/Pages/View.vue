@@ -110,12 +110,14 @@ export default {
   metaInfo() {
     return {
       meta: [
-        {vmid: 'og:type', property: 'og:type', content: 'website'},
-        {vmid: 'og:url', property: 'og:url', content: window.location.href},
-        {vmid: 'og:title', property: 'og:title', content: this.og_title},
-        {vmid: 'og:description', property: 'og:description', content: this.post.title},
-        {vmid: 'og:image', property: 'og:image', content: this.post.qrcode_url},
-        {vmid: 'twitter:card', property: 'twitter:card', content: 'summary'},
+        { name: 'title', content: this.og_title },
+        { name: 'description', content: this.post.title },
+        { name: 'og:type', content: 'website'},
+        { name: 'og:url', content: window.location.href},
+        { name: 'og:title', content: this.og_title},
+        { name: 'og:description', content: this.post.title},
+        { name: 'og:image', content: this.post.qrcode_url},
+        { name: 'twitter:card', content: 'summary'},
       ]
     }
   },
