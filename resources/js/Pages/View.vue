@@ -65,7 +65,7 @@
             </form>
 
             <h3 class="uk-heading-bullet">{{ translate('main.share') }}</h3>
-            <img :alt="post.title" :data-src="post.qrcode_url" uk-img>
+            <img :alt="post.title" :data-src="post.ogs.image" uk-img>
             <br>
             <share-component :qrcode="post.qrcode" :share-links="share_links" class="uk-margin"></share-component>
             <div class="uk-inline uk-width-1-1">
@@ -110,14 +110,13 @@ export default {
   metaInfo() {
     return {
       meta: [
-        { name: 'title', content: this.og_title },
-        { name: 'description', content: this.post.title },
-        { name: 'og:type', content: 'website'},
-        { name: 'og:url', content: window.location.href},
-        { name: 'og:title', content: this.og_title},
-        { name: 'og:description', content: this.post.title},
-        { name: 'og:image', content: this.post.qrcode_url},
-        { name: 'twitter:card', content: 'summary'},
+        {name: 'title', content: this.post.ogs.title},
+        {name: 'description', content: this.post.ogs.description},
+        {name: 'og:type', content: this.post.ogs.type},
+        {name: 'og:url', content: this.post.ogs.url},
+        {name: 'og:title', content: this.post.ogs.title},
+        {name: 'og:description', content: this.post.ogs.description},
+        {name: 'og:image', content: this.post.ogs.image}
       ]
     }
   },
@@ -131,8 +130,6 @@ export default {
         recaptcha_token: ''
       },
       total_comments: 0,
-      og_title: '',
-      og_image: '',
     }
   },
   props: {
@@ -183,15 +180,6 @@ export default {
   },
   created() {
     this.total_comments = this.comments.data.length;
-
-    let ogtitle = this.translate('post.types.' + this.post.type);
-    if (this.post.is_offer) {
-      ogtitle += ' ' + this.translate('main.is_offer');
-    } else {
-      ogtitle += ' ' + this.translate('main.not_offer');
-    }
-    ogtitle += ' @' + this.post.location;
-    this.og_title = ogtitle;
   }
 }
 </script>

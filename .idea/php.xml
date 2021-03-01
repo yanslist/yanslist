@@ -134,6 +134,7 @@
       <path value="$PROJECT_DIR$/vendor/sendinblue/api-v3-sdk" />
       <path value="$PROJECT_DIR$/vendor/anlutro/l4-settings" />
       <path value="$PROJECT_DIR$/vendor/webup/laravel-sendinblue" />
+      <path value="$PROJECT_DIR$/vendor/butschster/meta-tags" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
