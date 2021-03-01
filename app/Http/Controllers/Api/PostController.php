@@ -54,22 +54,32 @@ class PostController extends Controller
             'text' => 'required',
         ]);
 
-        if ($request->is_message) {
-            Mail::to(decrypt($post->email))->send(new NewMessage($post, $request->text));
-            return response()->json(['message' => 'Message successfully sent.']);
+        if (config('app.env') === 'local') {
+            $captcha_result = ['success' => true];
+        } else {
+            $captcha_result = captcha($request->recaptcha_token);
         }
 
-        $result = $this->commentRepo->create(
-            [
-                'post_id' => $post->id,
-                'is_message' => $request->is_message,
-                'text' => encrypt($request->text)
-            ]
-        );
+        if ($captcha_result['success']) {
 
-        $commentTransformer = new CommentTransformer();
-        $comment = $commentTransformer->transform($result);
+            if ($request->is_message) {
+                Mail::to(decrypt($post->email))->send(new NewMessage($post, $request->text));
+                return response()->json(['message' => 'Message successfully sent.']);
+            }
 
-        return response()->json($comment);
+            $result = $this->commentRepo->create(
+                [
+                    'post_id' => $post->id,
+                    'is_message' => $request->is_message,
+                    'text' => encrypt($request->text)
+                ]
+            );
+
+            $commentTransformer = new CommentTransformer();
+            $comment = $commentTransformer->transform($result);
+            return response()->json($comment);
+        }
+
+        return response()->json(['message' => 'Something wrong, please try again.']);
     }
 }
