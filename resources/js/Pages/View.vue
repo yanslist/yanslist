@@ -49,6 +49,7 @@
                       ref="recaptcha"
                       :sitekey="recaptchaSiteKey"
                       size="invisible"
+                      badge="inline"
                       @expired="onCaptchaExpired"
                       @verify="onCaptchaVerified">
                   </vue-recaptcha>

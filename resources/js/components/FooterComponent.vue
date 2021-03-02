@@ -20,6 +20,15 @@
         <inertia-link class="uk-margin-small-left" href="https://github.com/yanslist/yanslist"
                       uk-icon="github"></inertia-link>
       </p>
+      <p>
+        This site is protected by reCAPTCHA and the Google
+        <inertia-link class="uk-link-muted" href="https://policies.google.com/privacy">Privacy
+          Policy
+        </inertia-link>
+        and
+        <inertia-link class="uk-link-muted" href="https://policies.google.com/terms">Terms of Service</inertia-link>
+        apply.
+      </p>
     </div>
   </footer>
 </template>
