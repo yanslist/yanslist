@@ -2,6 +2,7 @@
 
 return [
     "listings" => "Listings",
+    "guide" => "Guide",
     "contact" => "Contact",
     "post_new" => "Post New",
     "select_region" => "Select Region",

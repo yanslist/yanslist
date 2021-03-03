@@ -2,9 +2,9 @@
   <base-layout>
     <div class="uk-section">
       <div class="uk-container">
+        <h3>{{ translate('post.new.heading') }}</h3>
         <div class="uk-grid-small uk-flex-center" uk-grid>
           <div class="uk-width-3-4@m uk-width-expand@s">
-            <h3>{{ translate('post.new.heading') }}</h3>
             <div class="uk-alert uk-alert-primary">
               {{ translate('post.new.help_text') }}
             </div>

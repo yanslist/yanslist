@@ -12,6 +12,9 @@
               <inertia-link :href="route('home')">{{ translate('main.listings') }}</inertia-link>
             </li>
             <li>
+              <inertia-link :href="route('guide')">{{ translate('main.guide') }}</inertia-link>
+            </li>
+            <li>
               <inertia-link :href="route('home')">{{ translate('main.contact') }}</inertia-link>
             </li>
           </ul>
@@ -33,6 +36,9 @@
         <ul class="uk-nav uk-nav-default">
           <li>
             <inertia-link :href="route('home')">{{ translate('main.listings') }}</inertia-link>
+          </li>
+          <li>
+            <inertia-link :href="route('guide')">{{ translate('main.guide') }}</inertia-link>
           </li>
           <li>
             <inertia-link :href="route('home')">{{ translate('main.contact') }}</inertia-link>

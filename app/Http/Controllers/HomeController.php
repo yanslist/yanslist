@@ -172,4 +172,9 @@ class HomeController extends Controller
         );
     }
 
+    public function guide()
+    {
+        return inertia('Guide');
+    }
+
 }

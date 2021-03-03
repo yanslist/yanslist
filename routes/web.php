@@ -19,6 +19,7 @@ Route::group(
     Route::get('get-qr/{path}', function ($path) {
         return Storage::download('qrcodes/'.$path);
     })->name('qrcode');
+    Route::get('/guide', [HomeController::class, 'guide'])->name('guide');
 
     if (config('app.debug')) {
         Route::get('/test', TrySomething::class)->name('test');
