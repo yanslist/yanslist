@@ -1,9 +1,9 @@
 <template>
   <div class="uk-button-group">
-    <inertia-link target="_blank" :href="shareLinks['facebook']" class="uk-button uk-button-secondary"><span
+    <inertia-link :href="shareLinks['facebook']" class="uk-button uk-button-secondary"><span
         uk-icon="facebook"></span> Post
     </inertia-link>
-    <inertia-link target="_blank" :href="shareLinks['twitter']" class="uk-button uk-button-secondary"><span
+    <inertia-link :href="shareLinks['twitter']" class="uk-button uk-button-secondary"><span
         uk-icon="twitter"></span> Tweet
     </inertia-link>
     <inertia-link :href="route('qrcode', {'path': qrcode})" class="uk-button uk-button-secondary"><span
