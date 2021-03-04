@@ -1,13 +1,1 @@
-{
-  "version": 3,
-  "sources": [
-    "webpack:///./resources/css/app.css"
-  ],
-  "names": [],
-  "mappings": "AAAA,kBACI,iBAAkB,CAClB,oBAAsB,CACtB,cACJ,C",
-  "file": "css/app.css",
-  "sourcesContent": [
-    ".grecaptcha-badge {\n    visibility: hidden;\n    top: 1000px !important;\n    position: fixed;\n}\n"
-  ],
-  "sourceRoot": ""
-}
+{"version":3,"sources":["webpack:///./resources/css/app.css"],"names":[],"mappings":"AAAA,kBACI,iBAAkB,CAClB,oBAAsB,CACtB,cACJ,C","file":"css/app.css","sourcesContent":[".grecaptcha-badge {\n    visibility: hidden;\n    top: 1000px !important;\n    position: fixed;\n}\n"],"sourceRoot":""}
