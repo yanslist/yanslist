@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import BaseLayout from "../../Layouts/BaseLayout";
+import BaseLayout from "../Layouts/BaseLayout";
 
 export default {
   components: {

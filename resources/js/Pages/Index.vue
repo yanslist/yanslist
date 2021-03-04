@@ -50,11 +50,19 @@
 </template>
 
 <script>
-import BaseLayout from "../../Layouts/BaseLayout";
+import BaseLayout from "../Layouts/BaseLayout";
 
 export default {
   components: {
     BaseLayout,
+  },
+  metaInfo() {
+    return {
+      meta: [
+        {name: 'title', content: "Yan's List"},
+        {name: 'description', content: "Simple listing website where anyone can easily submit and browse listings."},
+      ]
+    }
   },
   data() {
     return {

@@ -2,14 +2,14 @@
   <base-layout>
     <div class="uk-section">
       <div class="uk-container">
+        <h3>{{ translate('post.new.heading') }}</h3>
         <div class="uk-grid-small uk-flex-center" uk-grid>
           <div class="uk-width-3-4@m uk-width-expand@s">
-            <h3>{{ translate('post.new.heading') }}</h3>
             <div class="uk-alert uk-alert-primary">
               {{ translate('post.new.help_text') }}
             </div>
             <form class="uk-grid-small" uk-grid @submit.prevent="submit">
-              <div class="uk-width-1-2@m uk-width-1-1@s">
+              <div class="uk-width-1-1@s">
                 <div class="uk-form-label">{{ translate('post.new.aim') }}</div>
                 <div class="uk-form-controls">
                   <label class="uk-margin-small-right">
@@ -22,8 +22,8 @@
                   </label>
                 </div>
               </div>
-              <div class="uk-width-1-2@m uk-width-1-1@s">
-                <div class="uk-form-label">{{ translate('post.new.expire_at') }}</div>
+              <div class="uk-width-1-1@s">
+                <div class="uk-form-label" for="expire_at">{{ translate('post.new.expire_at') }}</div>
                 <div class="uk-form-controls">
                   <label v-for="(value, key) in expire_options" :key="key" class="uk-margin-small-right">
                     <input v-model="form.expire_at" :value="key" class="uk-radio" name="expire_at" type="radio">
@@ -31,16 +31,22 @@
                   </label>
                 </div>
               </div>
-              <div class="uk-width-1-1@s">
-                <div class="uk-form-label">{{ translate('post.new.post_type') }}</div>
+              <div class="uk-width-1-3@m uk-width-1-1@s">
+                <label class="uk-form-label" for="post_type">{{ translate('post.new.post_type') }}</label>
                 <div class="uk-form-controls">
-                  <label v-for="(value, key) in post_types" :key="key" class="uk-margin-small-right">
-                    <input v-model="form.type" :value="key" class="uk-radio" name="type" type="radio">
-                    {{ translate('post.types.' + key) }}
-                  </label>
+                  <!--                  <label v-for="(value, key) in post_types" :key="key" class="uk-margin-small-right">-->
+                  <!--                    <input v-model="form.type" :value="key" class="uk-radio" name="type" type="radio">-->
+                  <!--                    {{ translate('post.types.' + key) }}-->
+                  <!--                  </label>-->
+                  <select id="post_type" name="type" v-model="form.type" class="uk-select" required>
+                    <option v-for="(value, key) in post_types" :value="key">{{
+                        translate('post.types.' + key)
+                      }}
+                    </option>
+                  </select>
                 </div>
               </div>
-              <div class="uk-width-1-2@m uk-width-1-1@s">
+              <div class="uk-width-1-3@m uk-width-1-1@s">
                 <label class="uk-form-label" for="region">{{ translate('post.new.region') }}</label>
                 <div class="uk-form-controls">
                   <select id="region" v-model="form.region_id" class="uk-select" required @change="regionSelected()">
@@ -49,7 +55,7 @@
                   </select>
                 </div>
               </div>
-              <div class="uk-width-1-2@m uk-width-1-1@s">
+              <div class="uk-width-1-3@m uk-width-1-1@s">
                 <label class="uk-form-label" for="township">{{ translate('post.new.township') }}</label>
                 <div class="uk-form-controls">
                   <select id="township" v-model="form.township_id" class="uk-select" required>
@@ -120,16 +126,22 @@
 </template>
 
 <script>
-import BaseLayout from "../../Layouts/BaseLayout";
-import VueRecaptcha from 'vue-recaptcha';
+import BaseLayout from "../Layouts/BaseLayout";
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default {
   components: {
     BaseLayout,
-    VueRecaptcha,
     ckeditor: CKEditor.component
+  },
+  metaInfo() {
+    return {
+      meta: [
+        {name: 'title', content: "New Listing - Yan's List"},
+        {name: 'description', content: "Simple listing website where anyone can easily submit and browse listings."},
+      ]
+    }
   },
   data() {
     return {
@@ -173,7 +185,7 @@ export default {
     },
     submit() {
       if (this.appEnv === 'local') {
-        this.save();
+        this.save(true);
       } else {
         this.$refs.recaptcha.execute();
       }
@@ -187,13 +199,7 @@ export default {
       this.$refs.recaptcha.reset();
     },
     save(recaptchaToken) {
-      if (this.appEnv === 'local') {
-        console.log('in local');
-        this.form.recaptcha_token = true;
-      } else {
-        console.log('in prod');
-        this.form.recaptcha_token = recaptchaToken;
-      }
+      this.form.recaptcha_token = recaptchaToken;
       this.$inertia.post(route('store'), this.form);
     }
   },

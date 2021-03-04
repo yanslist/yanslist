@@ -26,7 +26,7 @@ class Post extends Model implements Transformable
         'type', 'is_offer', 'title', 'body', 'region_id', 'township_id', 'user_id', 'email', 'expire_at'
     ];
 
-    protected $appends = ['location', 'duration'];
+    protected $appends = ['location', 'duration', 'ogs'];
 
     protected $dates = ['expire_at'];
 
@@ -77,6 +77,20 @@ class Post extends Model implements Transformable
     public function getDurationAttribute()
     {
         return $this->expire_at->format(config('ylist.format.date'));
+    }
+
+    public function getOgsAttribute()
+    {
+        $title = __('post.types.'.$this->type->value()).' ';
+        $title .= ($this->is_offer) ? __('main.is_offer') : __('main.not_offer');
+        $title .= ' @'.$this->location;
+        return [
+            'type' => 'website',
+            'url' => route('view', ['post' => $this]),
+            'title' => $title,
+            'description' => $this->title,
+            'image' => asset('storage/qrcodes/'.$this->qrcode),
+        ];
     }
 
 }

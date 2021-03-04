@@ -5,7 +5,8 @@ import Vue from 'vue';
 import {InertiaProgress} from '@inertiajs/progress';
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
-import VueMeta from 'vue-meta'
+import VueMeta from 'vue-meta';
+import VueRecaptcha from 'vue-recaptcha';
 
 // inertia
 InertiaProgress.init();
@@ -29,6 +30,7 @@ Vue.component('header-component', require('./components/HeaderComponent.vue').de
 Vue.component('footer-component', require('./components/FooterComponent.vue').default);
 Vue.component('alert-component', require('./components/AlertComponent.vue').default);
 Vue.component('share-component', require('./components/ShareComponent.vue').default);
+Vue.component('VueRecaptcha', VueRecaptcha);
 // // const files = require.context('./', true, /\.vue$/i)
 // // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 

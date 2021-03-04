@@ -12,8 +12,11 @@
               <inertia-link :href="route('home')">{{ translate('main.listings') }}</inertia-link>
             </li>
             <li>
-              <inertia-link :href="route('home')">{{ translate('main.contact') }}</inertia-link>
+              <inertia-link :href="route('guide')">{{ translate('main.guide') }}</inertia-link>
             </li>
+            <!--            <li>-->
+            <!--              <inertia-link :href="route('home')">{{ translate('main.contact') }}</inertia-link>-->
+            <!--            </li>-->
           </ul>
           <div class="uk-navbar-item">
             <inertia-link :href="route('new')" class="uk-button uk-button-primary">
@@ -35,8 +38,11 @@
             <inertia-link :href="route('home')">{{ translate('main.listings') }}</inertia-link>
           </li>
           <li>
-            <inertia-link :href="route('home')">{{ translate('main.contact') }}</inertia-link>
+            <inertia-link :href="route('guide')">{{ translate('main.guide') }}</inertia-link>
           </li>
+          <!--          <li>-->
+          <!--            <inertia-link :href="route('home')">{{ translate('main.contact') }}</inertia-link>-->
+          <!--          </li>-->
           <li class="uk-margin-small-top">
             <inertia-link :href="route('new')" class="uk-button uk-button-primary">
               {{ translate('main.post_new') }}
