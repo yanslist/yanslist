@@ -1,11 +1,11 @@
 <template>
   <div class="uk-button-group">
-    <inertia-link :href="shareLinks['facebook']" class="uk-button uk-button-secondary"><span
+    <a target="_blank" :href="shareLinks['facebook']" class="uk-button uk-button-secondary"><span
         uk-icon="facebook"></span> Post
-    </inertia-link>
-    <inertia-link :href="shareLinks['twitter']" class="uk-button uk-button-secondary"><span
+    </a>
+    <a target="_blank" :href="shareLinks['twitter']" class="uk-button uk-button-secondary"><span
         uk-icon="twitter"></span> Tweet
-    </inertia-link>
+    </a>
     <inertia-link :href="route('qrcode', {'path': qrcode})" class="uk-button uk-button-secondary"><span
         uk-icon="download"></span>
       Download
